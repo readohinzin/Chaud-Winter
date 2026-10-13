@@ -11,6 +11,9 @@ import unicodedata
 RACINE = pathlib.Path(__file__).resolve().parent.parent
 SOURCE = RACINE / 'CLAUDE.md'
 SORTIE = RACINE / 'produits.csv'
+PHOTOS = RACINE / 'photos'
+# Adresse publique des photos (dossier photos/ du dépôt GitHub) : l'importateur WooCommerce les télécharge.
+URL_PHOTOS = 'https://raw.githubusercontent.com/readohinzin/Chaud-Winter/claude/clever-dirac-dswt2o/photos/'
 CATEGORIES = ('Poêles à granulés', 'Poêles à bois', 'Chaudières')
 
 
@@ -53,11 +56,13 @@ def main():
         w.writerow(entetes)
         for p in produits:
             position[p['categorie']] = position.get(p['categorie'], 0) + 1
+            ref = sku(p['marque'], p['modele'])
+            image = URL_PHOTOS + ref + '.jpg' if (PHOTOS / (ref + '.jpg')).exists() else ''
             w.writerow([
-                'simple', sku(p['marque'], p['modele']), p['modele'], 1, 0, 'visible',
+                'simple', ref, p['modele'], 1, 0, 'visible',
                 p['description'], '', 'taxable', '', 1,
                 0, '', '', p['prix'],
-                p['categorie'], p['marque'], '', position[p['categorie']],
+                p['categorie'], p['marque'], image, position[p['categorie']],
                 # WooCommerce sépare les valeurs d'attribut par des virgules : « 11\,6 kW » garde la virgule.
                 'Puissance', p['kw'].replace(',', '\\,') + ' kW', 1, 1,
                 'Marque', p['marque'], 1, 1,

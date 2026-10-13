@@ -441,7 +441,12 @@
 }
 
 .woocommerce div.product div.images img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1 / 1;
 	object-fit: contain;
+	background: #fff;
 }
 
 .woocommerce div.product div.images .woocommerce-product-gallery__image--placeholder {
