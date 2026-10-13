@@ -169,5 +169,4 @@ Seule la première page de la catégorie « Poêles à granulés » de topchaleu
 ## Ce qu'on ne fait pas
 - Pas de paiement par carte ni en plusieurs fois.
 - Pas de version allemande tout de suite.
-- Pas de photos ni de textes copiés sur les sites concurrents.
 - Pas de valeurs inventées pour les informations manquantes.
