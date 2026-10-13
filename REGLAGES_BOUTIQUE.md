@@ -62,9 +62,9 @@ Pour ouvrir au public : **WooCommerce > Réglages > Visibilité du site**, chois
 
 ## 3. Au quotidien : confirmer un virement reçu
 
-1. Le client commande. Il voit à l'écran, et reçoit par e-mail, **le montant exact, la référence (« Commande 1042 ») et l'IBAN**.
+1. Le client commande. Il voit à l'écran, et reçoit par e-mail, **le montant exact, la référence (« Commande 1042 ») et l'IBAN**. On lui demande aussi de **vous envoyer la preuve de virement par e-mail** (capture d'écran ou PDF de sa banque) avec son numéro de commande, à l'adresse e-mail saisie dans Apparence > Personnaliser > Chaud Winter : coordonnées.
 2. La commande apparaît dans WooCommerce > Commandes avec le statut **« En attente du virement »**. Le stock est déjà réservé.
-3. Quand le virement arrive sur le compte : ouvrir la commande, passer le statut à **« En cours »**, puis **Mettre à jour**. Le client reçoit automatiquement l'e-mail « Virement reçu : nous préparons votre commande ».
+3. Quand le virement arrive sur le compte (la preuve reçue par e-mail permet de le repérer plus vite, mais **vérifiez toujours sur le relevé bancaire**) : ouvrir la commande, passer le statut à **« En cours »**, puis **Mettre à jour**. Le client reçoit automatiquement l'e-mail « Virement reçu : nous préparons votre commande ».
 4. Une fois l'appareil expédié : passer le statut à **« Terminée »**.
 
 Si le virement n'arrive jamais : passer le statut à « Annulée ». Le stock est remis en vente.

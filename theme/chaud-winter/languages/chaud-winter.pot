@@ -197,6 +197,10 @@ msgstr ""
 msgid "Dès réception du virement, la commande est préparée et expédiée en France, en Belgique ou en Allemagne."
 msgstr ""
 
+#: front-page.php:301
+msgid "Envoyez-nous la preuve de virement par e-mail pour accélérer le traitement."
+msgstr ""
+
 #: front-page.php:310
 msgid "Les marques de la boutique"
 msgstr ""
@@ -308,77 +312,82 @@ msgstr ""
 msgid "Pour une livraison plus rapide, nous vous recommandons le virement instantané, si votre banque le propose : il est crédité en quelques secondes, alors qu'un virement classique peut demander 1 à 2 jours ouvrés avant l'expédition."
 msgstr ""
 
-#: inc/checkout.php:105
+#: inc/checkout.php:106
+#, php-format
+msgid "Envoyez-nous la preuve de virement (capture d'écran ou PDF fourni par votre banque) par e-mail à %s, en indiquant votre numéro de commande : cela nous permet d'identifier votre paiement et de préparer l'expédition sans attendre."
+msgstr ""
+
+#: inc/checkout.php:121
 #, php-format
 msgid "Commande %s"
 msgstr ""
 
-#: inc/checkout.php:122 inc/checkout.php:168 inc/setup.php:501
+#: inc/checkout.php:138 inc/checkout.php:186 inc/setup.php:501
 msgid "Dernière étape : le virement"
 msgstr ""
 
-#: inc/checkout.php:125 inc/checkout.php:160 inc/checkout.php:169
+#: inc/checkout.php:141 inc/checkout.php:177 inc/checkout.php:187
 msgid "Montant exact à virer"
 msgstr ""
 
-#: inc/checkout.php:129 inc/checkout.php:161 inc/checkout.php:170
+#: inc/checkout.php:145 inc/checkout.php:178 inc/checkout.php:188
 msgid "Référence à indiquer dans le virement"
 msgstr ""
 
-#: inc/checkout.php:134
+#: inc/checkout.php:150
 msgid "Faites le virement depuis votre banque, avec les coordonnées bancaires ci-dessous."
 msgstr ""
 
-#: inc/checkout.php:135
+#: inc/checkout.php:151
 msgid "Indiquez bien la référence : elle nous permet de reconnaître votre paiement."
 msgstr ""
 
-#: inc/checkout.php:137 inc/checkout.php:163 inc/checkout.php:172
+#: inc/checkout.php:154 inc/checkout.php:181 inc/checkout.php:191
 msgid "Dès réception du virement, nous préparons votre commande et vous prévenons par e-mail."
 msgstr ""
 
-#: inc/checkout.php:139
+#: inc/checkout.php:156
 msgid "Ces informations vous ont aussi été envoyées par e-mail."
 msgstr ""
 
-#: inc/checkout.php:159
+#: inc/checkout.php:176
 msgid "DERNIÈRE ÉTAPE : LE VIREMENT"
 msgstr ""
 
-#: inc/checkout.php:187
+#: inc/checkout.php:206
 msgid "IBAN et BIC (WooCommerce > Réglages > Paiements)"
 msgstr ""
 
-#: inc/checkout.php:194
+#: inc/checkout.php:213
 msgid "Tarifs de livraison (WooCommerce > Réglages > Expédition)"
 msgstr ""
 
-#: inc/checkout.php:211
+#: inc/checkout.php:230
 #, php-format
 msgid "Nous livrons en France métropolitaine (livraison offerte), en Belgique et en Allemagne. Pour une autre destination, %s avant de commander."
 msgstr ""
 
-#: inc/checkout.php:212
+#: inc/checkout.php:231
 msgid "contactez-nous"
 msgstr ""
 
-#: inc/checkout.php:225 inc/performance.php:105
+#: inc/checkout.php:244 inc/performance.php:105
 msgid "Livraison offerte en France métropolitaine."
 msgstr ""
 
-#: inc/checkout.php:226
+#: inc/checkout.php:245
 msgid "Pour la Belgique et l'Allemagne, les frais s'affichent dès que vous saisissez votre adresse."
 msgstr ""
 
-#: inc/checkout.php:237
+#: inc/checkout.php:256
 msgid "Finaliser votre commande"
 msgstr ""
 
-#: inc/checkout.php:248
+#: inc/checkout.php:267
 msgid "Cliquez ici pour saisir votre code"
 msgstr ""
 
-#: inc/checkout.php:249
+#: inc/checkout.php:268
 msgid "Avez-vous un code promo ?"
 msgstr ""
 

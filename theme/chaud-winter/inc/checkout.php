@@ -93,6 +93,22 @@ function cw_instant_transfer_tip() {
 }
 
 /**
+ * Consigne : envoyer la preuve du virement par e-mail, avec le numéro de commande.
+ * Elle permet d'identifier le paiement et de lancer l'expédition sans attendre le relevé bancaire.
+ *
+ * @param bool $link Faire de l'adresse e-mail un lien (page web) ou du texte simple (e-mail en texte brut).
+ * @return string HTML (ou texte brut) prêt à afficher.
+ */
+function cw_proof_tip( $link = true ) {
+	$address = $link ? cw_email_html() : esc_html( cw_info( 'email' ) );
+	return sprintf(
+		/* translators: %s: adresse e-mail de la boutique. */
+		esc_html__( 'Envoyez-nous la preuve de virement (capture d\'écran ou PDF fourni par votre banque) par e-mail à %s, en indiquant votre numéro de commande : cela nous permet d\'identifier votre paiement et de préparer l\'expédition sans attendre.', 'chaud-winter' ),
+		$address
+	);
+}
+
+/**
  * Infos du virement pour une commande : montant exact et référence.
  *
  * @param WC_Order $order Commande.
@@ -133,6 +149,7 @@ function cw_thankyou_transfer_box( $order_id ) {
 		<ol class="cw-transfer-steps">
 			<li><?php esc_html_e( 'Faites le virement depuis votre banque, avec les coordonnées bancaires ci-dessous.', 'chaud-winter' ); ?></li>
 			<li><?php esc_html_e( 'Indiquez bien la référence : elle nous permet de reconnaître votre paiement.', 'chaud-winter' ); ?></li>
+			<li><?php echo cw_proof_tip(); // phpcs:ignore WordPress.Security.EscapeOutput -- échappé dans la fonction. ?></li>
 			<li><?php echo esc_html( cw_instant_transfer_tip() ); ?></li>
 			<li><?php esc_html_e( 'Dès réception du virement, nous préparons votre commande et vous prévenons par e-mail.', 'chaud-winter' ); ?></li>
 		</ol>
@@ -159,6 +176,7 @@ function cw_email_transfer_box( $order, $sent_to_admin, $plain_text = false ) {
 		echo "\n" . esc_html__( 'DERNIÈRE ÉTAPE : LE VIREMENT', 'chaud-winter' ) . "\n";
 		echo esc_html__( 'Montant exact à virer', 'chaud-winter' ) . ' : ' . esc_html( $d['amount'] ) . "\n";
 		echo esc_html__( 'Référence à indiquer dans le virement', 'chaud-winter' ) . ' : ' . esc_html( $d['reference'] ) . "\n";
+		echo wp_strip_all_tags( cw_proof_tip( false ) ) . "\n";
 		echo esc_html( cw_instant_transfer_tip() ) . "\n";
 		echo esc_html__( 'Dès réception du virement, nous préparons votre commande et vous prévenons par e-mail.', 'chaud-winter' ) . "\n\n";
 		return;
@@ -168,6 +186,7 @@ function cw_email_transfer_box( $order, $sent_to_admin, $plain_text = false ) {
 		<h2 style="margin:0 0 12px;"><?php esc_html_e( 'Dernière étape : le virement', 'chaud-winter' ); ?></h2>
 		<p style="margin:0 0 6px;"><?php esc_html_e( 'Montant exact à virer', 'chaud-winter' ); ?> : <strong><?php echo esc_html( $d['amount'] ); ?></strong></p>
 		<p style="margin:0 0 12px;"><?php esc_html_e( 'Référence à indiquer dans le virement', 'chaud-winter' ); ?> : <strong><?php echo esc_html( $d['reference'] ); ?></strong></p>
+		<p style="margin:0 0 12px;"><strong><?php echo cw_proof_tip(); // phpcs:ignore WordPress.Security.EscapeOutput -- échappé dans la fonction. ?></strong></p>
 		<p style="margin:0 0 12px;"><?php echo esc_html( cw_instant_transfer_tip() ); ?></p>
 		<p style="margin:0;"><?php esc_html_e( 'Dès réception du virement, nous préparons votre commande et vous prévenons par e-mail.', 'chaud-winter' ); ?></p>
 	</div>

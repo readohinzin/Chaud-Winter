@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Récapitulatif du projet · Chaud Winter</title>
+<style>
+@font-face{font-family:'Poppins';font-weight:400;font-display:swap;src:url(assets/fonts/poppins-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-weight:600;font-display:swap;src:url(assets/fonts/poppins-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Poppins';font-weight:700;font-display:swap;src:url(assets/fonts/poppins-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-weight:700;font-display:swap;src:url(assets/fonts/playfair-display-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-weight:600;font-style:italic;font-display:swap;src:url(assets/fonts/playfair-display-latin-600-italic.woff2) format('woff2')}
+:root{--bg:#101216;--surface:#181B21;--line:#23272F;--text:#F2EEE9;--muted:#B4AEA6;--ember:#F26B2A;--ice:#9CCBE0;--ivory:#F6F2EC;--ink:#14171C;--ember-ink:#B8420F;--card-line:#E4DDD3;--soft:#5F574E}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ivory);color:var(--ink);font-family:'Poppins',system-ui,sans-serif;line-height:1.6;font-size:16px}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:700;margin:0;letter-spacing:-.01em;text-wrap:balance}
+a{color:var(--ember-ink)}
+:focus-visible{outline:3px solid var(--ember-ink);outline-offset:3px}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+header.top{background:var(--bg);color:var(--text);padding:32px 0 40px}
+.logo{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.logo svg{width:44px;height:44px;flex:none}
+.logo span{font-family:'Playfair Display',Georgia,serif;font-size:26px;font-weight:700;line-height:1}
+.logo em{color:var(--ice);font-weight:600}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ember)}
+header.top h1{font-size:clamp(32px,6vw,52px);line-height:1.08;margin:12px 0 14px}
+header.top p{color:var(--muted);max-width:620px;margin:0}
+.cta{display:inline-flex;align-items:center;min-height:48px;margin-top:22px;padding:0 24px;border-radius:14px;background:var(--ember);color:#101216;font-weight:700;text-decoration:none}
+main{padding:12px 0 72px}
+section{margin-top:44px}
+section>h2{font-size:clamp(26px,4vw,34px);line-height:1.15;margin-bottom:8px}
+.lead{color:var(--soft);margin:0 0 20px;max-width:640px}
+.card{background:#fff;border:1px solid var(--card-line);border-radius:20px;padding:22px}
+.card+.card{margin-top:14px}
+.card h3{font-size:22px;margin-bottom:10px}
+ul.plain,ol.plain{margin:0;padding:0;list-style:none}
+.done li{position:relative;padding:8px 0 8px 32px;border-top:1px solid var(--card-line)}
+.done li:first-child{border-top:0}
+.done li::before{content:"";position:absolute;left:0;top:13px;width:20px;height:20px;border-radius:50%;background:var(--ember)}
+.done li::after{content:"";position:absolute;left:7px;top:17px;width:6px;height:10px;border:solid #101216;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.flow{counter-reset:s;display:grid;gap:10px}
+.flow li{counter-increment:s;position:relative;padding:14px 16px 14px 56px;background:#fff;border:1px solid var(--card-line);border-radius:16px}
+.flow li::before{content:counter(s);position:absolute;left:14px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--bg);color:var(--text);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.flow li.seller::before{background:var(--ember);color:#101216}
+.who{display:inline-block;margin-right:8px;padding:2px 10px;border-radius:999px;background:#EDE6DB;color:var(--soft);font-size:12px;font-weight:700;letter-spacing:.04em}
+.progress{position:sticky;top:0;z-index:5;margin:0 -20px 18px;padding:12px 20px;background:rgba(246,242,236,.94);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--card-line);display:flex;align-items:center;gap:14px;font-weight:600;font-size:14px}
+.bar{flex:1;height:10px;border-radius:999px;background:#E4DDD3;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--ember);transition:width .3s}
+.check li{border-top:1px solid var(--card-line)}
+.check li:first-child{border-top:0}
+.check label{display:flex;gap:14px;align-items:flex-start;min-height:48px;padding:10px 0;cursor:pointer}
+.check input{flex:none;width:24px;height:24px;margin-top:3px;accent-color:var(--ember-ink)}
+.check small{display:block;color:var(--soft);font-size:13px;line-height:1.5}
+.check input:checked+span{color:var(--soft);text-decoration:line-through;text-decoration-thickness:1px}
+.tag{font-size:12px;font-weight:700;color:var(--soft);letter-spacing:.04em}
+.next{counter-reset:n;display:grid;gap:10px}
+.next li{counter-increment:n;padding:14px 16px 14px 56px;position:relative;background:var(--surface);color:var(--text);border-radius:16px}
+.next li::before{content:counter(n);position:absolute;left:14px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--ember);color:#101216;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.next small{display:block;color:var(--muted)}
+.note{margin-top:20px;padding:16px 18px;border-radius:16px;background:#FFF8F3;border:1px solid #F3D5C4;font-size:14px}
+footer{padding:28px 0 40px;color:var(--soft);font-size:13px}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<header class="top">
+<div class="wrap">
+<div class="logo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#F26B2A"/><path d="M12 3c1 3.4 4.8 5.4 4.8 9.6a4.8 4.8 0 1 1-9.6 0c0-1.8.8-3.2 1.9-4.3.3 1.4 1 2.1 1.9 2.4C10.6 8.1 10.4 5.3 12 3z" fill="#101216"/><ellipse cx="12" cy="16.4" rx="2.1" ry="2.7" fill="#9CCBE0"/></svg><span>Chaud <em>Winter</em></span></div>
+<div class="eyebrow">Récapitulatif du projet · 13 octobre 2026</div>
+<h1>Votre boutique est prête. Il reste quelques informations à nous transmettre.</h1>
+<p>Le site a été testé de bout en bout sur un site de test. Il n'est pas encore installé chez Hostinger : nous attendons les informations ci-dessous pour compléter les textes, puis nous l'installerons après une sauvegarde.</p>
+<a class="cta" href="index.html">Voir l'aperçu du site</a>
+</div>
+</header>
+
+<main>
+<div class="wrap">
+
+<section aria-labelledby="t-fait">
+<h2 id="t-fait">Ce qui est prêt</h2>
+<p class="lead">Tout ce qui ne dépend pas de vos informations est terminé et testé.</p>
+<div class="card">
+<ul class="plain done">
+<li><strong>La boutique complète</strong> : 3 catégories (poêles à granulés, poêles à bois, chaudières) et 54 modèles, avec photo, description et caractéristiques.</li>
+<li><strong>Le choix facile</strong> : filtre par puissance et par prix, et un assistant qui conseille la puissance selon la surface et l'isolation.</li>
+<li><strong>La commande par virement</strong> : le virement est le seul moyen de paiement. L'acheteur voit le montant exact et la référence à indiquer, et reçoit un e-mail à chaque étape.</li>
+<li><strong>La livraison offerte</strong> en France métropolitaine, Corse comprise. La Belgique et l'Allemagne sont prévues, il reste les tarifs à saisir.</li>
+<li><strong>Le contact et les pages légales</strong> : formulaire de contact, conditions de vente, mentions légales, confidentialité, cookies, livraison et retours, paiement par virement, et la page d'identification pour l'Allemagne (Impressum).</li>
+<li><strong>Un site pensé pour le téléphone</strong>, prêt à être traduit en allemand plus tard.</li>
+<li><strong>Les contrôles</strong> : accessibilité 100/100, référencement 100/100, aucun débordement sur petit écran, aucun cookie de suivi.</li>
+</ul>
+</div>
+</section>
+
+<section aria-labelledby="t-flux">
+<h2 id="t-flux">Comment se passe une commande</h2>
+<p class="lead">Les pastilles <span class="who">Acheteur</span> et <span class="who">Vous</span> indiquent qui fait quoi.</p>
+<ol class="plain flow">
+<li><span class="who">Acheteur</span> Il choisit son appareil et valide sa commande. Il voit tout de suite le montant exact, la référence à indiquer et vos coordonnées bancaires. Il reçoit les mêmes informations par e-mail.</li>
+<li><span class="who">Acheteur</span> Il fait le virement. Nous lui recommandons le <strong>virement instantané</strong>, s'il est proposé par sa banque : il est crédité en quelques secondes, au lieu de 1 à 2 jours ouvrés.</li>
+<li><span class="who">Acheteur</span> Il vous <strong>envoie la preuve de virement par e-mail</strong> (capture d'écran ou PDF de sa banque), avec son numéro de commande. Cela permet d'identifier son paiement et de préparer l'expédition sans attendre le relevé bancaire.</li>
+<li class="seller"><span class="who">Vous</span> Vous vérifiez que le virement est arrivé sur le compte. La commande est en attente, avec le statut « En attente du virement ».</li>
+<li class="seller"><span class="who">Vous</span> Vous passez la commande à « En cours ». L'acheteur reçoit automatiquement un e-mail « Virement reçu : nous préparons votre commande ».</li>
+<li class="seller"><span class="who">Vous</span> Une fois l'appareil expédié, vous passez la commande à « Terminée ». L'acheteur est prévenu par e-mail.</li>
+</ol>
+<p class="note">Une commande qui n'est jamais payée se passe à « Annulée » : elle est alors retirée de la liste et l'appareil redevient disponible.</p>
+</section>
+
+<section aria-labelledby="t-attente">
+<h2 id="t-attente">Ce que nous attendons de vous</h2>
+<p class="lead">Cochez au fur et à mesure. Vos coches restent sur cet appareil.</p>
+<div class="progress" role="status" aria-live="polite"><span id="count">0 sur 0</span><div class="bar" aria-hidden="true"><i id="fill"></i></div></div>
+
+<div class="card">
+<h3>Coordonnées de l'entreprise</h3>
+<ul class="plain check">
+<li><label><input type="checkbox"><span>Numéro de téléphone du conseil, et ses horaires<small>Affichés en haut de chaque page et dans le pied de page.</small></span></label></li>
+<li><label><input type="checkbox"><span>Adresse e-mail de contact<small>Les acheteurs y enverront aussi leur preuve de virement : choisissez une adresse que vous consultez tous les jours.</small></span></label></li>
+<li><label><input type="checkbox"><span>Adresse postale de l'entreprise</span></label></li>
+<li><label><input type="checkbox"><span>Numéro WhatsApp <span class="tag">FACULTATIF</span><small>Le bouton « Écrire sur WhatsApp » n'apparaît que si le numéro est donné.</small></span></label></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Identité de l'entreprise (obligatoire dans les pages légales)</h3>
+<ul class="plain check">
+<li><label><input type="checkbox"><span>Raison sociale, forme juridique (SARL, SAS, entreprise individuelle…) et capital</span></label></li>
+<li><label><input type="checkbox"><span>Numéro SIRET et ville d'immatriculation au registre du commerce</span></label></li>
+<li><label><input type="checkbox"><span>Numéro de TVA intracommunautaire</span></label></li>
+<li><label><input type="checkbox"><span>Nom du gérant ou du président</span></label></li>
+<li><label><input type="checkbox"><span>Médiateur de la consommation<small>Il faut y adhérer (en général quelques dizaines d'euros par an) pour pouvoir l'indiquer sur le site. C'est obligatoire.</small></span></label></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Paiement</h3>
+<ul class="plain check">
+<li><label><input type="checkbox"><span>IBAN, BIC et nom du titulaire du compte professionnel</span></label></li>
+<li><label><input type="checkbox"><span>Nombre de jours après lequel une commande non payée est annulée</span></label></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Livraison</h3>
+<ul class="plain check">
+<li><label><input type="checkbox"><span>Tarifs du transporteur pour la Belgique et l'Allemagne, par tranche de poids<small>Nous avons prévu 3 tranches : moins de 100 kg, 100 à 200 kg, plus de 200 kg. À adapter à la grille du transporteur. Tarifs hors taxes : la TVA s'ajoute.</small></span></label></li>
+<li><label><input type="checkbox"><span>Délai de livraison indicatif après réception du virement</span></label></li>
+<li><label><input type="checkbox"><span>Conditions de remise : au pied du camion, devant la porte, dans la pièce…</span></label></li>
+<li><label><input type="checkbox"><span>Coût maximal d'un retour par le transporteur<small>La loi impose de l'annoncer pour les produits qui ne peuvent pas être renvoyés par la poste, comme les poêles.</small></span></label></li>
+<li><label><input type="checkbox"><span>Durée de la garantie des appareils</span></label></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Produits</h3>
+<ul class="plain check">
+<li><label><input type="checkbox"><span>Vos vrais prix, TTC<small>Les prix affichés sont des exemples relevés sur d'autres sites.</small></span></label></li>
+<li><label><input type="checkbox"><span>Fiches techniques des fournisseurs : poids, dimensions, rendement, capacité du réservoir<small>Le poids de chaque appareil sert aussi à calculer la livraison.</small></span></label></li>
+<li><label><input type="checkbox"><span>Une copie écrite des autorisations d'utiliser les photos<small>Une capture d'écran de l'e-mail suffit. Elle sera rangée dans le dossier du projet.</small></span></label></li>
+<li><label><input type="checkbox"><span>Le reste du catalogue des fournisseurs<small>Seule une partie des modèles a été relevée pour démarrer.</small></span></label></li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Pour donner confiance <span class="tag">FACULTATIF</span></h3>
+<ul class="plain check">
+<li><label><input type="checkbox"><span>Quelques vrais avis de clients, avec leur accord<small>La section « Avis clients » reste cachée tant qu'il n'y en a pas : nous n'affichons jamais de faux avis.</small></span></label></li>
+<li><label><input type="checkbox"><span>Des conseils à publier (guides)<small>Par exemple : quelle puissance pour quelle surface, granulés ou bois.</small></span></label></li>
+</ul>
+</div>
+</section>
+
+<section aria-labelledby="t-valid">
+<h2 id="t-valid">À faire valider par un professionnel</h2>
+<p class="lead">Nous avons écrit des textes de base clairs, mais nous ne remplaçons ni un juriste, ni un comptable, ni un chauffagiste.</p>
+<div class="card">
+<ul class="plain check">
+<li><label><input type="checkbox"><span>Les textes légaux, relus par votre comptable ou un juriste<small>Conditions de vente, mentions légales, confidentialité, cookies, livraison et retours, Impressum (en allemand). Une attention particulière pour l'encadré sur les garanties légales, dont le texte est imposé.</small></span></label></li>
+<li><label><input type="checkbox"><span>Le bouton « Commander avec obligation de paiement »<small>Formule exigée en France et, sous une autre forme, en Allemagne.</small></span></label></li>
+<li><label><input type="checkbox"><span>Les coefficients de l'assistant de puissance, validés par un chauffagiste<small>L'assistant affiche « estimation indicative ». Les coefficients sont des ordres de grandeur.</small></span></label></li>
+<li><label><input type="checkbox"><span>La TVA par pays, avec l'accord écrit de votre comptable<small>Pour l'instant, la TVA française de 20 % s'applique partout. La Belgique (21 %) et l'Allemagne (19 %) ne seront réglées qu'après cet accord.</small></span></label></li>
+</ul>
+</div>
+</section>
+
+<section aria-labelledby="t-suite">
+<h2 id="t-suite">Et ensuite ?</h2>
+<ol class="plain next" style="margin-top:18px">
+<li>Vous nous transmettez les informations ci-dessus. <small>Vous pouvez les envoyer au fur et à mesure.</small></li>
+<li>Nous remplissons les textes et la boutique, puis nous refaisons un test complet.</li>
+<li>Installation chez Hostinger, <strong>après une sauvegarde</strong> du site.</li>
+<li>Test avec une vraie commande à votre adresse : le virement, les e-mails, et leur bonne arrivée dans la boîte de réception.</li>
+<li>Ouverture de la boutique au public, quand plus aucune information ne manque.</li>
+</ol>
+</section>
+
+</div>
+</main>
+
+<footer><div class="wrap">Page confidentielle destinée au client, non référencée par les moteurs de recherche. Les prix et les photos de l'aperçu sont des exemples.</div></footer>
+
+<script>
+(function(){
+  var boxes=[].slice.call(document.querySelectorAll('.check input')), KEY='cw-recap-v1', saved={};
+  try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
+  boxes.forEach(function(b,i){ b.id='c'+i; if(saved[i]) b.checked=true;
+    b.addEventListener('change',function(){ saved[i]=b.checked; try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(e){} update(); }); });
+  function update(){
+    var n=boxes.filter(function(b){return b.checked}).length;
+    document.getElementById('count').textContent=n+' sur '+boxes.length;
+    document.getElementById('fill').style.width=(boxes.length?Math.round(100*n/boxes.length):0)+'%';
+  }
+  update();
+})();
+</script>
+</body>
+</html>

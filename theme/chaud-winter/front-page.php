@@ -298,7 +298,7 @@ $cw_whatsapp = cw_whatsapp_url();
 			<ol class="cw-steps">
 				<li class="cw-step cw-rv"><div class="cw-n" aria-hidden="true">01</div><h3><?php esc_html_e( 'Choisissez votre appareil', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Filtrez par puissance, comparez les modèles ou demandez à être rappelé par un conseiller.', 'chaud-winter' ); ?></p></li>
 				<li class="cw-step cw-rv"><div class="cw-n" aria-hidden="true">02</div><h3><?php esc_html_e( 'Passez commande', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Vous recevez le récapitulatif et les coordonnées bancaires à l\'écran et par e-mail.', 'chaud-winter' ); ?></p></li>
-				<li class="cw-step cw-rv"><div class="cw-n" aria-hidden="true">03</div><h3><?php esc_html_e( 'Réglez par virement', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Dès réception du virement, la commande est préparée et expédiée en France, en Belgique ou en Allemagne.', 'chaud-winter' ); ?></p><p class="cw-step-tip"><?php echo esc_html( cw_instant_transfer_tip() ); ?></p></li>
+				<li class="cw-step cw-rv"><div class="cw-n" aria-hidden="true">03</div><h3><?php esc_html_e( 'Réglez par virement', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Dès réception du virement, la commande est préparée et expédiée en France, en Belgique ou en Allemagne.', 'chaud-winter' ); ?></p><p><?php esc_html_e( 'Envoyez-nous la preuve de virement par e-mail pour accélérer le traitement.', 'chaud-winter' ); ?></p><p class="cw-step-tip"><?php echo esc_html( cw_instant_transfer_tip() ); ?></p></li>
 			</ol>
 		</div>
 	</section>
