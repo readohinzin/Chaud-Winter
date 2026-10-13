@@ -124,24 +124,30 @@ $cw_whatsapp = cw_whatsapp_url();
 		</div>
 	</section>
 
-	<!-- Réassurance -->
+	<!-- Réassurance : bande qui défile lentement (le second jeu est une copie décorative) -->
 	<section class="cw-assure" aria-label="<?php esc_attr_e( 'Nos engagements', 'chaud-winter' ); ?>">
-		<div class="cw-wrap">
-			<div class="cw-as">
-				<div class="cw-as-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9CCBE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6h12v10H2zM14 9h4l4 3v4h-8"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></div>
-				<div><b><?php esc_html_e( 'Livraison offerte en France métropolitaine', 'chaud-winter' ); ?></b><span><?php esc_html_e( 'Aussi en Belgique et en Allemagne', 'chaud-winter' ); ?></span></div>
-			</div>
-			<div class="cw-as">
-				<div class="cw-as-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9CCBE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg></div>
-				<div><b><?php esc_html_e( 'Paiement par virement bancaire', 'chaud-winter' ); ?></b><span><?php esc_html_e( 'Virement SEPA, en euros', 'chaud-winter' ); ?></span></div>
-			</div>
-			<div class="cw-as">
-				<div class="cw-as-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9CCBE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 4.5-3.3 7.6-8 9-4.7-1.4-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5L15.5 10"/></svg></div>
-				<div><b><?php esc_html_e( 'Garantie constructeur', 'chaud-winter' ); ?></b><span><?php echo esc_html( cw_info( 'warranty' ) ); ?></span></div>
-			</div>
-			<div class="cw-as">
-				<div class="cw-as-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9CCBE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
-				<div><b><?php esc_html_e( 'Conseil par téléphone', 'chaud-winter' ); ?></b><span><?php echo cw_phone_html(); // phpcs:ignore WordPress.Security.EscapeOutput -- déjà échappé. ?></span></div>
+		<div class="cw-marquee">
+			<div class="cw-marquee-track">
+				<?php foreach ( array( false, true ) as $cw_clone ) : ?>
+					<div class="cw-marquee-set"<?php echo $cw_clone ? ' aria-hidden="true" inert' : ''; ?>>
+						<div class="cw-as">
+							<div class="cw-as-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9CCBE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6h12v10H2zM14 9h4l4 3v4h-8"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></div>
+							<div><b><?php esc_html_e( 'Livraison offerte en France métropolitaine', 'chaud-winter' ); ?></b><span><?php esc_html_e( 'Aussi en Belgique et en Allemagne', 'chaud-winter' ); ?></span></div>
+						</div>
+						<div class="cw-as">
+							<div class="cw-as-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9CCBE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg></div>
+							<div><b><?php esc_html_e( 'Paiement par virement bancaire', 'chaud-winter' ); ?></b><span><?php esc_html_e( 'Virement SEPA, en euros', 'chaud-winter' ); ?></span></div>
+						</div>
+						<div class="cw-as">
+							<div class="cw-as-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9CCBE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l8 3v6c0 4.5-3.3 7.6-8 9-4.7-1.4-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5L15.5 10"/></svg></div>
+							<div><b><?php esc_html_e( 'Garantie constructeur', 'chaud-winter' ); ?></b><span><?php echo esc_html( cw_info( 'warranty' ) ); ?></span></div>
+						</div>
+						<div class="cw-as">
+							<div class="cw-as-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9CCBE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+							<div><b><?php esc_html_e( 'Conseil par téléphone', 'chaud-winter' ); ?></b><span><?php echo cw_phone_html(); // phpcs:ignore WordPress.Security.EscapeOutput -- déjà échappé. ?></span></div>
+						</div>
+					</div>
+				<?php endforeach; ?>
 			</div>
 		</div>
 	</section>
@@ -222,7 +228,12 @@ $cw_whatsapp = cw_whatsapp_url();
 					<?php endforeach; ?>
 				</fieldset>
 				<div class="cw-result" aria-live="polite">
-					<div class="cw-big" id="cw-res-big"><?php echo wp_kses( __( 'Environ <b>14 kW</b>', 'chaud-winter' ), array( 'b' => array() ) ); ?></div>
+					<div class="cw-big" id="cw-res-big" aria-hidden="true"><?php echo wp_kses( __( 'Environ <b>14 kW</b>', 'chaud-winter' ), array( 'b' => array() ) ); ?></div>
+					<span class="screen-reader-text" id="cw-res-sr"><?php esc_html_e( 'Environ 14 kW', 'chaud-winter' ); ?></span>
+					<div class="cw-meter" aria-hidden="true">
+						<div class="cw-meter-track"><span class="cw-meter-band" id="cw-meter-band"></span><span class="cw-meter-dot" id="cw-meter-dot"></span></div>
+						<div class="cw-meter-scale"><span>0</span><span>10</span><span>20</span><span>30</span><span>40 kW</span></div>
+					</div>
 					<p id="cw-res-sub"><?php esc_html_e( 'Gamme conseillée : de 11 à 17 kW.', 'chaud-winter' ); ?></p>
 					<?php if ( $cw_shop ) : ?>
 						<button type="button" class="cw-btn cw-btn-primary cw-btn-block" id="cw-go" hidden><?php esc_html_e( 'Voir les appareils de 11 à 17 kW', 'chaud-winter' ); ?></button>
@@ -239,7 +250,7 @@ $cw_whatsapp = cw_whatsapp_url();
 			<div class="cw-shop-head cw-rv">
 				<div>
 					<div class="cw-eyebrow"><?php esc_html_e( 'La boutique', 'chaud-winter' ); ?></div>
-					<h2 class="cw-h2"><?php esc_html_e( 'Nos appareils', 'chaud-winter' ); ?></h2>
+					<h2 class="cw-h2 cw-mask"><span><?php esc_html_e( 'Nos appareils', 'chaud-winter' ); ?></span></h2>
 				</div>
 				<a class="cw-link" href="<?php echo esc_url( $cw_shop_url ); ?>"><?php esc_html_e( 'Voir tous les produits', 'chaud-winter' ); ?></a>
 			</div>
@@ -294,12 +305,12 @@ $cw_whatsapp = cw_whatsapp_url();
 		<div class="cw-wrap">
 			<div class="cw-rv">
 				<div class="cw-eyebrow"><?php esc_html_e( 'Comment commander', 'chaud-winter' ); ?></div>
-				<h2 class="cw-h2 cw-narrow"><?php esc_html_e( 'Simple, de l\'écran à votre salon', 'chaud-winter' ); ?></h2>
+				<h2 class="cw-h2 cw-narrow cw-mask"><span><?php esc_html_e( 'Simple, de l\'écran à votre salon', 'chaud-winter' ); ?></span></h2>
 			</div>
 			<ol class="cw-steps">
-				<li class="cw-step cw-rv"><div class="cw-n" aria-hidden="true">01</div><h3><?php esc_html_e( 'Choisissez votre appareil', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Filtrez par puissance, comparez les modèles ou demandez à être rappelé par un conseiller.', 'chaud-winter' ); ?></p></li>
-				<li class="cw-step cw-rv"><div class="cw-n" aria-hidden="true">02</div><h3><?php esc_html_e( 'Passez commande', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Vous recevez le récapitulatif et les coordonnées bancaires à l\'écran et par e-mail.', 'chaud-winter' ); ?></p></li>
-				<li class="cw-step cw-rv"><div class="cw-n" aria-hidden="true">03</div><h3><?php esc_html_e( 'Réglez par virement', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Dès réception du virement, la commande est préparée et expédiée en France, en Belgique ou en Allemagne.', 'chaud-winter' ); ?></p><p><?php esc_html_e( 'Envoyez-nous la preuve de virement par e-mail pour accélérer le traitement.', 'chaud-winter' ); ?></p><p class="cw-step-tip"><?php echo esc_html( cw_instant_transfer_tip() ); ?></p></li>
+				<li class="cw-step cw-rv" style="--i:0"><div class="cw-n" aria-hidden="true">01</div><h3><?php esc_html_e( 'Choisissez votre appareil', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Filtrez par puissance, comparez les modèles ou demandez à être rappelé par un conseiller.', 'chaud-winter' ); ?></p></li>
+				<li class="cw-step cw-rv" style="--i:1"><div class="cw-n" aria-hidden="true">02</div><h3><?php esc_html_e( 'Passez commande', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Vous recevez le récapitulatif et les coordonnées bancaires à l\'écran et par e-mail.', 'chaud-winter' ); ?></p></li>
+				<li class="cw-step cw-rv" style="--i:2"><div class="cw-n" aria-hidden="true">03</div><h3><?php esc_html_e( 'Réglez par virement', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Dès réception du virement, la commande est préparée et expédiée en France, en Belgique ou en Allemagne.', 'chaud-winter' ); ?></p><p><?php esc_html_e( 'Envoyez-nous la preuve de virement par e-mail pour accélérer le traitement.', 'chaud-winter' ); ?></p><p class="cw-step-tip"><?php echo esc_html( cw_instant_transfer_tip() ); ?></p></li>
 			</ol>
 		</div>
 	</section>
@@ -310,8 +321,8 @@ $cw_whatsapp = cw_whatsapp_url();
 			<div class="cw-wrap">
 				<h2 class="cw-eyebrow cw-center"><?php esc_html_e( 'Les marques de la boutique', 'chaud-winter' ); ?></h2>
 				<ul class="cw-brands">
-					<?php foreach ( $cw_brands as $cw_brand ) : ?>
-						<li><a href="<?php echo esc_url( get_term_link( $cw_brand ) ); ?>"><?php echo esc_html( $cw_brand->name ); ?></a></li>
+					<?php $cw_bi = 0; foreach ( $cw_brands as $cw_brand ) : ?>
+						<li class="cw-rv" style="--i:<?php echo (int) $cw_bi++; ?>"><a href="<?php echo esc_url( get_term_link( $cw_brand ) ); ?>"><?php echo esc_html( $cw_brand->name ); ?></a></li>
 					<?php endforeach; ?>
 				</ul>
 			</div>
@@ -320,6 +331,7 @@ $cw_whatsapp = cw_whatsapp_url();
 
 	<!-- Bandeau de conseil -->
 	<section class="cw-cta-band">
+		<span class="cw-embers" aria-hidden="true"><?php for ( $cw_e = 0; $cw_e < 14; $cw_e++ ) : ?><i style="--x:<?php echo (int) ( 4 + $cw_e * 7 ); ?>%;--s:<?php echo 4 + ( $cw_e * 5 ) % 9; ?>px;--d:<?php echo 7 + ( $cw_e * 3 ) % 7; ?>s;--t:-<?php echo ( $cw_e * 2 ) % 11; ?>s"></i><?php endfor; ?></span>
 		<div class="cw-wrap">
 			<div>
 				<h2 class="cw-it"><?php esc_html_e( 'Un doute sur le bon modèle ?', 'chaud-winter' ); ?></h2>
@@ -340,7 +352,7 @@ $cw_whatsapp = cw_whatsapp_url();
 			<div class="cw-wrap">
 				<div class="cw-rv">
 					<div class="cw-eyebrow"><?php esc_html_e( 'Avis clients', 'chaud-winter' ); ?></div>
-					<h2 class="cw-h2"><?php esc_html_e( 'Ils nous font confiance', 'chaud-winter' ); ?></h2>
+					<h2 class="cw-h2 cw-mask"><span><?php esc_html_e( 'Ils nous font confiance', 'chaud-winter' ); ?></span></h2>
 					<?php
 					$cw_rating = trim( (string) get_theme_mod( 'cw_reviews_rating', '' ) );
 					$cw_count  = absint( get_theme_mod( 'cw_reviews_count', 0 ) );
@@ -355,8 +367,8 @@ $cw_whatsapp = cw_whatsapp_url();
 					<?php endif; ?>
 				</div>
 				<div class="cw-rev-grid">
-					<?php foreach ( $cw_reviews as $cw_review ) : ?>
-						<figure class="cw-rev cw-rv">
+					<?php $cw_ri = 0; foreach ( $cw_reviews as $cw_review ) : ?>
+						<figure class="cw-rev cw-rv" style="--i:<?php echo (int) $cw_ri++; ?>">
 							<div class="cw-q" aria-hidden="true">“</div>
 							<blockquote><p><?php echo esc_html( $cw_review['text'] ); ?></p></blockquote>
 							<?php if ( $cw_review['author'] ) : ?>
@@ -376,13 +388,13 @@ $cw_whatsapp = cw_whatsapp_url();
 				<div class="cw-shop-head cw-rv">
 					<div>
 						<div class="cw-eyebrow"><?php esc_html_e( 'Guides', 'chaud-winter' ); ?></div>
-						<h2 class="cw-h2"><?php esc_html_e( 'Conseils pour bien choisir', 'chaud-winter' ); ?></h2>
+						<h2 class="cw-h2 cw-mask"><span><?php esc_html_e( 'Conseils pour bien choisir', 'chaud-winter' ); ?></span></h2>
 					</div>
 					<a class="cw-link" href="<?php echo esc_url( get_category_link( $cw_guides_cat ) ); ?>"><?php esc_html_e( 'Tous les guides', 'chaud-winter' ); ?></a>
 				</div>
 				<div class="cw-guides">
-					<?php foreach ( $cw_guides as $cw_guide ) : ?>
-						<a href="<?php echo esc_url( get_permalink( $cw_guide ) ); ?>" class="cw-guide cw-rv">
+					<?php $cw_gi = 0; foreach ( $cw_guides as $cw_guide ) : ?>
+						<a href="<?php echo esc_url( get_permalink( $cw_guide ) ); ?>" class="cw-guide cw-rv" style="--i:<?php echo (int) $cw_gi++; ?>">
 							<span class="cw-art" aria-hidden="true">
 								<?php
 								if ( has_post_thumbnail( $cw_guide ) ) {

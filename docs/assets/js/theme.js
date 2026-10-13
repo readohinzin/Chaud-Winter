@@ -50,6 +50,26 @@
 		}
 	});
 
+	// Le panier rebondit quand le nombre d'articles augmente (ajout sans rechargement de page).
+	var header = $('.cw-header') || $('header');
+	var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	if (header && 'MutationObserver' in window && !reduceMotion) {
+		var count = function () { var c = $('.cw-cart-count', header); return c ? parseInt(c.textContent, 10) || 0 : 0; };
+		var last = count();
+		new MutationObserver(function () {
+			var n = count();
+			if (n > last) {
+				var link = $('.cw-cart-link', header);
+				if (link) {
+					link.classList.remove('cw-bump');
+					void link.offsetWidth;
+					link.classList.add('cw-bump');
+				}
+			}
+			last = n;
+		}).observe(header, { childList: true, subtree: true, characterData: true });
+	}
+
 	// Apparition au défilement
 	var items = $$('.cw-rv');
 	if (!items.length) { return; }

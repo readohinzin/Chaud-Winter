@@ -486,18 +486,48 @@
 	background: var(--cw-surface);
 }
 
-.cw-assure .cw-wrap {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 20px;
-	padding-top: 28px;
-	padding-bottom: 28px;
+.cw-marquee {
+	overflow: hidden;
+	padding: 22px 0;
+	-webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+	mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+
+.cw-marquee-track {
+	display: flex;
+	width: max-content;
+	animation: cw-marquee 46s linear infinite;
+}
+
+.cw-marquee:hover .cw-marquee-track {
+	animation-play-state: paused;
+}
+
+.cw-marquee-set {
+	display: flex;
+	flex: none;
+}
+
+@keyframes cw-marquee {
+	to { transform: translateX(-50%); }
 }
 
 .cw-as {
 	display: flex;
+	flex: none;
 	align-items: center;
 	gap: 16px;
+	padding: 0 clamp(28px, 4vw, 56px);
+	white-space: nowrap;
+}
+
+.cw-as-ico {
+	transition: border-color .4s, box-shadow .4s;
+}
+
+.cw-as:hover .cw-as-ico {
+	border-color: var(--cw-ice);
+	box-shadow: 0 0 0 6px rgba(156, 203, 224, .1);
 }
 
 .cw-as-ico {
@@ -803,10 +833,132 @@
 }
 
 .cw-finder-card input[type="range"] {
+	--p: 40%;
+	-webkit-appearance: none;
+	appearance: none;
 	width: 100%;
+	height: 44px;
+	margin: 8px 0 4px;
+	background: transparent;
+	cursor: pointer;
+}
+
+.cw-finder-card input[type="range"]::-webkit-slider-runnable-track {
+	height: 6px;
+	border-radius: 3px;
+	background: linear-gradient(to right, var(--cw-ice), var(--cw-ember) var(--p), var(--cw-line2) var(--p));
+}
+
+.cw-finder-card input[type="range"]::-moz-range-track {
+	height: 6px;
+	border-radius: 3px;
+	background: var(--cw-line2);
+}
+
+.cw-finder-card input[type="range"]::-moz-range-progress {
+	height: 6px;
+	border-radius: 3px;
+	background: linear-gradient(to right, var(--cw-ice), var(--cw-ember));
+}
+
+.cw-finder-card input[type="range"]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 28px;
 	height: 28px;
-	margin: 18px 0 8px;
-	accent-color: var(--cw-ember);
+	margin-top: -11px;
+	border: 4px solid var(--cw-ember);
+	border-radius: 50%;
+	background: #F2EEE9;
+	box-shadow: 0 0 0 0 rgba(242, 107, 42, .35);
+	transition: box-shadow .3s, transform .3s;
+}
+
+.cw-finder-card input[type="range"]::-moz-range-thumb {
+	width: 20px;
+	height: 20px;
+	border: 4px solid var(--cw-ember);
+	border-radius: 50%;
+	background: #F2EEE9;
+}
+
+.cw-finder-card input[type="range"]:hover::-webkit-slider-thumb,
+.cw-finder-card input[type="range"]:focus-visible::-webkit-slider-thumb {
+	box-shadow: 0 0 0 10px rgba(242, 107, 42, .22);
+}
+
+.cw-finder-card input[type="range"]:active::-webkit-slider-thumb {
+	transform: scale(1.12);
+}
+
+.cw-finder-card input[type="range"]:focus-visible {
+	outline: 3px solid var(--cw-ice);
+	outline-offset: 2px;
+	border-radius: 8px;
+}
+
+/* La valeur en m² change de chiffre sans faire sauter la ligne. */
+.cw-f-val {
+	font-variant-numeric: tabular-nums;
+}
+
+.cw-big {
+	font-variant-numeric: tabular-nums;
+}
+
+/* Jauge : la zone conseillée s'allume sur l'échelle de 0 à 45 kW. */
+.cw-meter {
+	margin-top: 18px;
+}
+
+.cw-meter-track {
+	position: relative;
+	height: 10px;
+	border-radius: 5px;
+	background: var(--cw-line);
+}
+
+.cw-meter-band {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	border-radius: 5px;
+	background: linear-gradient(90deg, var(--cw-ice), var(--cw-ember));
+	box-shadow: 0 0 18px rgba(242, 107, 42, .45);
+	transition: left .7s var(--cw-ease), width .7s var(--cw-ease);
+}
+
+.cw-meter-dot {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 18px;
+	height: 18px;
+	margin: -9px 0 0 -9px;
+	border: 3px solid var(--cw-bg);
+	border-radius: 50%;
+	background: #F2EEE9;
+	transition: left .7s var(--cw-ease);
+}
+
+.cw-meter-scale {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 8px;
+	color: var(--cw-muted2);
+	font-size: 11px;
+	font-variant-numeric: tabular-nums;
+}
+
+/* Le résultat s'illumine un court instant quand il change. */
+.cw-result {
+	transition: border-color .6s, box-shadow .6s;
+}
+
+.cw-result.is-pulse {
+	border-color: rgba(242, 107, 42, .6);
+	box-shadow: 0 0 0 1px rgba(242, 107, 42, .25), 0 18px 50px -24px rgba(242, 107, 42, .55);
 }
 
 .cw-pills {
@@ -1044,6 +1196,58 @@
 	border: 1px solid var(--cw-line);
 	border-radius: 26px;
 	background: var(--cw-surface);
+	transition-delay: calc(var(--i, 0) * .22s);
+}
+
+/* Le trait qui relie les étapes se dessine quand on arrive dessus. */
+.cw-step + .cw-step::before {
+	content: "";
+	position: absolute;
+	top: -21px;
+	left: 40px;
+	width: 2px;
+	height: 20px;
+	background: linear-gradient(to bottom, rgba(242, 107, 42, 0), var(--cw-ember));
+	transform: scaleY(0);
+	transform-origin: top;
+	transition: transform .7s var(--cw-ease) calc(var(--i, 0) * .22s + .25s);
+}
+
+.cw-step.is-in::before {
+	transform: scaleY(1);
+}
+
+/* Écran moyen (deux colonnes) : pas de trait, il ne mènerait nulle part. */
+@media (min-width: 761px) and (max-width: 980px) {
+	.cw-step + .cw-step::before {
+		display: none;
+	}
+}
+
+/* Trois étapes côte à côte : le trait relie les numéros. */
+@media (min-width: 981px) {
+	.cw-step + .cw-step::before {
+		top: 52px;
+		left: -25px;
+		width: 24px;
+		height: 2px;
+		background: linear-gradient(to right, rgba(242, 107, 42, 0), var(--cw-ember));
+		transform: scaleX(0);
+		transform-origin: left;
+	}
+
+	.cw-step.is-in::before {
+		transform: scaleX(1);
+	}
+}
+
+.cw-n {
+	display: inline-block;
+	transition: text-shadow 1.2s ease calc(var(--i, 0) * .22s + .5s);
+}
+
+.cw-step.is-in .cw-n {
+	text-shadow: 0 0 34px rgba(242, 107, 42, .55);
 }
 
 .cw-n {
@@ -1115,9 +1319,54 @@
 /* Bandeau de conseil                                                  */
 /* ------------------------------------------------------------------ */
 .cw-cta-band {
+	position: relative;
 	margin-top: clamp(64px, 9vw, 120px);
-	background: var(--cw-ember);
+	overflow: hidden;
+	background: linear-gradient(110deg, #F26B2A 0%, #F8803F 45%, #F26B2A 100%);
+	background-size: 220% 100%;
 	color: #101216;
+	animation: cw-band 14s ease-in-out infinite alternate;
+}
+
+@keyframes cw-band {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+
+.cw-cta-band .cw-wrap {
+	position: relative;
+	z-index: 1;
+}
+
+/* Braises qui montent doucement derrière le texte. */
+.cw-embers {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+}
+
+.cw-embers i {
+	position: absolute;
+	bottom: -12px;
+	left: var(--x);
+	width: var(--s);
+	height: var(--s);
+	border-radius: 50%;
+	background: rgba(255, 236, 214, .55);
+	opacity: 0;
+	animation: cw-ember-rise var(--d) ease-in infinite;
+	animation-delay: var(--t);
+}
+
+.cw-embers i:nth-child(3n) {
+	background: rgba(16, 18, 22, .22);
+}
+
+@keyframes cw-ember-rise {
+	0% { opacity: 0; transform: translate(0, 0) scale(1); }
+	15% { opacity: 1; }
+	100% { opacity: 0; transform: translate(26px, -230px) scale(.3); }
 }
 
 .cw-cta-band .cw-wrap {
@@ -1415,6 +1664,43 @@
 		opacity: .5;
 	}
 
+	.cw-marquee-track,
+	.cw-cta-band,
+	.cw-embers i {
+		animation: none;
+	}
+
+	/* La bande n'est plus un défilement : les quatre engagements restent côte à côte, à la ligne si besoin. */
+	.cw-marquee {
+		-webkit-mask-image: none;
+		mask-image: none;
+	}
+
+	.cw-marquee {
+		padding: 28px 0;
+	}
+
+	.cw-marquee-track {
+		width: 100%;
+	}
+
+	.cw-marquee-set {
+		flex-wrap: wrap;
+		width: 100%;
+		padding: 0 20px;
+		row-gap: 20px;
+	}
+
+	.cw-as {
+		flex: 1 1 260px;
+		padding: 0 12px;
+		white-space: normal;
+	}
+
+	.cw-marquee-set[aria-hidden="true"] {
+		display: none;
+	}
+
 	.js .cw-cat.cw-rv,
 	.js .cw-cat.cw-rv .cw-cat-body,
 	.js .cw-cat.cw-rv .cw-cat-num {
@@ -1455,5 +1741,79 @@
 		margin-left: -16px;
 		padding-right: 16px;
 		padding-left: 16px;
+	}
+}
+
+
+/* ------------------------------------------------------------------ */
+/* Boutique : cartes qui arrivent en cascade, survol soigné            */
+/* ------------------------------------------------------------------ */
+.js .cw-panel.cw-pre .cw-card {
+	opacity: 0;
+	transform: translateY(34px) scale(.97);
+}
+
+.js .cw-panel.is-entering .cw-card {
+	animation: cw-card-in 1s var(--cw-ease) both;
+	animation-delay: calc(var(--k, 0) * .06s);
+}
+
+@keyframes cw-card-in {
+	from { opacity: 0; transform: translateY(34px) scale(.97); }
+	to { opacity: 1; transform: none; }
+}
+
+.cw-card-img img {
+	transition: transform .9s var(--cw-ease);
+}
+
+.cw-card:hover .cw-card-img img,
+.cw-card:focus-within .cw-card-img img {
+	transform: scale(1.06);
+}
+
+.cw-cat-art svg,
+.cw-card .cw-kw {
+	transition: transform .5s var(--cw-ease);
+}
+
+.cw-card:hover .cw-kw {
+	transform: translateY(-2px);
+}
+
+/* Onglets : la pastille active glisse d'une couleur à l'autre. */
+.cw-tab {
+	transition: background-color .35s, border-color .35s, color .35s, transform .35s var(--cw-ease);
+}
+
+.cw-tab:hover {
+	transform: translateY(-2px);
+}
+
+/* ------------------------------------------------------------------ */
+/* Barre de progression de lecture (créée par le script de l'accueil)  */
+/* ------------------------------------------------------------------ */
+.cw-progress {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 100;
+	height: 3px;
+	background: linear-gradient(90deg, var(--cw-ice), var(--cw-ember));
+	box-shadow: 0 0 12px rgba(242, 107, 42, .6);
+	transform: scaleX(var(--sp, 0));
+	transform-origin: 0 50%;
+	pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.js .cw-panel.cw-pre .cw-card {
+		opacity: 1;
+		transform: none;
+	}
+
+	.cw-progress {
+		display: none;
 	}
 }

@@ -19,6 +19,20 @@
 	var tabs = $$('.cw-tab');
 	var panels = $$('.cw-panel');
 
+	var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+	// Les cartes visibles d'un panneau arrivent en cascade (l'ordre part de 0 à chaque fois).
+	function cascade(panel) {
+		if (reduce || !panel) { return; }
+		var k = 0;
+		$$('.cw-card', panel).forEach(function (c) {
+			if (!c.hidden && !c.classList.contains('cw-extra')) { c.style.setProperty('--k', Math.min(k++, 9)); }
+		});
+		panel.classList.remove('cw-pre', 'is-entering');
+		void panel.offsetWidth;
+		panel.classList.add('is-entering');
+	}
+
 	function selectTab(pid, focus) {
 		tabs.forEach(function (tab) {
 			var on = tab.getAttribute('data-pid') === pid;
@@ -26,8 +40,15 @@
 			tab.tabIndex = on ? 0 : -1;
 			if (on && focus) { tab.focus(); }
 		});
-		panels.forEach(function (p) { p.hidden = p.getAttribute('data-pid') !== pid; });
+		panels.forEach(function (p) {
+			var show = p.getAttribute('data-pid') === pid;
+			var was = !p.hidden;
+			p.hidden = !show;
+			if (show && !was && started) { cascade(p); }
+		});
 	}
+
+	var started = false;
 
 	function currentPid() {
 		var sel = tabs.filter(function (x) { return x.getAttribute('aria-selected') === 'true'; })[0];
@@ -37,6 +58,17 @@
 	if (tablist && tabs.length) {
 		tablist.hidden = false;
 		selectTab(currentPid());
+		started = true;
+
+		// Première arrivée : le panneau visible attend d'être à l'écran, puis ses cartes entrent en cascade.
+		var firstPanel = panels.filter(function (p) { return !p.hidden; })[0];
+		if (firstPanel && !reduce && 'IntersectionObserver' in window) {
+			firstPanel.classList.add('cw-pre');
+			var seen = new IntersectionObserver(function (entries) {
+				if (entries[0].isIntersecting) { cascade(firstPanel); seen.disconnect(); }
+			}, { rootMargin: '0px 0px -12% 0px' });
+			seen.observe(firstPanel);
+		}
 
 		tabs.forEach(function (tab, i) {
 			tab.addEventListener('click', function () { selectTab(tab.getAttribute('data-pid')); });
@@ -121,7 +153,31 @@
 	var m2 = $('#cw-m2');
 	if (!m2) { return; }
 	var m2v = $('#cw-m2v'), big = $('#cw-res-big'), sub = $('#cw-res-sub'), go = $('#cw-go');
-	var lo = 11, hi = 17;
+	var sr = $('#cw-res-sr'), band = $('#cw-meter-band'), dot = $('#cw-meter-dot'), box = $('.cw-result');
+	var lo = 11, hi = 17, shown = 14, raf = 0, pulse = 0, MAX_KW = 45;
+
+	// Le chiffre « Environ N kW » défile d'une valeur à l'autre (le texte lu par les lecteurs d'écran, lui, change tout de suite).
+	function countTo(target) {
+		window.cancelAnimationFrame(raf);
+		if (reduce) { shown = target; big.innerHTML = fmt(t.about, target); return; }
+		var from = shown, t0 = null, dur = 520;
+		var step = function (now) {
+			if (t0 === null) { t0 = now; }
+			var k = Math.min(1, (now - t0) / dur);
+			var e = 1 - Math.pow(1 - k, 3);
+			shown = Math.round(from + (target - from) * e);
+			big.innerHTML = fmt(t.about, shown);
+			if (k < 1) { raf = window.requestAnimationFrame(step); }
+		};
+		raf = window.requestAnimationFrame(step);
+	}
+
+	function light() {
+		if (!box || reduce) { return; }
+		box.classList.add('is-pulse');
+		window.clearTimeout(pulse);
+		pulse = window.setTimeout(function () { box.classList.remove('is-pulse'); }, 700);
+	}
 
 	function calc() {
 		var s = parseInt(m2.value, 10);
@@ -131,13 +187,21 @@
 		lo = Math.max(1, Math.round(kw * 0.8));
 		hi = Math.round(kw * 1.2);
 		m2v.textContent = fmt(t.m2, s);
-		big.innerHTML = fmt(t.about, Math.round(kw));
+		countTo(Math.round(kw));
+		if (sr) { sr.textContent = fmt(t.about, Math.round(kw)).replace(/<[^>]+>/g, ''); }
 		sub.textContent = fmt(t.range, lo, hi);
+		m2.style.setProperty('--p', ((s - m2.min) / (m2.max - m2.min) * 100).toFixed(1) + '%');
+		if (band && dot) {
+			var pct = function (v) { return Math.max(0, Math.min(100, v / MAX_KW * 100)); };
+			band.style.left = pct(lo) + '%';
+			band.style.width = Math.max(1.5, pct(hi) - pct(lo)) + '%';
+			dot.style.left = pct(kw) + '%';
+		}
 		if (go) { go.textContent = fmt(t.go, lo, hi); }
 	}
 
-	m2.addEventListener('input', calc);
-	$$('input[name="cw-iso"]').forEach(function (r) { r.addEventListener('change', calc); });
+	m2.addEventListener('input', function () { calc(); light(); });
+	$$('input[name="cw-iso"]').forEach(function (r) { r.addEventListener('change', function () { calc(); light(); }); });
 
 	if (go) {
 		go.hidden = false;
@@ -152,6 +216,8 @@
 	}
 
 	calc();
+	shown = Math.round(parseInt(m2.value, 10) * parseFloat(($('input[name="cw-iso"]:checked') || { value: '0.115' }).value));
+	big.innerHTML = fmt(t.about, shown);
 })();
 
 /* Mouvement : profondeur du haut de page et cartes des univers. Rien ne bouge si
@@ -231,4 +297,25 @@
 		}, { rootMargin: '-40% 0px -40% 0px' });
 		cards.forEach(function (card) { io.observe(card); });
 	}
+})();
+
+
+/* Barre de progression de lecture, fine, en haut de l'écran. */
+(function () {
+	'use strict';
+	if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { return; }
+	var bar = document.createElement('div');
+	bar.className = 'cw-progress';
+	bar.setAttribute('aria-hidden', 'true');
+	document.body.appendChild(bar);
+	var ticking = false;
+	var update = function () {
+		var h = document.documentElement.scrollHeight - window.innerHeight;
+		bar.style.setProperty('--sp', h > 0 ? Math.min(1, window.scrollY / h).toFixed(4) : 0);
+		ticking = false;
+	};
+	window.addEventListener('scroll', function () {
+		if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+	}, { passive: true });
+	update();
 })();

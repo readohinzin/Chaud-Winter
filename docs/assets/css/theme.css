@@ -159,6 +159,58 @@ h1, h2, h3, h4, h5, h6 {
 	transform: translateY(-2px);
 }
 
+/* Reflet qui traverse le bouton au survol (sur ordinateur). */
+.cw-btn-primary {
+	position: relative;
+	overflow: hidden;
+	isolation: isolate;
+}
+
+.cw-btn-primary::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: -60%;
+	z-index: -1;
+	width: 40%;
+	background: linear-gradient(100deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, .38), rgba(255, 255, 255, 0));
+	transform: skewX(-18deg);
+	opacity: 0;
+}
+
+@media (hover: hover) {
+	.cw-btn-primary:hover::before {
+		animation: cw-shine .9s ease-out;
+	}
+}
+
+@keyframes cw-shine {
+	0% { left: -60%; opacity: 1; }
+	100% { left: 130%; opacity: 1; }
+}
+
+/* Le panier réagit quand un produit y est ajouté. */
+.cw-cart-link.cw-bump {
+	animation: cw-bump .7s cubic-bezier(.22, 1, .36, 1);
+}
+
+.cw-cart-link.cw-bump .cw-cart-count {
+	animation: cw-count-pop .7s cubic-bezier(.22, 1, .36, 1);
+}
+
+@keyframes cw-bump {
+	0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(242, 107, 42, .6); }
+	30% { transform: scale(1.12) rotate(-4deg); }
+	100% { transform: scale(1); box-shadow: 0 0 0 16px rgba(242, 107, 42, 0); }
+}
+
+@keyframes cw-count-pop {
+	0% { transform: scale(.4); }
+	55% { transform: scale(1.35); }
+	100% { transform: scale(1); }
+}
+
 .cw-btn-ghost {
 	background: transparent;
 	color: var(--cw-text);
@@ -826,13 +878,21 @@ h1, h2, h3, h4, h5, h6 {
 /* Apparition au défilement : le contenu n'est masqué que si le JavaScript fonctionne. */
 .js .cw-rv {
 	opacity: 0;
-	transform: translateY(22px);
-	transition: opacity .7s ease, transform .7s ease;
+	transform: translateY(30px);
+	filter: blur(6px);
+	transition: opacity .9s cubic-bezier(.22, 1, .36, 1), transform 1s cubic-bezier(.22, 1, .36, 1), filter .9s ease;
+	transition-delay: calc(var(--i, 0) * .09s);
 }
 
 .js .cw-rv.is-in {
 	opacity: 1;
 	transform: none;
+	filter: none;
+}
+
+/* Les grandes cartes des univers gèrent leur propre entrée (pas de flou, trop lourd à animer). */
+.js .cw-cat.cw-rv {
+	filter: none;
 }
 
 /* ------------------------------------------------------------------ */
