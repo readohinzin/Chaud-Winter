@@ -44,7 +44,7 @@ function cw_setup_blocks() {
 			'items' => array(
 				__( 'Virement bancaire activé, avec des textes clairs pour l\'acheteur', 'chaud-winter' ),
 				__( 'Tous les autres moyens de paiement désactivés (carte, chèque, paiement à la livraison…)', 'chaud-winter' ),
-				__( 'Coordonnées bancaires créées avec les repères [IBAN] et [BIC] si elles sont vides', 'chaud-winter' ),
+				__( 'Coordonnées bancaires (titulaire, IBAN, BIC) enregistrées si elles sont vides', 'chaud-winter' ),
 			),
 		),
 		'shipping' => array(
@@ -288,22 +288,24 @@ function cw_setup_payment() {
 	update_option( 'woocommerce_gateway_order', array( 'bacs' => 0 ) );
 	$lines[] = __( 'Virement bancaire activé, textes pour l\'acheteur écrits.', 'chaud-winter' );
 
+	// Coordonnées reçues du client (13/10/2026). Remplace les anciens repères entre crochets, jamais un compte déjà saisi à la main.
 	$accounts = get_option( 'woocommerce_bacs_accounts', array() );
-	if ( empty( $accounts ) ) {
+	$is_empty = empty( $accounts ) || cw_is_placeholder( wp_json_encode( $accounts ) );
+	if ( $is_empty ) {
 		update_option(
 			'woocommerce_bacs_accounts',
 			array(
 				array(
-					'account_name'   => '[TITULAIRE DU COMPTE]',
+					'account_name'   => 'JEAN PAUL VANCASSEL',
 					'account_number' => '',
 					'bank_name'      => '',
 					'sort_code'      => '',
-					'iban'           => '[IBAN]',
-					'bic'            => '[BIC]',
+					'iban'           => 'FR76 1659 8000 0140 0015 0712 071',
+					'bic'            => 'FPELFR21',
 				),
 			)
 		);
-		$lines[] = __( 'Coordonnées bancaires créées avec des repères : à compléter.', 'chaud-winter' );
+		$lines[] = __( 'Coordonnées bancaires enregistrées (titulaire, IBAN, BIC).', 'chaud-winter' );
 	}
 	return $lines;
 }

@@ -35,7 +35,7 @@ Les pages créées :
 
 ## 2. Ce qu'il faut compléter à la main
 
-1. **IBAN, BIC et titulaire du compte** : WooCommerce > Réglages > Paiements > Virement bancaire. Remplacer `[IBAN]`, `[BIC]` et `[TITULAIRE DU COMPTE]`.
+1. **IBAN, BIC et titulaire du compte** : le bouton de configuration les enregistre déjà (reçus du client). Pour les changer : WooCommerce > Réglages > Paiements > Virement bancaire > Gérer.
 2. **Tarifs de livraison de la Belgique et de l'Allemagne** : WooCommerce > Réglages > Expédition. Pour chaque pays, ouvrir « Livraison à domicile » :
    - enlever `[TARIFS DE LIVRAISON]` du titre ;
    - saisir le prix de chaque classe de poids.
