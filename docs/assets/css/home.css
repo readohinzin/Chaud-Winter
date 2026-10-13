@@ -138,35 +138,286 @@
 	z-index: 1;
 }
 
-/* Flamme qui vacille, flocons qui tombent */
-.cw-flame {
+/* ------------------------------------------------------------------ */
+/* Mouvement du haut de page                                           */
+/* Tout est en CSS : sans JavaScript, l'entrée se joue quand même.     */
+/* ------------------------------------------------------------------ */
+.cw-home {
+	--cw-ease: cubic-bezier(.22, 1, .36, 1);
+}
+
+.cw-hero-inner {
+	position: relative;
+	z-index: 1;
+}
+
+/* Lueur d'ambiance qui respire lentement derrière le poêle. */
+.cw-hero-aura {
+	position: absolute;
+	right: -45%;
+	bottom: -10%;
+	width: 130vw;
+	max-width: 980px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	background: radial-gradient(circle, rgba(242, 107, 42, .16) 0%, rgba(242, 107, 42, .05) 42%, rgba(242, 107, 42, 0) 68%);
+	pointer-events: none;
+	animation: cw-aura 16s ease-in-out infinite alternate;
+}
+
+@keyframes cw-aura {
+	from { transform: translate(0, 0) scale(1); }
+	to { transform: translate(-6%, -4%) scale(1.12); }
+}
+
+/* Grain très léger, comme sur une photo : donne de la matière au fond. */
+.cw-hero::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+	opacity: .045;
+	pointer-events: none;
+}
+
+/* Entrée : sur-titre, titre ligne par ligne, texte, boutons, puis le poêle. */
+.cw-hero .cw-eyebrow,
+.cw-hero .cw-lead,
+.cw-hero .cw-cta-row,
+.cw-hero .cw-trust li {
+	animation: cw-up .9s var(--cw-ease) both;
+}
+
+.cw-hero .cw-eyebrow { animation-delay: .05s; }
+.cw-hero .cw-lead { animation-delay: .5s; }
+.cw-hero .cw-cta-row { animation-delay: .62s; }
+.cw-hero .cw-trust li:nth-child(1) { animation-delay: .78s; }
+.cw-hero .cw-trust li:nth-child(2) { animation-delay: .86s; }
+.cw-hero .cw-trust li:nth-child(3) { animation-delay: .94s; }
+
+@keyframes cw-up {
+	from { opacity: 0; transform: translateY(18px); }
+	to { opacity: 1; transform: none; }
+}
+
+/* Chaque mot du titre monte derrière un cache, l'un après l'autre. */
+.cw-w {
+	display: inline-block;
+	overflow: hidden;
+	margin: 0 -.12em -.16em 0;
+	padding: 0 .12em .16em 0;
+	vertical-align: top;
+}
+
+.cw-w > span {
+	display: inline-block;
+	animation: cw-line 1.1s var(--cw-ease) both;
+	animation-delay: calc(.12s + var(--w, 0) * .07s);
+}
+
+@keyframes cw-line {
+	from { transform: translateY(110%); }
+	to { transform: none; }
+}
+
+/* « tient tout l'hiver. » : un reflet chaud traverse les mots, une seule fois. */
+.cw-hero .cw-accent .cw-w > span {
+	background: linear-gradient(100deg, var(--cw-ember) 0 42%, #FFC9A0 50%, var(--cw-ember) 58% 100%);
+	background-position: 100% 0;
+	background-size: 260% 100%;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: cw-line 1.1s var(--cw-ease) both, cw-sheen 1.1s ease-in-out both;
+	animation-delay: calc(.12s + var(--w, 0) * .07s), calc(1.3s + (var(--w, 0) - 3) * .14s);
+}
+
+@keyframes cw-sheen {
+	from { background-position: 100% 0; }
+	to { background-position: 0 0; }
+}
+
+.cw-scene-wrap {
+	animation: cw-scene-in 1.3s var(--cw-ease) .3s both;
+}
+
+/* En attente tant que le poêle n'est pas à l'écran (ajouté par le script de l'accueil). */
+.cw-scene-wrap.cw-wait,
+.cw-scene-wrap.cw-wait * {
+	animation-play-state: paused !important;
+}
+
+@keyframes cw-scene-in {
+	from { opacity: 0; transform: translateY(26px) scale(.96); }
+	to { opacity: 1; transform: none; }
+}
+
+.cw-scene-wrap .cw-chip {
+	animation: cw-up .8s var(--cw-ease) 1s both;
+}
+
+.cw-scene-wrap .cw-float-card {
+	animation: cw-up .9s var(--cw-ease) 1.15s both;
+}
+
+/* Photo du produit à la une : zoom très lent, comme une caméra qui avance. */
+.cw-hero-photo {
+	translate: calc(var(--px, 0) * -12px) calc(var(--py, 0) * -8px);
+	animation: cw-kenburns 22s ease-in-out infinite alternate;
+}
+
+@keyframes cw-kenburns {
+	from { transform: scale(1.02); }
+	to { transform: scale(1.1); }
+}
+
+/* Le poêle s'allume : la flamme naît du bas, la lueur monte, la jauge se remplit. */
+.cw-fire,
+.cw-flame,
+.cw-flame2,
+.cw-flame3,
+.cw-heart,
+.cw-spark,
+.cw-gauge-on {
 	transform-box: fill-box;
 	transform-origin: 50% 100%;
-	animation: cw-flick 2.6s ease-in-out infinite;
+}
+
+.cw-fire {
+	animation: cw-ignite 1.4s var(--cw-ease) 1s both;
+}
+
+@keyframes cw-ignite {
+	0% { opacity: 0; transform: scale(.25, 0); }
+	35% { opacity: 1; }
+	100% { opacity: 1; transform: none; }
+}
+
+.cw-glow,
+.cw-floor {
+	animation: cw-fade-in 1.6s ease 1.1s both, cw-breathe 4.2s ease-in-out 2.7s infinite;
+}
+
+.cw-inner-light {
+	animation: cw-window-in 1.6s ease 1.1s both, cw-window 3.2s ease-in-out 2.7s infinite;
+}
+
+.cw-bed {
+	animation: cw-fade-in 1.2s ease 1s both, cw-bed 2.8s ease-in-out 2.2s infinite;
+}
+
+.cw-sparks {
+	animation: cw-fade-in 1s ease 1.8s both;
+}
+
+.cw-gauge-on {
+	transform-origin: 0 50%;
+	animation: cw-gauge 1.8s var(--cw-ease) 1.2s both;
+}
+
+@keyframes cw-fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes cw-breathe {
+	0%, 100% { opacity: 1; }
+	50% { opacity: .7; }
+}
+
+@keyframes cw-window-in {
+	from { opacity: 0; }
+	to { opacity: .14; }
+}
+
+@keyframes cw-window {
+	0%, 100% { opacity: .14; }
+	50% { opacity: .24; }
+}
+
+@keyframes cw-bed {
+	0%, 100% { opacity: 1; }
+	50% { opacity: .65; }
+}
+
+@keyframes cw-gauge {
+	from { transform: scaleX(0); }
+	to { transform: scaleX(.72); }
+}
+
+/* Trois couches de flamme à des rythmes différents : jamais deux fois le même mouvement. */
+.cw-flame {
+	animation: cw-flick 2.4s ease-in-out infinite;
 }
 
 .cw-flame2 {
-	transform-box: fill-box;
-	transform-origin: 50% 100%;
-	animation: cw-flick 1.9s ease-in-out infinite reverse;
+	animation: cw-flick2 1.7s ease-in-out infinite;
+}
+
+.cw-flame3 {
+	animation: cw-flick3 1.3s ease-in-out infinite;
+}
+
+.cw-heart {
+	animation: cw-flick3 3.1s ease-in-out infinite;
 }
 
 @keyframes cw-flick {
-	0%, 100% { transform: scale(1, 1) rotate(0); }
-	35% { transform: scale(1.05, .95) rotate(-1.2deg); }
-	70% { transform: scale(.97, 1.05) rotate(1deg); }
+	0%, 100% { transform: scale(1, 1) skewX(0); }
+	20% { transform: scale(1.03, .96) skewX(-2deg); }
+	45% { transform: scale(.97, 1.06) skewX(1.5deg); }
+	70% { transform: scale(1.02, .98) skewX(-1deg); }
 }
 
+@keyframes cw-flick2 {
+	0%, 100% { transform: scale(1, 1) skewX(0); }
+	30% { transform: scale(.95, 1.08) skewX(2.5deg); }
+	60% { transform: scale(1.04, .94) skewX(-2deg); }
+}
+
+@keyframes cw-flick3 {
+	0%, 100% { transform: scale(1, 1); }
+	50% { transform: scale(.92, 1.1); }
+}
+
+/* Petites braises qui montent dans le foyer. */
+.cw-spark {
+	opacity: 0;
+	animation: cw-spark 3s ease-out infinite;
+}
+
+.cw-spark:nth-child(even) {
+	animation-name: cw-spark2;
+}
+
+@keyframes cw-spark {
+	0% { opacity: 0; transform: translate(0, 0) scale(1); }
+	15% { opacity: 1; }
+	100% { opacity: 0; transform: translate(12px, -150px) scale(.4); }
+}
+
+@keyframes cw-spark2 {
+	0% { opacity: 0; transform: translate(0, 0) scale(1); }
+	15% { opacity: 1; }
+	100% { opacity: 0; transform: translate(-14px, -130px) scale(.4); }
+}
+
+/* Flocons dehors, en deux profondeurs. */
 .cw-snow {
-	opacity: .65;
-	animation: cw-drift 7s linear infinite;
+	animation: cw-drift 8s linear infinite;
 }
 
 @keyframes cw-drift {
 	0% { transform: translate(0, -14px); opacity: 0; }
-	15% { opacity: .7; }
-	100% { transform: translate(14px, 150px); opacity: 0; }
+	15% { opacity: 1; }
+	100% { transform: translate(16px, 170px); opacity: 0; }
 }
+
+/* Profondeur : sur ordinateur, les plans suivent la souris à des vitesses différentes. */
+.cw-depth-far { translate: calc(var(--px, 0) * -6px) calc(var(--py, 0) * -4px); }
+.cw-depth-mid { translate: calc(var(--px, 0) * 10px) calc(var(--py, 0) * 7px); }
+.cw-depth-near { translate: calc(var(--px, 0) * 24px) calc(var(--py, 0) * 16px); }
+.cw-glow { translate: calc(var(--px, 0) * -16px) calc(var(--py, 0) * -10px); }
 
 .cw-chip {
 	position: absolute;
@@ -324,11 +575,12 @@
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	transition: transform .5s;
+	transition: transform 1.2s var(--cw-ease), scale 1.6s var(--cw-ease);
 }
 
-.cw-cat:hover .cw-cat-photo {
-	transform: scale(1.04);
+.cw-cat:hover .cw-cat-photo,
+.cw-cat.is-active .cw-cat-photo {
+	transform: scale(1.06);
 }
 
 .cw-cat-art:has(.cw-cat-photo) {
@@ -409,6 +661,109 @@
 
 .cw-cat:hover .cw-arrow {
 	transform: rotate(-45deg);
+}
+
+/* Mouvement des univers ---------------------------------------------- */
+/* Titre qui monte derrière un cache (comme le titre du haut de page). */
+.cw-mask {
+	overflow: hidden;
+	margin-bottom: -.12em;
+	padding-bottom: .12em;
+}
+
+.cw-mask > span {
+	display: inline-block;
+	transition: transform 1.1s var(--cw-ease) .1s;
+}
+
+.js .cw-rv:not(.is-in) .cw-mask > span {
+	transform: translateY(105%);
+}
+
+/* Les cartes se dévoilent l'une après l'autre : le cadre s'ouvre, la photo recule. */
+.js .cw-cat.cw-rv {
+	transform: translateY(48px);
+	clip-path: inset(22% 0 0 0 round 30px);
+	transition: opacity .9s var(--cw-ease), transform 1.2s var(--cw-ease), clip-path 1.3s var(--cw-ease), box-shadow .4s;
+	transition-delay: calc(var(--i, 0) * .14s);
+}
+
+.js .cw-cat.cw-rv.is-in {
+	transform: none;
+	clip-path: inset(0 0 0 0 round 30px);
+}
+
+.js .cw-cat.cw-rv .cw-cat-photo,
+.js .cw-cat.cw-rv .cw-cat-art svg {
+	scale: 1.2;
+	transition-delay: calc(var(--i, 0) * .14s);
+}
+
+.js .cw-cat.cw-rv.is-in .cw-cat-photo,
+.js .cw-cat.cw-rv.is-in .cw-cat-art svg {
+	scale: 1;
+}
+
+.js .cw-cat.cw-rv .cw-cat-body,
+.js .cw-cat.cw-rv .cw-cat-num {
+	opacity: 0;
+	translate: 0 16px;
+	transition: opacity .8s var(--cw-ease), translate 1s var(--cw-ease);
+	transition-delay: calc(var(--i, 0) * .14s + .4s);
+}
+
+.js .cw-cat.cw-rv.is-in .cw-cat-body,
+.js .cw-cat.cw-rv.is-in .cw-cat-num {
+	opacity: 1;
+	translate: none;
+}
+
+/* Une fois dévoilée, la carte réagit tout de suite (plus de délai, plus de cadre). */
+.js .cw-cat.cw-rv.is-done,
+.js .cw-cat.cw-rv.is-done .cw-cat-photo,
+.js .cw-cat.cw-rv.is-done .cw-cat-art svg {
+	transition-delay: 0s;
+}
+
+.js .cw-cat.cw-rv.is-done {
+	clip-path: none;
+	transition: transform .6s var(--cw-ease), box-shadow .5s;
+}
+
+/* Survol : la carte s'incline vers la souris, une lueur braise la suit. */
+.cw-cat::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	border-radius: inherit;
+	background: radial-gradient(460px circle at var(--mx, 70%) var(--my, 85%), rgba(242, 107, 42, .26), rgba(242, 107, 42, 0) 60%);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity .6s;
+	mix-blend-mode: screen;
+}
+
+.cw-cat:hover::after,
+.cw-cat.is-active::after {
+	opacity: 1;
+}
+
+.js .cw-light .cw-cat.is-done:hover {
+	transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-6px);
+	transition: transform .25s ease-out, box-shadow .5s;
+}
+
+.cw-cat.is-active .cw-arrow {
+	transform: rotate(-45deg);
+}
+
+.cw-arrow {
+	transition: transform .5s var(--cw-ease), box-shadow .5s;
+}
+
+.cw-cat:hover .cw-arrow,
+.cw-cat.is-active .cw-arrow {
+	box-shadow: 0 0 0 8px rgba(242, 107, 42, .16);
 }
 
 /* ------------------------------------------------------------------ */
@@ -1039,16 +1394,41 @@
 	}
 }
 
-/* « Réduire les animations » : flamme et flocons immobiles. */
+/* « Réduire les animations » : tout est en place d'emblée, rien ne bouge. */
 @media (prefers-reduced-motion: reduce) {
 	.cw-flame,
 	.cw-flame2,
-	.cw-snow {
+	.cw-flame3,
+	.cw-heart,
+	.cw-snow,
+	.cw-spark,
+	.cw-hero-aura,
+	.cw-hero-photo {
 		animation: none;
+	}
+
+	.cw-spark {
+		opacity: 0;
 	}
 
 	.cw-snow {
 		opacity: .5;
+	}
+
+	.js .cw-cat.cw-rv,
+	.js .cw-cat.cw-rv .cw-cat-body,
+	.js .cw-cat.cw-rv .cw-cat-num {
+		clip-path: none;
+		opacity: 1;
+		transform: none;
+		translate: none;
+	}
+
+	.js .cw-cat.cw-rv .cw-cat-photo,
+	.js .cw-cat.cw-rv .cw-cat-art svg,
+	.js .cw-rv .cw-mask > span {
+		scale: 1;
+		transform: none;
 	}
 }
 

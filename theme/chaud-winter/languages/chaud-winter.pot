@@ -7,248 +7,248 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Domain: chaud-winter\n"
 
-#: front-page.php:72
+#: front-page.php:73
 msgid "Poêles · Chaudières · Granulés"
 msgstr ""
 
-#: front-page.php:73
+#: front-page.php:74
 msgid "Une chaleur qui"
 msgstr ""
 
-#: front-page.php:73
+#: front-page.php:74
 msgid "tient tout l'hiver."
 msgstr ""
 
-#: front-page.php:74
+#: front-page.php:75
 msgid "Poêles à granulés, poêles à bois et chaudières : des appareils choisis avec soin, livrés en France, en Belgique et en Allemagne."
 msgstr ""
 
-#: front-page.php:76
+#: front-page.php:77
 msgid "Découvrir la boutique"
 msgstr ""
 
-#: front-page.php:77
+#: front-page.php:78
 msgid "Trouver ma puissance"
 msgstr ""
 
-#: front-page.php:80
+#: front-page.php:81
 msgid "Prix TTC en euros"
 msgstr ""
 
-#: front-page.php:81 inc/pages.php:21
+#: front-page.php:82 inc/pages.php:21
 msgid "Paiement par virement"
 msgstr ""
 
-#: front-page.php:82
+#: front-page.php:83
 msgid "Conseil avant achat"
 msgstr ""
 
-#: front-page.php:111
+#: front-page.php:112
 msgid "À la une"
 msgstr ""
 
-#: front-page.php:119 inc/woocommerce.php:292 template-parts/product-card.php:43
+#: front-page.php:120 inc/woocommerce.php:292 template-parts/product-card.php:43
 msgid "TTC"
 msgstr ""
 
-#: front-page.php:127
+#: front-page.php:128
 msgid "Nos engagements"
 msgstr ""
 
-#: front-page.php:131 inc/setup.php:322
+#: front-page.php:132 inc/setup.php:322
 msgid "Livraison offerte en France métropolitaine"
 msgstr ""
 
-#: front-page.php:131
+#: front-page.php:132
 msgid "Aussi en Belgique et en Allemagne"
 msgstr ""
 
-#: front-page.php:135
+#: front-page.php:136
 msgid "Paiement par virement bancaire"
 msgstr ""
 
-#: front-page.php:135
+#: front-page.php:136
 msgid "Virement SEPA, en euros"
 msgstr ""
 
-#: front-page.php:139
+#: front-page.php:140
 msgid "Garantie constructeur"
 msgstr ""
 
-#: front-page.php:143 inc/layout.php:36
+#: front-page.php:144 inc/layout.php:36
 msgid "Conseil par téléphone"
 msgstr ""
 
-#: front-page.php:152
+#: front-page.php:153
 msgid "Nos univers"
 msgstr ""
 
-#: front-page.php:153
+#: front-page.php:154
 msgid "Trois façons de chauffer votre maison"
 msgstr ""
 
-#: front-page.php:199
+#: front-page.php:200
 msgid "Assistant de choix"
 msgstr ""
 
-#: front-page.php:200
+#: front-page.php:201
 msgid "Quelle puissance pour votre maison ?"
 msgstr ""
 
-#: front-page.php:201
+#: front-page.php:202
 msgid "Indiquez la surface et l'isolation : on vous montre les appareils adaptés. Un conseiller peut ensuite confirmer votre choix."
 msgstr ""
 
-#: front-page.php:205
+#: front-page.php:206
 msgid "Surface à chauffer"
 msgstr ""
 
-#: front-page.php:210
+#: front-page.php:211
 msgid "Isolation du logement"
 msgstr ""
 
-#: front-page.php:214
+#: front-page.php:215
 msgid "Bien isolée"
 msgstr ""
 
-#: front-page.php:215
+#: front-page.php:216
 msgid "Isolation moyenne"
 msgstr ""
 
-#: front-page.php:216
+#: front-page.php:217
 msgid "Peu isolée"
 msgstr ""
 
-#: front-page.php:224
+#: front-page.php:225
 msgid "Environ <b>14 kW</b>"
 msgstr ""
 
-#: front-page.php:225
+#: front-page.php:226
 msgid "Gamme conseillée : de 11 à 17 kW."
 msgstr ""
 
-#: front-page.php:227
+#: front-page.php:228
 msgid "Voir les appareils de 11 à 17 kW"
 msgstr ""
 
-#: front-page.php:230
+#: front-page.php:231
 msgid "Estimation indicative, à confirmer par un conseiller selon votre logement."
 msgstr ""
 
-#: front-page.php:240
+#: front-page.php:241
 msgid "La boutique"
 msgstr ""
 
-#: front-page.php:241
+#: front-page.php:242
 msgid "Nos appareils"
 msgstr ""
 
-#: front-page.php:243
+#: front-page.php:244
 msgid "Voir tous les produits"
 msgstr ""
 
-#: front-page.php:247
+#: front-page.php:248
 msgid "Les produits arrivent bientôt."
 msgstr ""
 
-#: front-page.php:249
+#: front-page.php:250
 msgid "Catégories de produits"
 msgstr ""
 
-#: front-page.php:259
+#: front-page.php:260
 msgid "Voir tous les appareils"
 msgstr ""
 
-#: front-page.php:280
+#: front-page.php:281
 msgid "Voir l'autre modèle"
 msgid_plural "Voir les %d autres modèles"
 msgstr[0] ""
 msgstr[1] ""
 
-#: front-page.php:295
+#: front-page.php:296
 msgid "Comment commander"
 msgstr ""
 
-#: front-page.php:296
+#: front-page.php:297
 msgid "Simple, de l'écran à votre salon"
 msgstr ""
 
-#: front-page.php:299
+#: front-page.php:300
 msgid "Choisissez votre appareil"
 msgstr ""
 
-#: front-page.php:299
+#: front-page.php:300
 msgid "Filtrez par puissance, comparez les modèles ou demandez à être rappelé par un conseiller."
 msgstr ""
 
-#: front-page.php:300
+#: front-page.php:301
 msgid "Passez commande"
 msgstr ""
 
-#: front-page.php:300
+#: front-page.php:301
 msgid "Vous recevez le récapitulatif et les coordonnées bancaires à l'écran et par e-mail."
 msgstr ""
 
-#: front-page.php:301
+#: front-page.php:302
 msgid "Réglez par virement"
 msgstr ""
 
-#: front-page.php:301
+#: front-page.php:302
 msgid "Dès réception du virement, la commande est préparée et expédiée en France, en Belgique ou en Allemagne."
 msgstr ""
 
-#: front-page.php:301
+#: front-page.php:302
 msgid "Envoyez-nous la preuve de virement par e-mail pour accélérer le traitement."
 msgstr ""
 
-#: front-page.php:310
+#: front-page.php:311
 msgid "Les marques de la boutique"
 msgstr ""
 
-#: front-page.php:324
+#: front-page.php:325
 msgid "Un doute sur le bon modèle ?"
 msgstr ""
 
-#: front-page.php:325
+#: front-page.php:326
 msgid "Dites-nous la surface à chauffer et le type de logement. On vous oriente vers l'appareil adapté."
 msgstr ""
 
-#: front-page.php:328 inc/layout.php:79 inc/setup.php:599
+#: front-page.php:329 inc/layout.php:79 inc/setup.php:599
 msgid "Être rappelé"
 msgstr ""
 
-#: front-page.php:330 page-contact.php:44
+#: front-page.php:331 page-contact.php:44
 msgid "Écrire sur WhatsApp"
 msgstr ""
 
-#: front-page.php:341
+#: front-page.php:342
 msgid "Avis clients"
 msgstr ""
 
-#: front-page.php:342
+#: front-page.php:343
 msgid "Ils nous font confiance"
 msgstr ""
 
-#: front-page.php:351
+#: front-page.php:352
 #, php-format
 msgid "%1$s/10 · %2$d avis"
 msgid_plural "%1$s/10 · %2$d avis"
 msgstr[0] ""
 msgstr[1] ""
 
-#: front-page.php:377
+#: front-page.php:378
 msgid "Guides"
 msgstr ""
 
-#: front-page.php:378
+#: front-page.php:379
 msgid "Conseils pour bien choisir"
 msgstr ""
 
-#: front-page.php:380
+#: front-page.php:381
 msgid "Tous les guides"
 msgstr ""
 
-#: front-page.php:395
+#: front-page.php:396
 msgid "Guide"
 msgstr ""
 

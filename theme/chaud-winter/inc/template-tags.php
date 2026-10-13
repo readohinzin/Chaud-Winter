@@ -179,3 +179,20 @@ function cw_menu_fallback( $args ) {
 	}
 	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput -- échappé plus haut.
 }
+
+/**
+ * Découpe un titre en mots pour les faire apparaître l'un après l'autre.
+ * Le texte reste lisible tel quel par les lecteurs d'écran et les moteurs de recherche.
+ *
+ * @param string $text  Texte du titre.
+ * @param int    $start Rang du premier mot (pour enchaîner deux morceaux de titre).
+ * @return string
+ */
+function cw_split_words( $text, $start = 0 ) {
+	$words = preg_split( '/\s+/u', trim( (string) $text ) );
+	$out   = array();
+	foreach ( $words as $i => $word ) {
+		$out[] = sprintf( '<span class="cw-w"><span style="--w:%d">%s</span></span>', $start + $i, esc_html( $word ) );
+	}
+	return implode( ' ', $out );
+}

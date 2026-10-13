@@ -67,10 +67,11 @@ $cw_whatsapp = cw_whatsapp_url();
 
 	<!-- Hero -->
 	<section class="cw-hero">
+		<div class="cw-hero-aura" aria-hidden="true"></div>
 		<div class="cw-wrap cw-hero-inner">
 			<div>
 				<div class="cw-eyebrow"><?php esc_html_e( 'Poêles · Chaudières · Granulés', 'chaud-winter' ); ?></div>
-				<h1><?php esc_html_e( 'Une chaleur qui', 'chaud-winter' ); ?> <span class="cw-accent cw-it"><?php esc_html_e( 'tient tout l\'hiver.', 'chaud-winter' ); ?></span></h1>
+				<h1><?php echo cw_split_words( __( 'Une chaleur qui', 'chaud-winter' ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- échappé dans la fonction. ?> <span class="cw-accent cw-it"><?php echo cw_split_words( __( 'tient tout l\'hiver.', 'chaud-winter' ), 3 ); // phpcs:ignore WordPress.Security.EscapeOutput ?></span></h1>
 				<p class="cw-lead"><?php esc_html_e( 'Poêles à granulés, poêles à bois et chaudières : des appareils choisis avec soin, livrés en France, en Belgique et en Allemagne.', 'chaud-winter' ); ?></p>
 				<div class="cw-cta-row">
 					<a href="#boutique" class="cw-btn cw-btn-primary"><?php esc_html_e( 'Découvrir la boutique', 'chaud-winter' ); ?></a>
@@ -150,7 +151,7 @@ $cw_whatsapp = cw_whatsapp_url();
 		<div class="cw-wrap">
 			<div class="cw-rv">
 				<div class="cw-eyebrow"><?php esc_html_e( 'Nos univers', 'chaud-winter' ); ?></div>
-				<h2 class="cw-h2 cw-narrow"><?php esc_html_e( 'Trois façons de chauffer votre maison', 'chaud-winter' ); ?></h2>
+				<h2 class="cw-h2 cw-narrow cw-mask"><span><?php esc_html_e( 'Trois façons de chauffer votre maison', 'chaud-winter' ); ?></span></h2>
 			</div>
 			<div class="cw-cats">
 				<?php
@@ -158,7 +159,7 @@ $cw_whatsapp = cw_whatsapp_url();
 				foreach ( $cw_universes as $cw_slug => $cw_universe ) :
 					++$cw_n;
 					?>
-					<a href="<?php echo esc_url( cw_category_url( $cw_slug ) ); ?>" class="cw-cat cw-rv">
+					<a href="<?php echo esc_url( cw_category_url( $cw_slug ) ); ?>" class="cw-cat cw-rv" style="--i:<?php echo (int) $cw_n - 1; ?>">
 						<span class="cw-cat-num"><?php echo esc_html( sprintf( '%02d', $cw_n ) ); ?></span>
 						<span class="cw-cat-art">
 							<?php

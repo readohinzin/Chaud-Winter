@@ -153,3 +153,82 @@
 
 	calc();
 })();
+
+/* Mouvement : profondeur du haut de page et cartes des univers. Rien ne bouge si
+   « réduire les animations » est activé. */
+(function () {
+	'use strict';
+
+	var mq = function (q) { return window.matchMedia ? window.matchMedia(q).matches : false; };
+	if (mq('(prefers-reduced-motion: reduce)')) { return; }
+	var fine = mq('(hover: hover) and (pointer: fine)');
+	var cards = Array.prototype.slice.call(document.querySelectorAll('.cw-cat'));
+
+	// Sur téléphone, le poêle est sous l'écran au chargement : il s'allume quand on le voit.
+	var wrap = document.querySelector('.cw-scene-wrap');
+	if (wrap && 'IntersectionObserver' in window && wrap.getBoundingClientRect().top > window.innerHeight * 0.75) {
+		wrap.classList.add('cw-wait');
+		var lit = new IntersectionObserver(function (entries) {
+			if (entries[0].isIntersecting) {
+				wrap.classList.remove('cw-wait');
+				lit.disconnect();
+			}
+		}, { threshold: 0.3 });
+		lit.observe(wrap);
+	}
+
+	// Les cartes deviennent réactives dès qu'elles ont fini de se dévoiler.
+	cards.forEach(function (card) {
+		card.addEventListener('transitionend', function (e) {
+			if (e.target === card && e.propertyName === 'clip-path' && card.classList.contains('is-in')) {
+				card.classList.add('is-done');
+			}
+		});
+	});
+
+	if (fine) {
+		// Haut de page : les plans de l'illustration suivent la souris, avec un léger retard.
+		var hero = document.querySelector('.cw-hero');
+		var scene = document.querySelector('.cw-scene-wrap');
+		if (hero && scene) {
+			var tx = 0, ty = 0, cx = 0, cy = 0, raf = 0;
+			var loop = function () {
+				cx += (tx - cx) * 0.07;
+				cy += (ty - cy) * 0.07;
+				scene.style.setProperty('--px', cx.toFixed(3));
+				scene.style.setProperty('--py', cy.toFixed(3));
+				raf = Math.abs(tx - cx) + Math.abs(ty - cy) > 0.002 ? window.requestAnimationFrame(loop) : 0;
+			};
+			var kick = function () { if (!raf) { raf = window.requestAnimationFrame(loop); } };
+			hero.addEventListener('pointermove', function (e) {
+				var r = scene.getBoundingClientRect();
+				tx = Math.max(-1, Math.min(1, (e.clientX - r.left - r.width / 2) / (r.width / 2)));
+				ty = Math.max(-1, Math.min(1, (e.clientY - r.top - r.height / 2) / (r.height / 2)));
+				kick();
+			});
+			hero.addEventListener('pointerleave', function () { tx = 0; ty = 0; kick(); });
+		}
+
+		// Univers : la carte s'incline vers la souris, une lueur suit le curseur.
+		cards.forEach(function (card) {
+			card.addEventListener('pointermove', function (e) {
+				var r = card.getBoundingClientRect();
+				var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+				card.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+				card.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+				card.style.setProperty('--rx', ((0.5 - y) * 5).toFixed(2) + 'deg');
+				card.style.setProperty('--ry', ((x - 0.5) * 7).toFixed(2) + 'deg');
+			});
+			card.addEventListener('pointerleave', function () {
+				card.style.setProperty('--rx', '0deg');
+				card.style.setProperty('--ry', '0deg');
+			});
+		});
+	} else if ('IntersectionObserver' in window) {
+		// Téléphone : la carte au centre de l'écran s'anime (photo, lueur, flèche).
+		var io = new IntersectionObserver(function (entries) {
+			entries.forEach(function (e) { e.target.classList.toggle('is-active', e.isIntersecting); });
+		}, { rootMargin: '-40% 0px -40% 0px' });
+		cards.forEach(function (card) { io.observe(card); });
+	}
+})();

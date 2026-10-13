@@ -1033,8 +1033,10 @@ h1, h2, h3, h4, h5, h6 {
 	*::before,
 	*::after {
 		animation-duration: .01ms !important;
+		animation-delay: 0s !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: .01ms !important;
+		transition-delay: 0s !important;
 	}
 
 	.js .cw-rv {
