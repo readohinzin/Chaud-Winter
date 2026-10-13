@@ -220,3 +220,69 @@ function cw_add_to_cart_button( $product ) {
 		esc_html( $label )
 	);
 }
+
+/**
+ * Photos dont le feu est animé dans le haut de la page d'accueil.
+ *
+ * Pour chaque produit (clé = nom du produit passé par sanitize_title), les positions sont des
+ * fractions de la photo (0 à 1, depuis le coin en haut à gauche) :
+ *  - flame : le feu lui-même (zone qui ondule),
+ *  - glass : la vitre du foyer (la lueur et les braises n'en sortent pas).
+ * Un produit absent de cette liste garde sa photo fixe.
+ *
+ * @return array
+ */
+function cw_flame_zones() {
+	return array(
+		'vulcano-silenzio' => array(
+			'flame' => array( 'x' => 0.450, 'y' => 0.325, 'w' => 0.100, 'h' => 0.175 ),
+			'glass' => array( 'x' => 0.427, 'y' => 0.296, 'w' => 0.145, 'h' => 0.243 ),
+		),
+	);
+}
+
+/**
+ * Affiche, par-dessus la photo à la une, le feu animé (si ce produit a une zone de feu).
+ *
+ * @param array $src  Photo : array( url, largeur, hauteur ), comme wp_get_attachment_image_src().
+ * @param array $zone Zones de feu (voir cw_flame_zones()).
+ */
+function cw_flame_fx( $src, $zone ) {
+	list( $url, $w, $h ) = $src;
+	$px = function ( $r ) use ( $w, $h ) {
+		return array(
+			'x' => round( $r['x'] * $w, 1 ),
+			'y' => round( $r['y'] * $h, 1 ),
+			'w' => round( $r['w'] * $w, 1 ),
+			'h' => round( $r['h'] * $h, 1 ),
+		);
+	};
+	$f = $px( $zone['flame'] );
+	$g = $px( $zone['glass'] );
+	// Position du feu à l'intérieur de la vitre (pour la lueur et les braises).
+	$fx = $f['x'] + $f['w'] / 2 - $g['x'];
+	$fy = $f['y'] + $f['h'] * 0.88 - $g['y'];
+	?>
+	<div class="cw-fx" aria-hidden="true" data-w="<?php echo (int) $w; ?>" data-h="<?php echo (int) $h; ?>" style="width:<?php echo (int) $w; ?>px;height:<?php echo (int) $h; ?>px">
+		<svg class="cw-fx-defs" width="0" height="0" focusable="false">
+			<filter id="cw-warp" x="-25%" y="-15%" width="150%" height="130%" color-interpolation-filters="sRGB">
+				<feTurbulence type="turbulence" baseFrequency="0.018 0.05" numOctaves="2" seed="4" result="noise">
+					<animate attributeName="baseFrequency" dur="6s" values="0.018 0.050;0.024 0.064;0.016 0.044;0.021 0.057;0.018 0.050" repeatCount="indefinite"></animate>
+				</feTurbulence>
+				<feDisplacementMap in="SourceGraphic" in2="noise" scale="11" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+			</filter>
+		</svg>
+		<div class="cw-fx-glass" style="left:<?php echo esc_attr( $g['x'] ); ?>px;top:<?php echo esc_attr( $g['y'] ); ?>px;width:<?php echo esc_attr( $g['w'] ); ?>px;height:<?php echo esc_attr( $g['h'] ); ?>px;--fx:<?php echo esc_attr( $fx ); ?>px;--fy:<?php echo esc_attr( $fy ); ?>px">
+			<span class="cw-fx-glow"></span>
+			<span class="cw-fx-core"></span>
+			<?php for ( $i = 0; $i < 7; $i++ ) : ?>
+				<i class="cw-fx-ember" style="--ex:<?php echo (int) ( ( $i * 5 ) % 13 - 6 ); ?>px;--ed:<?php echo esc_attr( 2.6 + ( $i * 0.37 ) ); ?>s;--et:-<?php echo esc_attr( $i * 0.9 ); ?>s;--eh:<?php echo (int) ( 70 + ( $i * 17 ) % 50 ); ?>px"></i>
+			<?php endfor; ?>
+		</div>
+		<div class="cw-fx-flame" style="left:<?php echo esc_attr( $f['x'] ); ?>px;top:<?php echo esc_attr( $f['y'] ); ?>px;width:<?php echo esc_attr( $f['w'] ); ?>px;height:<?php echo esc_attr( $f['h'] ); ?>px">
+			<span class="cw-fx-flame-img" style="background-image:url('<?php echo esc_url( $url ); ?>');background-size:<?php echo esc_attr( $w ); ?>px <?php echo esc_attr( $h ); ?>px;background-position:-<?php echo esc_attr( $f['x'] ); ?>px -<?php echo esc_attr( $f['y'] ); ?>px"></span>
+		</div>
+	</div>
+	<?php
+}
+

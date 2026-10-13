@@ -265,8 +265,11 @@
 	to { transform: translateY(-7px); }
 }
 
-/* Photo du produit à la une : zoom très lent, comme une caméra qui avance. */
-.cw-hero-photo {
+/* Photo du produit à la une : zoom très lent, comme une caméra qui avance.
+   La photo et le feu animé sont dans le même cadre : ils bougent ensemble. */
+.cw-hero-media {
+	position: absolute;
+	inset: 0;
 	translate: calc(var(--px, 0) * -12px) calc(var(--py, 0) * -8px);
 	animation: cw-kenburns 22s ease-in-out infinite alternate;
 }
@@ -1714,8 +1717,12 @@
 	.cw-snow,
 	.cw-spark,
 	.cw-hero-aura,
-	.cw-hero-photo {
+	.cw-hero-media {
 		animation: none;
+	}
+
+	.cw-fx {
+		display: none;
 	}
 
 	.cw-spark {
@@ -1901,4 +1908,133 @@
 	.cw-progress {
 		display: none;
 	}
+}
+
+
+/* ------------------------------------------------------------------ */
+/* Feu animé dans la photo du produit à la une                         */
+/* Le cadre .cw-fx a la taille de la photo (en pixels de la photo) ; le */
+/* script le met à l'échelle pour qu'il recouvre exactement l'image.   */
+/* ------------------------------------------------------------------ */
+.cw-fx {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	opacity: 0;
+	pointer-events: none;
+	transform-origin: 0 0;
+	transition: opacity 1.4s ease;
+}
+
+.cw-fx.is-on {
+	opacity: 1;
+}
+
+.cw-fx-defs {
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+
+/* La vitre : la lueur et les braises restent à l'intérieur du foyer. */
+.cw-fx-glass {
+	position: absolute;
+	overflow: hidden;
+	border-radius: 3px;
+}
+
+.cw-fx-glow,
+.cw-fx-core {
+	position: absolute;
+	border-radius: 50%;
+	mix-blend-mode: screen;
+}
+
+.cw-fx-glow {
+	left: calc(var(--fx) - 130px);
+	top: calc(var(--fy) - 190px);
+	width: 260px;
+	height: 260px;
+	background: radial-gradient(circle, rgba(255, 150, 50, .55) 0%, rgba(255, 110, 30, .2) 38%, rgba(255, 90, 20, 0) 68%);
+	animation: cw-fx-glow 2.3s ease-in-out infinite;
+}
+
+.cw-fx-core {
+	left: calc(var(--fx) - 34px);
+	top: calc(var(--fy) - 62px);
+	width: 68px;
+	height: 76px;
+	background: radial-gradient(ellipse, rgba(255, 226, 150, .55) 0%, rgba(255, 190, 90, .18) 50%, rgba(255, 170, 70, 0) 72%);
+	animation: cw-fx-core 1.1s ease-in-out infinite;
+}
+
+@keyframes cw-fx-glow {
+	0%, 100% { opacity: .55; transform: scale(.96); }
+	18% { opacity: .95; transform: scale(1.03); }
+	41% { opacity: .62; transform: scale(.98); }
+	66% { opacity: 1; transform: scale(1.05); }
+	83% { opacity: .7; transform: scale(1); }
+}
+
+@keyframes cw-fx-core {
+	0%, 100% { opacity: .6; transform: scale(1, .95); }
+	30% { opacity: 1; transform: scale(1.06, 1.08); }
+	55% { opacity: .5; transform: scale(.94, .92); }
+	78% { opacity: .9; transform: scale(1.03, 1.04); }
+}
+
+/* Le feu : la vraie photo du feu, déformée par un bruit qui se transforme (filtre SVG),
+   étirée et inclinée par à-coups. Les bords se fondent dans la photo fixe en dessous. */
+.cw-fx-flame {
+	position: absolute;
+	overflow: hidden;
+	filter: url(#cw-warp);
+	-webkit-mask-image: radial-gradient(ellipse 50% 52% at 50% 56%, #000 54%, rgba(0, 0, 0, 0) 100%);
+	mask-image: radial-gradient(ellipse 50% 52% at 50% 56%, #000 54%, rgba(0, 0, 0, 0) 100%);
+}
+
+.cw-fx-flame-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	transform-origin: 50% 88%;
+	animation: cw-fx-flame 2.9s ease-in-out infinite;
+}
+
+@keyframes cw-fx-flame {
+	0%, 100% { transform: scale(1, 1) skewX(0); }
+	14% { transform: scale(.985, 1.045) skewX(-1.6deg); }
+	29% { transform: scale(1.01, .975) skewX(1.2deg); }
+	47% { transform: scale(.99, 1.07) skewX(-.8deg); }
+	63% { transform: scale(1.015, .985) skewX(1.8deg); }
+	81% { transform: scale(.995, 1.03) skewX(-1.2deg); }
+}
+
+/* Braises : de petits points qui montent dans le foyer et s'éteignent. */
+.cw-fx-ember {
+	position: absolute;
+	left: var(--fx);
+	top: var(--fy);
+	width: 3px;
+	height: 3px;
+	border-radius: 50%;
+	background: #FFC27A;
+	box-shadow: 0 0 6px 1px rgba(255, 150, 60, .9);
+	opacity: 0;
+	mix-blend-mode: screen;
+	animation: cw-fx-ember var(--ed) ease-out infinite;
+	animation-delay: var(--et);
+}
+
+@keyframes cw-fx-ember {
+	0% { opacity: 0; transform: translate(0, 0) scale(1); }
+	12% { opacity: 1; }
+	100% { opacity: 0; transform: translate(var(--ex), calc(var(--eh) * -1)) scale(.35); }
+}
+
+/* Hors de l'écran, tout est mis en pause (économie de batterie). */
+.cw-fx.is-paused *,
+.cw-fx.is-paused {
+	animation-play-state: paused !important;
 }

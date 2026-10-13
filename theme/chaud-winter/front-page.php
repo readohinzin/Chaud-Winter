@@ -88,6 +88,10 @@ $cw_whatsapp = cw_whatsapp_url();
 				<?php
 				// Photo du produit mis en avant ; sinon l'illustration animée de la maquette.
 				if ( $cw_featured && $cw_featured->get_image_id() ) {
+					$cw_fire = cw_flame_zones();
+					$cw_fire = isset( $cw_fire[ sanitize_title( $cw_featured->get_name() ) ] ) ? $cw_fire[ sanitize_title( $cw_featured->get_name() ) ] : null;
+					$cw_src  = $cw_fire ? wp_get_attachment_image_src( $cw_featured->get_image_id(), 'large' ) : null;
+					echo '<div class="cw-hero-media">';
 					echo wp_get_attachment_image(
 						$cw_featured->get_image_id(),
 						'large',
@@ -100,6 +104,10 @@ $cw_whatsapp = cw_whatsapp_url();
 							'sizes'         => '(min-width: 981px) 560px, 100vw',
 						)
 					);
+					if ( $cw_src ) {
+						cw_flame_fx( $cw_src, $cw_fire );
+					}
+					echo '</div>';
 				} else {
 					echo file_get_contents( CW_DIR . '/assets/svg/hero.svg' ); // phpcs:ignore WordPress.Security.EscapeOutput, WordPress.WP.AlternativeFunctions -- illustration du thème.
 				}

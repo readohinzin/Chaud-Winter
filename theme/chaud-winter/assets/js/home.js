@@ -319,3 +319,36 @@
 	}, { passive: true });
 	update();
 })();
+
+/* Feu animé de la photo à la une : cale le cadre du feu sur la photo (même recadrage que l'image),
+   et met l'animation en pause quand elle n'est pas à l'écran. */
+(function () {
+	'use strict';
+
+	var fx = document.querySelector('.cw-fx');
+	var media = document.querySelector('.cw-hero-media');
+	if (!fx || !media) { return; }
+	if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { return; }
+
+	var w = parseInt(fx.getAttribute('data-w'), 10), h = parseInt(fx.getAttribute('data-h'), 10);
+	if (!w || !h) { return; }
+	var svg = fx.querySelector('svg');
+
+	// La photo remplit le cadre en le recouvrant (comme object-fit: cover), centrée.
+	function layout() {
+		var s = Math.max(media.clientWidth / w, media.clientHeight / h);
+		fx.style.transform = 'translate(' + (-w * s / 2) + 'px,' + (-h * s / 2) + 'px) scale(' + s + ')';
+	}
+
+	layout();
+	if ('ResizeObserver' in window) { new ResizeObserver(layout).observe(media); } else { window.addEventListener('resize', layout); }
+	window.requestAnimationFrame(function () { fx.classList.add('is-on'); });
+
+	if ('IntersectionObserver' in window) {
+		new IntersectionObserver(function (entries) {
+			var on = entries[0].isIntersecting;
+			fx.classList.toggle('is-paused', !on);
+			if (svg && svg.pauseAnimations) { if (on) { svg.unpauseAnimations(); } else { svg.pauseAnimations(); } }
+		}, { threshold: 0.05 }).observe(media);
+	}
+})();
