@@ -25,5 +25,8 @@ Si tu ne fais rien, l'en-tête affiche automatiquement les catégories de produi
 ## 5. Régler la boutique
 Voir **`REGLAGES_BOUTIQUE.md`** : un bouton applique les réglages (pays, TVA, virement, livraison), puis quelques champs à compléter.
 
+## 6. Importer les produits
+Voir **`IMPORT_PRODUITS.md`**.
+
 ## Mettre à jour le thème
 Même méthode qu'à l'étape 2 : WordPress propose de **remplacer** la version installée par celle du zip.

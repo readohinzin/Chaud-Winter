@@ -38,6 +38,18 @@ Ces informations n'étaient pas dans la liste de départ mais sont obligatoires 
 
 Un rappel orange dans le tableau de bord liste les pages qui contiennent encore des repères.
 
+## Catalogue (après l'import de `produits.csv`)
+
+| | À faire | Où |
+|---|---|---|
+| ☐ | **Remplacer les prix d'exemple** par les vrais prix (ceux du fichier viennent d'autres sites) | Fichier CSV puis réimport, ou fiche de chaque produit |
+| ☐ | Photos des fournisseurs | Fiche produit > Image du produit |
+| ☐ | Poids et classe de livraison de chaque appareil | Fiche produit > Expédition |
+| ☐ | Descriptions longues (pas de texte copié sur les sites concurrents) | Fiche produit |
+| ☐ | Reste du catalogue des fournisseurs | Nouvelles lignes dans le CSV |
+
+Voir `IMPORT_PRODUITS.md`.
+
 ## Contenus facultatifs de l'accueil
 
 Ces blocs restent **cachés** tant qu'ils ne sont pas remplis : rien de faux ne s'affiche.

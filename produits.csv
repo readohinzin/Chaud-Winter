@@ -1,0 +1,55 @@
+Type,SKU,Name,Published,Is featured?,Visibility in catalog,Short description,Description,Tax status,Tax class,In stock?,Backorders allowed?,Weight (kg),Shipping class,Regular price,Categories,Brands,Images,Position,Attribute 1 name,Attribute 1 value(s),Attribute 1 visible,Attribute 1 global,Attribute 2 name,Attribute 2 value(s),Attribute 2 visible,Attribute 2 global
+simple,FIREMATIC-C12,C12,1,0,visible,Ventilé étanche,,taxable,,1,0,,,1023.20,Poêles à granulés,Firematic,,1,Puissance,"11\,6 kW",1,1,Marque,Firematic,1,1
+simple,FIREMATIC-O9,O9,1,0,visible,Oval étanche,,taxable,,1,0,,,908.18,Poêles à granulés,Firematic,,2,Puissance,"7\,9 kW",1,1,Marque,Firematic,1,1
+simple,ETNA-VULCANO-SILENZIO-UP,Vulcano Silenzio UP,1,0,visible,"Étanche, sortie dessus concentrique",,taxable,,1,0,,,1299,Poêles à granulés,ETNA,,3,Puissance,"9\,2 kW",1,1,Marque,ETNA,1,1
+simple,ETNA-LUXE-CAYENNE-14,Cayenne 14,1,0,visible,Poêle à granulés,,taxable,,1,0,,,1899,Poêles à granulés,ETNA Luxe,,4,Puissance,14 kW,1,1,Marque,ETNA Luxe,1,1
+simple,ETNA-LUXE-CAYENNE-16,Cayenne 16,1,0,visible,Poêle à granulés,,taxable,,1,0,,,1975,Poêles à granulés,ETNA Luxe,,5,Puissance,16 kW,1,1,Marque,ETNA Luxe,1,1
+simple,ETNA-MINI-5,Mini 5,1,0,visible,Extra plat,,taxable,,1,0,,,749,Poêles à granulés,ETNA,,6,Puissance,5 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-MINI-6-8,"Mini 6,8",1,0,visible,Extra plat,,taxable,,1,0,,,799,Poêles à granulés,ETNA,,7,Puissance,"6\,8 kW",1,1,Marque,ETNA,1,1
+simple,ETNA-LITTLE,Little,1,0,visible,Poêle à granulés,,taxable,,1,0,,,799,Poêles à granulés,ETNA,,8,Puissance,6 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-ORCINO,Orcino,1,0,visible,Extra plat,,taxable,,1,0,,,1101,Poêles à granulés,ETNA,,9,Puissance,7 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-FANGO,Fango,1,0,visible,Canalisable extra plat,,taxable,,1,0,,,1199,Poêles à granulés,ETNA,,10,Puissance,8 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-VULCANO-SILENZIO,Vulcano Silenzio,1,0,visible,Étanche,,taxable,,1,0,,,949,Poêles à granulés,ETNA,,11,Puissance,"9\,2 kW",1,1,Marque,ETNA,1,1
+simple,ETNA-LUXE-OTTIMO-SILENZIO,Ottimo Silenzio,1,0,visible,Étanche,,taxable,,1,0,,,999,Poêles à granulés,ETNA Luxe,,12,Puissance,"9\,2 kW",1,1,Marque,ETNA Luxe,1,1
+simple,ETNA-OTTIMO-SILENZIO-CANALISABLE,Ottimo Silenzio canalisable,1,0,visible,Étanche canalisable,,taxable,,1,0,,,1199,Poêles à granulés,ETNA,,13,Puissance,"9\,2 kW",1,1,Marque,ETNA,1,1
+simple,ETNA-VERTIGO,Vertigo,1,0,visible,Étanche,,taxable,,1,0,,,1499,Poêles à granulés,ETNA,,14,Puissance,"9\,2 kW",1,1,Marque,ETNA,1,1
+simple,ETNA-VERTIGO-UP,Vertigo Up,1,0,visible,"Étanche, sortie concentrique dessus",,taxable,,1,0,,,1699,Poêles à granulés,ETNA,,15,Puissance,"9\,2 kW",1,1,Marque,ETNA,1,1
+simple,ETNA-LUXE-CRISTALLO-SILENZIO-UP,Cristallo Silenzio Up,1,0,visible,"Étanche, sortie dessus concentrique",,taxable,,1,0,,,1599,Poêles à granulés,ETNA Luxe,,16,Puissance,"9\,2 kW",1,1,Marque,ETNA Luxe,1,1
+simple,ETNA-RICANTO,Ricanto,1,0,visible,Canalisable extra plat,,taxable,,1,0,,,1499,Poêles à granulés,ETNA,,17,Puissance,10 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-LUXE-TENDENZA,Tendenza,1,0,visible,Étanche et canalisable,,taxable,,1,0,,,2099,Poêles à granulés,ETNA Luxe,,18,Puissance,10 kW,1,1,Marque,ETNA Luxe,1,1
+simple,ETNA-LUXE-ANNA,Anna,1,0,visible,Étanche,,taxable,,1,0,,,1799,Poêles à granulés,ETNA Luxe,,19,Puissance,10 kW,1,1,Marque,ETNA Luxe,1,1
+simple,ETNA-VULCANO-EVO-12,Vulcano EVO 12,1,0,visible,Étanche,,taxable,,1,0,,,1199,Poêles à granulés,ETNA,,20,Puissance,12 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-VULCANO-EVO,Vulcano EVO,1,0,visible,Étanche canalisable,,taxable,,1,0,,,1499,Poêles à granulés,ETNA,,21,Puissance,12 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-PINARELLO,Pinarello,1,0,visible,Canalisable extra plat,,taxable,,1,0,,,1999,Poêles à granulés,ETNA,,22,Puissance,12 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-LUXE-ANNA-CANALISABLE,Anna canalisable,1,0,visible,Étanche canalisable,,taxable,,1,0,,,1999,Poêles à granulés,ETNA Luxe,,23,Puissance,12 kW,1,1,Marque,ETNA Luxe,1,1
+simple,ETNA-LUXE-CAYENNE-CANALISABLE,Cayenne canalisable,1,0,visible,Canalisable,,taxable,,1,0,,,2199,Poêles à granulés,ETNA Luxe,,24,Puissance,16 kW,1,1,Marque,ETNA Luxe,1,1
+simple,FIREMATIC-CALGARY-S,Calgary S,1,0,visible,Raccordable 3 vitres avec bûcher,,taxable,,1,0,,,1599,Poêles à bois,Firematic,,1,Puissance,"12\,5 kW",1,1,Marque,Firematic,1,1
+simple,FIREMATIC-CALGARY-L,Calgary L,1,0,visible,Raccordable 3 vitres avec bûcher,,taxable,,1,0,,,2099,Poêles à bois,Firematic,,2,Puissance,"13\,5 kW",1,1,Marque,Firematic,1,1
+simple,FIREMATIC-OTTAWA,Ottawa,1,0,visible,2 vitres,,taxable,,1,0,,,1499,Poêles à bois,Firematic,,3,Puissance,"12\,6 kW",1,1,Marque,Firematic,1,1
+simple,FIREMATIC-TORONTO-S,Toronto S,1,0,visible,Raccordable avec bûcher,,taxable,,1,0,,,1499,Poêles à bois,Firematic,,4,Puissance,"12\,6 kW",1,1,Marque,Firematic,1,1
+simple,FIREMATIC-TORONTO-S-65,Toronto S 65,1,0,visible,Raccordable avec bûcher,,taxable,,1,0,,,1518.90,Poêles à bois,Firematic,,5,Puissance,"12\,6 kW",1,1,Marque,Firematic,1,1
+simple,FIREMATIC-CHICAGO,Chicago,1,0,visible,Poêle à bois,,taxable,,1,0,,,778.30,Poêles à bois,Firematic,,6,Puissance,"11\,2 kW",1,1,Marque,Firematic,1,1
+simple,BRONPI-LIRA,Lira,1,0,visible,Étanche en fonte,,taxable,,1,0,,,779,Poêles à bois,Bronpi,,7,Puissance,5 kW,1,1,Marque,Bronpi,1,1
+simple,BRONPI-LORETO,Loreto,1,0,visible,3 vitres raccordable,,taxable,,1,0,,,992.16,Poêles à bois,Bronpi,,8,Puissance,10 kW,1,1,Marque,Bronpi,1,1
+simple,BRONPI-SENA-PLUS,Sena Plus,1,0,visible,Poêle à bois,,taxable,,1,0,,,1035.22,Poêles à bois,Bronpi,,9,Puissance,13 kW,1,1,Marque,Bronpi,1,1
+simple,BRONPI-ETNA,Etna,1,0,visible,En fonte,,taxable,,1,0,,,1533.17,Poêles à bois,Bronpi,,10,Puissance,"11\,3 kW",1,1,Marque,Bronpi,1,1
+simple,BRONPI-ORLY,Orly,1,0,visible,En fonte raccordable,,taxable,,1,0,,,1104.48,Poêles à bois,Bronpi,,11,Puissance,6 kW,1,1,Marque,Bronpi,1,1
+simple,LA-NORDICA-JENNIFER-16,Jennifer.16,1,0,visible,Raccordable en fonte,,taxable,,1,0,,,1650.60,Poêles à bois,La Nordica,,12,Puissance,"7\,7 kW",1,1,Marque,La Nordica,1,1
+simple,LA-NORDICA-ISOTTA-CON-CERCHI,Isotta con cerchi,1,0,visible,Avec chauffe-plat,,taxable,,1,0,,,2184,Poêles à bois,La Nordica,,13,Puissance,"9\,3 kW",1,1,Marque,La Nordica,1,1
+simple,THERMOROSSI-AGORA,Agorà,1,0,visible,En fonte raccordable,,taxable,,1,0,,,2761.20,Poêles à bois,Thermorossi,,14,Puissance,12 kW,1,1,Marque,Thermorossi,1,1
+simple,ETNA-DOMINO,Domino,1,0,visible,"Avec range-bûches, module 3 étages",,taxable,,1,0,,,1498,Poêles à bois,ETNA,,15,Puissance,"8\,5 kW",1,1,Marque,ETNA,1,1
+simple,ETNA-PRAMODA,Pramoda,1,0,visible,Avec four et plaque de cuisson,,taxable,,1,0,,,1399,Poêles à bois,ETNA,,16,Puissance,14 kW,1,1,Marque,ETNA,1,1
+simple,SMART-STOVE-MODULA-SQUARE,Modula Square,1,0,visible,Poêle à bois,,taxable,,1,0,,,899,Poêles à bois,Smart Stove,,17,Puissance,"8\,5 kW",1,1,Marque,Smart Stove,1,1
+simple,ETNA-TONNARA,Tonnara,1,0,visible,Chaudière à granulés,,taxable,,1,0,,,2599,Chaudières,ETNA,,1,Puissance,16 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-FOLACA,Folaca,1,0,visible,Chaudière à granulés,,taxable,,1,0,,,2699,Chaudières,ETNA,,2,Puissance,19 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-BALIUTRA,Baliutra,1,0,visible,Chaudière à granulés,,taxable,,1,0,,,2699,Chaudières,ETNA,,3,Puissance,24 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-VINTI-LEGNA,Vinti-Legna,1,0,visible,Chaudière à granulés,,taxable,,1,0,,,3199,Chaudières,ETNA,,4,Puissance,27 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-FANTEA,Fantea,1,0,visible,Chaudière à granulés,,taxable,,1,0,,,3499,Chaudières,ETNA,,5,Puissance,32 kW,1,1,Marque,ETNA,1,1
+simple,EXTRAFLAME-PK20,PK20,1,0,visible,Chaudière à granulés,,taxable,,1,0,,,6379,Chaudières,Extraflame,,6,Puissance,20 kW,1,1,Marque,Extraflame,1,1
+simple,EXTRAFLAME-PK30,PK30,1,0,visible,Chaudière à granulés,,taxable,,1,0,,,7396,Chaudières,Extraflame,,7,Puissance,30 kW,1,1,Marque,Extraflame,1,1
+simple,ECOFOREST-CANTINA-COMPACT,Cantina Compact,1,0,visible,Chaudière à granulés,,taxable,,1,0,,,5099,Chaudières,Ecoforest,,8,Puissance,12 kW,1,1,Marque,Ecoforest,1,1
+simple,ECOFOREST-CANTINA-NOVA-24,Cantina Nova 24,1,0,visible,Chaudière à granulés,,taxable,,1,0,,,7194,Chaudières,Ecoforest,,9,Puissance,24 kW,1,1,Marque,Ecoforest,1,1
+simple,ECOFOREST-CANTINA-NOVA-30,Cantina Nova 30,1,0,visible,Chaudière à granulés,,taxable,,1,0,,,6666,Chaudières,Ecoforest,,10,Puissance,30 kW,1,1,Marque,Ecoforest,1,1
+simple,ETNA-MAGMA-20,Magma 20,1,0,visible,Chaudière à bois (bûches),,taxable,,1,0,,,1759,Chaudières,ETNA,,11,Puissance,20 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-MAGMA-30,Magma 30,1,0,visible,Chaudière à bois (bûches),,taxable,,1,0,,,1899,Chaudières,ETNA,,12,Puissance,30 kW,1,1,Marque,ETNA,1,1
+simple,ETNA-MAGMA-40,Magma 40,1,0,visible,Chaudière à bois (bûches),,taxable,,1,0,,,2259,Chaudières,ETNA,,13,Puissance,40 kW,1,1,Marque,ETNA,1,1
