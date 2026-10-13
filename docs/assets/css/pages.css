@@ -1,0 +1,300 @@
+/*
+ * Chaud Winter : pages claires (Contact, pages légales, panier, commande, articles).
+ * Contenu sur fond ivoire, sous l'en-tête sombre. Mobile d'abord.
+ */
+
+/* ------------------------------------------------------------------ */
+/* Mise en page                                                        */
+/* ------------------------------------------------------------------ */
+.cw-light-page .site.grid-container {
+	max-width: none;
+	margin: 0;
+	padding: 0;
+	background: var(--cw-ivory);
+	color: var(--cw-ink);
+}
+
+.cw-light-page .site-content {
+	display: block;
+	max-width: 1240px;
+	margin: 0 auto;
+	padding: 28px 20px 72px;
+}
+
+.cw-light-page .content-area,
+.cw-light-page .site-main,
+.cw-light-page .inside-article {
+	width: auto;
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	color: inherit;
+}
+
+.cw-light-page .entry-header,
+.cw-page-header {
+	margin-bottom: 24px;
+}
+
+.cw-light-page .entry-title,
+.cw-page-title {
+	margin: 0;
+	color: var(--cw-ink);
+	font-size: clamp(34px, 5vw, 56px);
+	line-height: 1.06;
+}
+
+.cw-light-page .site-content h2,
+.cw-light-page .site-content h3 {
+	color: var(--cw-ink);
+}
+
+.cw-light-page .entry-content a:not(.button):not(.cw-btn) {
+	color: var(--cw-ember-ink);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.cw-light-page .entry-meta,
+.cw-light-page .comments-area {
+	display: none;
+}
+
+/* ------------------------------------------------------------------ */
+/* Textes longs (pages légales) : largeur de lecture confortable        */
+/* ------------------------------------------------------------------ */
+.cw-light-page:not(.cw-wc-page) .entry-content {
+	max-width: 760px;
+	font-size: 16px;
+	line-height: 1.75;
+}
+
+.cw-light-page .entry-content h2 {
+	margin: 2em 0 .6em;
+	font-size: clamp(24px, 3vw, 30px);
+	line-height: 1.2;
+}
+
+.cw-light-page .entry-content h3 {
+	margin: 1.6em 0 .5em;
+	font-size: 21px;
+	line-height: 1.25;
+}
+
+.cw-light-page .entry-content > :first-child {
+	margin-top: 0;
+}
+
+.cw-light-page .entry-content p,
+.cw-light-page .entry-content ul,
+.cw-light-page .entry-content ol {
+	margin: 0 0 1em;
+}
+
+.cw-light-page .entry-content ul,
+.cw-light-page .entry-content ol {
+	padding-left: 1.3em;
+}
+
+.cw-light-page .entry-content li {
+	margin-bottom: .4em;
+}
+
+.cw-light-page .entry-content em {
+	color: var(--cw-light-muted);
+}
+
+/* ------------------------------------------------------------------ */
+/* Page Contact                                                        */
+/* ------------------------------------------------------------------ */
+.cw-contact-grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 20px;
+}
+
+.cw-contact-card {
+	padding: 24px 22px;
+	border-radius: 22px;
+	background: var(--cw-bg);
+	color: var(--cw-text);
+}
+
+.cw-light-page .cw-contact-card h2 {
+	margin: 0 0 18px;
+	color: var(--cw-text);
+	font-size: 26px;
+}
+
+.cw-contact-card dl {
+	display: grid;
+	gap: 18px;
+	margin: 0 0 20px;
+}
+
+.cw-contact-card dt {
+	color: var(--cw-muted2);
+	font-size: 12px;
+	font-weight: 700;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+}
+
+.cw-contact-card dd {
+	margin: 4px 0 0;
+	color: var(--cw-muted);
+	font-size: 15px;
+	line-height: 1.6;
+}
+
+.cw-contact-card dd a {
+	color: var(--cw-text);
+	font-weight: 600;
+}
+
+.cw-contact-card .cw-contact-big {
+	color: var(--cw-text);
+	font-size: 22px;
+	font-weight: 700;
+}
+
+.cw-contact-card .cw-contact-big a {
+	color: var(--cw-ember);
+	text-decoration: none;
+}
+
+.cw-contact-form {
+	padding: 24px 22px;
+	border: 1px solid var(--cw-light-line);
+	border-radius: 22px;
+	background: #fff;
+}
+
+.cw-light-page .cw-contact-form.entry-content {
+	max-width: none;
+}
+
+.cw-admin-note {
+	padding: 12px 14px;
+	border: 1px dashed var(--cw-ember-ink);
+	border-radius: 12px;
+	background: #FFF8F3;
+	font-size: 14px;
+}
+
+/* Formulaire Contact Form 7 */
+.wpcf7 form > p,
+.wpcf7 form > label {
+	display: block;
+	margin: 0 0 16px;
+}
+
+.wpcf7 label {
+	display: block;
+	color: var(--cw-ink);
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 1.4;
+}
+
+.wpcf7 .wpcf7-form-control-wrap {
+	display: block;
+	margin-top: 6px;
+}
+
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="tel"],
+.wpcf7 select,
+.wpcf7 textarea {
+	width: 100%;
+	min-height: 50px;
+	padding: 0 14px;
+	border: 1px solid #D9D0C4;
+	border-radius: 12px;
+	background: #fff;
+	color: var(--cw-ink);
+	font-family: var(--cw-font);
+	font-size: 16px; /* 16 px minimum : évite le zoom automatique sur iPhone */
+	font-weight: 400;
+}
+
+.wpcf7 textarea {
+	min-height: 140px;
+	padding: 12px 14px;
+}
+
+.wpcf7 input:focus,
+.wpcf7 select:focus,
+.wpcf7 textarea:focus {
+	border-color: var(--cw-ember-ink);
+	outline: 3px solid rgba(184, 66, 15, .25);
+	outline-offset: 0;
+}
+
+.wpcf7 .cw-form-privacy {
+	color: var(--cw-light-muted);
+	font-size: 13px;
+	line-height: 1.6;
+}
+
+.wpcf7 input[type="submit"] {
+	width: 100%;
+	min-height: 54px;
+	border: 0;
+	border-radius: 14px;
+	background: var(--cw-ember);
+	color: #101216;
+	font-family: var(--cw-font);
+	font-size: 16px;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.wpcf7 input[type="submit"]:hover,
+.wpcf7 input[type="submit"]:focus {
+	background: var(--cw-ember-hover);
+}
+
+.wpcf7 .wpcf7-not-valid-tip {
+	margin-top: 6px;
+	color: #B42318;
+	font-size: 13px;
+}
+
+.wpcf7 form .wpcf7-response-output {
+	margin: 16px 0 0;
+	padding: 12px 14px;
+	border-radius: 12px;
+	font-size: 14px;
+}
+
+/* ------------------------------------------------------------------ */
+/* Écrans plus larges                                                  */
+/* ------------------------------------------------------------------ */
+@media (min-width: 769px) {
+	.cw-light-page .site-content {
+		padding: 40px clamp(20px, 4vw, 32px) 96px;
+	}
+
+	.cw-contact-grid {
+		grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+		gap: 28px;
+		align-items: start;
+	}
+
+	.cw-contact-card,
+	.cw-contact-form {
+		padding: 32px;
+	}
+
+	.cw-contact-card {
+		position: sticky;
+		top: calc(var(--cw-header-h) + 20px);
+	}
+
+	.wpcf7 input[type="submit"] {
+		width: auto;
+		padding: 0 36px;
+	}
+}
