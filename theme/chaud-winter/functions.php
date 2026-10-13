@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'CW_VERSION', '0.9.3' );
+define( 'CW_VERSION', '0.9.4' );
 define( 'CW_DIR', get_stylesheet_directory() );
 define( 'CW_URI', get_stylesheet_directory_uri() );
 
