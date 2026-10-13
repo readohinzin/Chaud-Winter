@@ -459,6 +459,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .cw-foot-list li {
+	display: flex;
+	align-items: center;
+	min-height: 40px;
 	margin: 0;
 }
 
@@ -528,6 +531,11 @@ h1, h2, h3, h4, h5, h6 {
 	color: var(--cw-ember-ink);
 }
 
+.cw-light .cw-btn-primary:hover,
+.cw-light .cw-btn-primary:focus {
+	color: #101216;
+}
+
 .cw-light .cw-btn-ghost {
 	color: var(--cw-ink);
 	border-color: #CFC6B9;
@@ -537,6 +545,257 @@ h1, h2, h3, h4, h5, h6 {
 .cw-light .cw-btn-ghost:focus {
 	color: var(--cw-ember-ink);
 	border-color: var(--cw-ember-ink);
+}
+
+/* ------------------------------------------------------------------ */
+/* 5 bis. Cartes produits (accueil et pages catégories)                */
+/* ------------------------------------------------------------------ */
+.cw-btn-block {
+	width: 100%;
+}
+
+.cw-btn-small {
+	min-height: 44px;
+	padding: 0 20px;
+}
+
+.cw-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+	gap: 22px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.cw-card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	background: var(--cw-surface);
+	border: 1px solid var(--cw-line);
+	border-radius: var(--cw-radius);
+	color: var(--cw-text);
+	transition: transform .3s, border-color .3s, box-shadow .3s;
+}
+
+.cw-card:hover {
+	transform: translateY(-6px);
+	border-color: rgba(242, 107, 42, .55);
+	box-shadow: 0 28px 50px -28px rgba(0, 0, 0, .8);
+}
+
+.cw-card[hidden] {
+	display: none;
+}
+
+.cw-card-img {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 230px;
+	margin: 10px;
+	overflow: hidden;
+	border-radius: 16px;
+	background: #fff;
+}
+
+.cw-card-img img {
+	width: 100%;
+	height: 100%;
+	padding: 16px;
+	object-fit: contain;
+}
+
+/* Image provisoire, clairement signalée, tant que la vraie photo manque. */
+.cw-card-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	background: var(--cw-surface2);
+}
+
+.cw-card-placeholder svg {
+	width: 150px;
+	height: 150px;
+}
+
+.cw-photo-tag {
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	padding: 5px 10px;
+	border-radius: 999px;
+	background: rgba(16, 18, 22, .8);
+	color: var(--cw-muted);
+	font-size: 11px;
+	font-weight: 600;
+}
+
+.cw-kw {
+	position: absolute;
+	left: 12px;
+	bottom: 12px;
+	z-index: 2;
+	padding: 6px 12px;
+	border-radius: 999px;
+	background: var(--cw-bg);
+	color: var(--cw-ice);
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.cw-card-body {
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: 6px;
+	padding: 12px 20px 22px;
+}
+
+.cw-brand {
+	color: var(--cw-muted2);
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: .16em;
+	text-transform: uppercase;
+}
+
+.cw-name {
+	margin: 0;
+	font-size: 25px;
+	line-height: 1.15;
+}
+
+.cw-name a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.cw-desc {
+	min-height: 44px;
+	margin: 0;
+	color: var(--cw-muted);
+	font-size: 14px;
+	line-height: 1.55;
+}
+
+.cw-price-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	gap: 4px 8px;
+	margin: auto 0 14px;
+	padding-top: 12px;
+}
+
+.cw-price {
+	font-size: 26px;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.cw-price del {
+	margin-right: 6px;
+	color: var(--cw-muted2);
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.cw-price ins {
+	text-decoration: none;
+}
+
+.cw-ttc {
+	color: var(--cw-muted2);
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.cw-more-link {
+	align-self: center;
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	padding: 0 8px;
+	color: var(--cw-muted);
+	font-size: 13px;
+	font-weight: 600;
+	text-decoration: underline;
+	text-underline-offset: 4px;
+}
+
+.cw-more-link:hover,
+.cw-more-link:focus {
+	color: var(--cw-ice);
+}
+
+/* Après un ajout au panier, WooCommerce ajoute un lien « Voir le panier ». */
+.cw-card .added_to_cart {
+	align-self: center;
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+	color: var(--cw-ember);
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.cw-card .add_to_cart_button.loading {
+	opacity: .7;
+	cursor: progress;
+}
+
+.cw-card .add_to_cart_button.added::after {
+	content: " ✓";
+}
+
+/* Cartes sur fond clair (ivoire) */
+.cw-light .cw-card {
+	background: #fff;
+	border-color: var(--cw-light-line);
+	color: var(--cw-ink);
+}
+
+.cw-light .cw-card:hover {
+	border-color: rgba(184, 66, 15, .55);
+	box-shadow: 0 28px 50px -30px rgba(60, 40, 20, .35);
+}
+
+.cw-light .cw-card-img {
+	border: 1px solid #EFE9E0;
+}
+
+.cw-light .cw-brand,
+.cw-light .cw-ttc,
+.cw-light .cw-price del {
+	color: var(--cw-light-muted2);
+}
+
+.cw-light .cw-desc,
+.cw-light .cw-more-link {
+	color: var(--cw-light-muted);
+}
+
+.cw-light .cw-more-link:hover,
+.cw-light .cw-more-link:focus,
+.cw-light .cw-card .added_to_cart {
+	color: var(--cw-ember-ink);
+}
+
+.screen-reader-text {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+	word-wrap: normal !important;
 }
 
 /* Apparition au défilement : le contenu n'est masqué que si le JavaScript fonctionne. */

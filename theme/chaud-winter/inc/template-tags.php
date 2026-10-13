@@ -127,6 +127,7 @@ function cw_email_html() {
  * d'information si elles existent déjà (pied de page).
  *
  * @param array $args Arguments de wp_nav_menu().
+ * @return string|void HTML du menu si $args['echo'] vaut false.
  */
 function cw_menu_fallback( $args ) {
 	$items = array();
@@ -159,7 +160,12 @@ function cw_menu_fallback( $args ) {
 		$items[] = sprintf( '<li><a href="%1$s">%2$s</a></li>', esc_url( cw_callback_url() ), esc_html__( 'Contact', 'chaud-winter' ) );
 	}
 
-	if ( $items ) {
-		printf( '<ul class="%1$s">%2$s</ul>', esc_attr( $args['menu_class'] ), implode( '', $items ) ); // phpcs:ignore WordPress.Security.EscapeOutput
+	if ( ! $items ) {
+		return '';
 	}
+	$html = sprintf( '<ul class="%1$s">%2$s</ul>', esc_attr( $args['menu_class'] ), implode( '', $items ) );
+	if ( isset( $args['echo'] ) && ! $args['echo'] ) {
+		return $html;
+	}
+	echo $html; // phpcs:ignore WordPress.Security.EscapeOutput -- échappé plus haut.
 }

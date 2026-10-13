@@ -7,16 +7,292 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Domain: chaud-winter\n"
 
-#: functions.php:26
-msgid "En-tête : menu principal"
+#: front-page.php:72
+msgid "Poêles · Chaudières · Granulés"
+msgstr ""
+
+#: front-page.php:73
+msgid "Une chaleur qui"
+msgstr ""
+
+#: front-page.php:73
+msgid "tient tout l'hiver."
+msgstr ""
+
+#: front-page.php:74
+msgid "Poêles à granulés, poêles à bois et chaudières : des appareils choisis avec soin, livrés en France, en Belgique et en Allemagne."
+msgstr ""
+
+#: front-page.php:76
+msgid "Découvrir la boutique"
+msgstr ""
+
+#: front-page.php:77
+msgid "Trouver ma puissance"
+msgstr ""
+
+#: front-page.php:80
+msgid "Prix TTC en euros"
+msgstr ""
+
+#: front-page.php:81
+msgid "Paiement par virement"
+msgstr ""
+
+#: front-page.php:82
+msgid "Conseil avant achat"
+msgstr ""
+
+#: front-page.php:93
+msgid "À la une"
+msgstr ""
+
+#: front-page.php:101 template-parts/product-card.php:43
+msgid "TTC"
+msgstr ""
+
+#: front-page.php:109
+msgid "Nos engagements"
+msgstr ""
+
+#: front-page.php:113
+msgid "Livraison à domicile"
+msgstr ""
+
+#: front-page.php:113
+msgid "France, Belgique, Allemagne"
+msgstr ""
+
+#: front-page.php:117
+msgid "Paiement par virement bancaire"
+msgstr ""
+
+#: front-page.php:117
+msgid "Virement SEPA, en euros"
+msgstr ""
+
+#: front-page.php:121
+msgid "Garantie constructeur"
+msgstr ""
+
+#: front-page.php:125
+msgid "Conseil par téléphone"
+msgstr ""
+
+#: front-page.php:134
+msgid "Nos univers"
+msgstr ""
+
+#: front-page.php:135
+msgid "Trois façons de chauffer votre maison"
+msgstr ""
+
+#: front-page.php:163
+msgid "Assistant de choix"
+msgstr ""
+
+#: front-page.php:164
+msgid "Quelle puissance pour votre maison ?"
+msgstr ""
+
+#: front-page.php:165
+msgid "Indiquez la surface et l'isolation : on vous montre les appareils adaptés. Un conseiller peut ensuite confirmer votre choix."
+msgstr ""
+
+#: front-page.php:169
+msgid "Surface à chauffer"
+msgstr ""
+
+#: front-page.php:174
+msgid "Isolation du logement"
+msgstr ""
+
+#: front-page.php:178
+msgid "Bien isolée"
+msgstr ""
+
+#: front-page.php:179
+msgid "Isolation moyenne"
+msgstr ""
+
+#: front-page.php:180
+msgid "Peu isolée"
+msgstr ""
+
+#: front-page.php:188
+msgid "Environ <b>14 kW</b>"
+msgstr ""
+
+#: front-page.php:189
+msgid "Gamme conseillée : de 11 à 17 kW."
+msgstr ""
+
+#: front-page.php:191
+msgid "Voir les appareils de 11 à 17 kW"
+msgstr ""
+
+#: front-page.php:194
+msgid "Estimation indicative, à confirmer par un conseiller selon votre logement."
+msgstr ""
+
+#: front-page.php:204
+msgid "La boutique"
+msgstr ""
+
+#: front-page.php:205
+msgid "Nos appareils"
+msgstr ""
+
+#: front-page.php:207
+msgid "Voir tous les produits"
+msgstr ""
+
+#: front-page.php:211
+msgid "Les produits arrivent bientôt."
+msgstr ""
+
+#: front-page.php:213
+msgid "Catégories de produits"
+msgstr ""
+
+#: front-page.php:223
+msgid "Voir tous les appareils"
+msgstr ""
+
+#: front-page.php:244
+msgid "Voir l'autre modèle"
+msgid_plural "Voir les %d autres modèles"
+msgstr[0] ""
+msgstr[1] ""
+
+#: front-page.php:259
+msgid "Comment commander"
+msgstr ""
+
+#: front-page.php:260
+msgid "Simple, de l'écran à votre salon"
+msgstr ""
+
+#: front-page.php:263
+msgid "Choisissez votre appareil"
+msgstr ""
+
+#: front-page.php:263
+msgid "Filtrez par puissance, comparez les modèles ou demandez à être rappelé par un conseiller."
+msgstr ""
+
+#: front-page.php:264
+msgid "Passez commande"
+msgstr ""
+
+#: front-page.php:264
+msgid "Vous recevez le récapitulatif et les coordonnées bancaires à l'écran et par e-mail."
+msgstr ""
+
+#: front-page.php:265
+msgid "Réglez par virement"
+msgstr ""
+
+#: front-page.php:265
+msgid "Dès réception du virement, la commande est préparée et expédiée en France, en Belgique ou en Allemagne."
+msgstr ""
+
+#: front-page.php:274
+msgid "Les marques de la boutique"
+msgstr ""
+
+#: front-page.php:288
+msgid "Un doute sur le bon modèle ?"
+msgstr ""
+
+#: front-page.php:289
+msgid "Dites-nous la surface à chauffer et le type de logement. On vous oriente vers l'appareil adapté."
+msgstr ""
+
+#: front-page.php:292 inc/layout.php:80
+msgid "Être rappelé"
+msgstr ""
+
+#: front-page.php:294
+msgid "Écrire sur WhatsApp"
+msgstr ""
+
+#: front-page.php:305
+msgid "Avis clients"
+msgstr ""
+
+#: front-page.php:306
+msgid "Ils nous font confiance"
+msgstr ""
+
+#: front-page.php:315
+#, php-format
+msgid "%1$s/10 · %2$d avis"
+msgid_plural "%1$s/10 · %2$d avis"
+msgstr[0] ""
+msgstr[1] ""
+
+#: front-page.php:341
+msgid "Guides"
+msgstr ""
+
+#: front-page.php:342
+msgid "Conseils pour bien choisir"
+msgstr ""
+
+#: front-page.php:344
+msgid "Tous les guides"
+msgstr ""
+
+#: front-page.php:359
+msgid "Guide"
 msgstr ""
 
 #: functions.php:27
-msgid "Pied de page : produits"
+msgid "En-tête : menu principal"
 msgstr ""
 
 #: functions.php:28
+msgid "Pied de page : produits"
+msgstr ""
+
+#: functions.php:29
 msgid "Pied de page : informations"
+msgstr ""
+
+#: functions.php:67
+#, php-format
+msgid "%d m²"
+msgstr ""
+
+#: functions.php:69
+#, php-format
+msgid "Environ <b>%d kW</b>"
+msgstr ""
+
+#: functions.php:71
+#, php-format
+msgid "Gamme conseillée : de %1$d à %2$d kW."
+msgstr ""
+
+#: functions.php:73
+#, php-format
+msgid "Voir les appareils de %1$d à %2$d kW"
+msgstr ""
+
+#: functions.php:75
+#, php-format
+msgid "%1$d appareil entre %2$d et %3$d kW"
+msgstr ""
+
+#: functions.php:77
+#, php-format
+msgid "%1$d appareils entre %2$d et %3$d kW"
+msgstr ""
+
+#: functions.php:79
+#, php-format
+msgid "Aucun appareil entre %1$d et %2$d kW : un conseiller peut vous orienter."
 msgstr ""
 
 #: inc/infos.php:21
@@ -35,27 +311,65 @@ msgstr ""
 msgid "Adresse postale"
 msgstr ""
 
-#: inc/infos.php:73
+#: inc/infos.php:37
+msgid "Durée de la garantie constructeur"
+msgstr ""
+
+#: inc/infos.php:77
 msgid "Chaud Winter : coordonnées"
 msgstr ""
 
-#: inc/infos.php:74
+#: inc/infos.php:78
 msgid "Ces informations s'affichent dans la barre du haut et le pied de page. Laissez vide pour afficher le repère entre crochets."
 msgstr ""
 
-#: inc/infos.php:109
+#: inc/infos.php:114
+msgid "Numéro WhatsApp (facultatif)"
+msgstr ""
+
+#: inc/infos.php:115
+msgid "Au format international, par exemple +33 6 12 34 56 78. Laissez vide pour masquer le bouton WhatsApp."
+msgstr ""
+
+#: inc/infos.php:131
 msgid "Page du bouton « Être rappelé »"
 msgstr ""
 
-#: inc/infos.php:110
+#: inc/infos.php:132
 msgid "En général, la page Contact."
 msgstr ""
 
 #: inc/infos.php:150
+msgid "Chaud Winter : avis clients"
+msgstr ""
+
+#: inc/infos.php:151
+msgid "Recopiez ici de vrais avis de clients (avec leur accord). Tant qu'aucun avis n'est rempli, la section « Avis clients » est masquée sur l'accueil."
+msgstr ""
+
+#: inc/infos.php:157
+msgid "Note moyenne sur 10 (facultatif, par exemple 9,4)"
+msgstr ""
+
+#: inc/infos.php:158
+msgid "Nombre d'avis (facultatif)"
+msgstr ""
+
+#: inc/infos.php:162
+#, php-format
+msgid "Avis %d : texte"
+msgstr ""
+
+#: inc/infos.php:164
+#, php-format
+msgid "Avis %d : prénom et ville"
+msgstr ""
+
+#: inc/infos.php:249
 msgid "Chaud Winter : informations à compléter avant la mise en ligne."
 msgstr ""
 
-#: inc/infos.php:153
+#: inc/infos.php:252
 msgid "Compléter maintenant"
 msgstr ""
 
@@ -76,10 +390,6 @@ msgstr ""
 msgid "Rechercher"
 msgstr ""
 
-#: inc/layout.php:80
-msgid "Être rappelé"
-msgstr ""
-
 #: inc/layout.php:81
 msgid "Menu"
 msgstr ""
@@ -88,21 +398,67 @@ msgstr ""
 msgid "Poêles à granulés, poêles à bois et chaudières, avec un conseil sur mesure pour chaque maison."
 msgstr ""
 
-#: inc/layout.php:111
+#: inc/layout.php:112
 msgid "Produits"
 msgstr ""
 
-#: inc/layout.php:126
+#: inc/layout.php:113
 msgid "Informations"
 msgstr ""
 
-#: inc/layout.php:141 inc/template-tags.php:159
+#: inc/layout.php:138 inc/template-tags.php:160
 msgid "Contact"
 msgstr ""
 
-#: inc/layout.php:154
+#: inc/layout.php:151
 #, php-format
 msgid "© %s Chaud Winter. Tous droits réservés."
+msgstr ""
+
+#: inc/products.php:24
+msgid "Poêles à granulés"
+msgstr ""
+
+#: inc/products.php:25
+msgid "Programmables et propres, ils gèrent le feu à votre place."
+msgstr ""
+
+#: inc/products.php:28
+msgid "Poêles à bois"
+msgstr ""
+
+#: inc/products.php:29
+msgid "La flamme vivante, en fonte, en acier ou en céramique."
+msgstr ""
+
+#: inc/products.php:32
+msgid "Chaudières"
+msgstr ""
+
+#: inc/products.php:33
+msgid "Chauffez toute la maison, radiateurs et eau chaude."
+msgstr ""
+
+#: inc/products.php:96
+#, php-format
+msgid "%s kW"
+msgstr ""
+
+#: inc/products.php:187
+#, php-format
+msgid "Ajouter « %s » au panier"
+msgstr ""
+
+#: inc/products.php:188
+msgid "Ajouter au panier"
+msgstr ""
+
+#: inc/products.php:192
+msgid "Voir le produit"
+msgstr ""
+
+#: inc/products.php:192
+msgid "Indisponible, voir le produit"
 msgstr ""
 
 #: inc/template-tags.php:34
@@ -115,4 +471,12 @@ msgid "Panier, %d article"
 msgid_plural "Panier, %d articles"
 msgstr[0] ""
 msgstr[1] ""
+
+#: template-parts/product-card.php:26
+msgid "Photo à venir"
+msgstr ""
+
+#: template-parts/product-card.php:46
+msgid "Voir le détail"
+msgstr ""
 

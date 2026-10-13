@@ -107,35 +107,32 @@ function cw_footer() {
 					<p><?php esc_html_e( 'Poêles à granulés, poêles à bois et chaudières, avec un conseil sur mesure pour chaque maison.', 'chaud-winter' ); ?></p>
 				</div>
 
-				<div>
-					<h2 class="cw-foot-title"><?php esc_html_e( 'Produits', 'chaud-winter' ); ?></h2>
-					<?php
-					wp_nav_menu(
+				<?php
+				$cw_foot_menus = array(
+					'cw-footer-shop'  => __( 'Produits', 'chaud-winter' ),
+					'cw-footer-infos' => __( 'Informations', 'chaud-winter' ),
+				);
+				foreach ( $cw_foot_menus as $cw_location => $cw_title ) :
+					// Colonne masquée tant que son menu est vide (par exemple avant la création des pages légales).
+					$cw_menu = wp_nav_menu(
 						array(
-							'theme_location' => 'cw-footer-shop',
+							'theme_location' => $cw_location,
 							'container'      => false,
 							'menu_class'     => 'cw-foot-list',
 							'depth'          => 1,
 							'fallback_cb'    => 'cw_menu_fallback',
+							'echo'           => false,
 						)
 					);
+					if ( ! $cw_menu ) {
+						continue;
+					}
 					?>
-				</div>
-
-				<div>
-					<h2 class="cw-foot-title"><?php esc_html_e( 'Informations', 'chaud-winter' ); ?></h2>
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'cw-footer-infos',
-							'container'      => false,
-							'menu_class'     => 'cw-foot-list',
-							'depth'          => 1,
-							'fallback_cb'    => 'cw_menu_fallback',
-						)
-					);
-					?>
-				</div>
+					<div>
+						<h2 class="cw-foot-title"><?php echo esc_html( $cw_title ); ?></h2>
+						<?php echo $cw_menu; // phpcs:ignore WordPress.Security.EscapeOutput -- produit par wp_nav_menu(). ?>
+					</div>
+				<?php endforeach; ?>
 
 				<div>
 					<h2 class="cw-foot-title"><?php esc_html_e( 'Contact', 'chaud-winter' ); ?></h2>

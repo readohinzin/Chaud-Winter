@@ -33,6 +33,10 @@ function cw_info_fields() {
 			'label'   => __( 'Adresse postale', 'chaud-winter' ),
 			'default' => '[ADRESSE]',
 		),
+		'warranty' => array(
+			'label'   => __( 'Durée de la garantie constructeur', 'chaud-winter' ),
+			'default' => '[DURÉE DE GARANTIE]',
+		),
 	);
 }
 
@@ -96,6 +100,24 @@ function cw_customize_register( $wp_customize ) {
 		);
 	}
 
+	// WhatsApp : facultatif, le bouton n'apparaît que si le numéro est rempli.
+	$wp_customize->add_setting(
+		'cw_whatsapp',
+		array(
+			'default'           => '',
+			'sanitize_callback' => 'sanitize_text_field',
+		)
+	);
+	$wp_customize->add_control(
+		'cw_whatsapp',
+		array(
+			'label'       => __( 'Numéro WhatsApp (facultatif)', 'chaud-winter' ),
+			'description' => __( 'Au format international, par exemple +33 6 12 34 56 78. Laissez vide pour masquer le bouton WhatsApp.', 'chaud-winter' ),
+			'section'     => 'cw_infos',
+			'type'        => 'text',
+		)
+	);
+
 	$wp_customize->add_setting(
 		'cw_callback_page',
 		array(
@@ -114,6 +136,83 @@ function cw_customize_register( $wp_customize ) {
 	);
 }
 add_action( 'customize_register', 'cw_customize_register' );
+
+/**
+ * Section « Chaud Winter : avis clients ».
+ * Les avis ne s'affichent sur l'accueil que s'ils sont remplis : jamais de faux avis.
+ *
+ * @param WP_Customize_Manager $wp_customize Gestionnaire du personnalisateur.
+ */
+function cw_customize_register_reviews( $wp_customize ) {
+	$wp_customize->add_section(
+		'cw_reviews',
+		array(
+			'title'       => __( 'Chaud Winter : avis clients', 'chaud-winter' ),
+			'description' => __( 'Recopiez ici de vrais avis de clients (avec leur accord). Tant qu\'aucun avis n\'est rempli, la section « Avis clients » est masquée sur l\'accueil.', 'chaud-winter' ),
+			'priority'    => 31,
+		)
+	);
+
+	$fields = array(
+		'cw_reviews_rating' => __( 'Note moyenne sur 10 (facultatif, par exemple 9,4)', 'chaud-winter' ),
+		'cw_reviews_count'  => __( 'Nombre d\'avis (facultatif)', 'chaud-winter' ),
+	);
+	for ( $i = 1; $i <= 3; $i++ ) {
+		/* translators: %d: numéro de l'avis. */
+		$fields[ 'cw_review_' . $i . '_text' ] = sprintf( __( 'Avis %d : texte', 'chaud-winter' ), $i );
+		/* translators: %d: numéro de l'avis. */
+		$fields[ 'cw_review_' . $i . '_author' ] = sprintf( __( 'Avis %d : prénom et ville', 'chaud-winter' ), $i );
+	}
+
+	foreach ( $fields as $id => $label ) {
+		$is_text = false !== strpos( $id, '_text' );
+		$wp_customize->add_setting(
+			$id,
+			array(
+				'default'           => '',
+				'sanitize_callback' => $is_text ? 'sanitize_textarea_field' : 'sanitize_text_field',
+			)
+		);
+		$wp_customize->add_control(
+			$id,
+			array(
+				'label'   => $label,
+				'section' => 'cw_reviews',
+				'type'    => $is_text ? 'textarea' : 'text',
+			)
+		);
+	}
+}
+add_action( 'customize_register', 'cw_customize_register_reviews' );
+
+/**
+ * Avis remplis dans le personnalisateur.
+ *
+ * @return array Liste de array( 'text' => ..., 'author' => ... ).
+ */
+function cw_reviews() {
+	$reviews = array();
+	for ( $i = 1; $i <= 3; $i++ ) {
+		$text = trim( (string) get_theme_mod( 'cw_review_' . $i . '_text', '' ) );
+		if ( '' !== $text ) {
+			$reviews[] = array(
+				'text'   => $text,
+				'author' => trim( (string) get_theme_mod( 'cw_review_' . $i . '_author', '' ) ),
+			);
+		}
+	}
+	return $reviews;
+}
+
+/**
+ * Lien WhatsApp, ou chaîne vide si aucun numéro n'est rempli.
+ *
+ * @return string
+ */
+function cw_whatsapp_url() {
+	$digits = preg_replace( '/\D/', '', (string) get_theme_mod( 'cw_whatsapp', '' ) );
+	return strlen( $digits ) >= 8 ? 'https://wa.me/' . $digits : '';
+}
 
 /**
  * Adresse du bouton « Être rappelé » : la page choisie, sinon la page dont l'adresse est /contact/.

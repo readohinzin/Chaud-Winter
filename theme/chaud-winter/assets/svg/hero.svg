@@ -1,0 +1,22 @@
+<svg viewBox="0 0 560 600" class="cw-scene" aria-hidden="true" focusable="false">
+<defs><radialGradient id="cw-glow" cx="50%" cy="64%" r="48%"><stop offset="0" stop-color="#F26B2A" stop-opacity="0.55"></stop><stop offset="0.55" stop-color="#F26B2A" stop-opacity="0.12"></stop><stop offset="1" stop-color="#F26B2A" stop-opacity="0"></stop></radialGradient></defs>
+<rect width="560" height="600" fill="url(#cw-glow)"></rect>
+<circle class="cw-snow" cx="195" cy="58" r="3.6" fill="#9CCBE0" style="animation-delay:-3.9s;animation-duration:5.3s"></circle><circle class="cw-snow" cx="304" cy="44" r="3" fill="#9CCBE0" style="animation-delay:-3.5s;animation-duration:8.6s"></circle><circle class="cw-snow" cx="139" cy="29" r="1.6" fill="#9CCBE0" style="animation-delay:-2.6s;animation-duration:5.3s"></circle><circle class="cw-snow" cx="76" cy="161" r="3.6" fill="#9CCBE0" style="animation-delay:-0.4s;animation-duration:7.3s"></circle><circle class="cw-snow" cx="515" cy="77" r="1.6" fill="#9CCBE0" style="animation-delay:-3.5s;animation-duration:6.6s"></circle><circle class="cw-snow" cx="529" cy="76" r="1.6" fill="#9CCBE0" style="animation-delay:-3.3s;animation-duration:5.5s"></circle><circle class="cw-snow" cx="244" cy="56" r="1.6" fill="#9CCBE0" style="animation-delay:-3.4s;animation-duration:7.2s"></circle><circle class="cw-snow" cx="379" cy="66" r="1.6" fill="#9CCBE0" style="animation-delay:-3.5s;animation-duration:7.6s"></circle><circle class="cw-snow" cx="220" cy="44" r="1.6" fill="#9CCBE0" style="animation-delay:-3.4s;animation-duration:7.5s"></circle><circle class="cw-snow" cx="284" cy="194" r="3.6" fill="#9CCBE0" style="animation-delay:-4.7s;animation-duration:6.9s"></circle><circle class="cw-snow" cx="502" cy="136" r="3" fill="#9CCBE0" style="animation-delay:-1.8s;animation-duration:8.2s"></circle><circle class="cw-snow" cx="387" cy="219" r="2.2" fill="#9CCBE0" style="animation-delay:-0.5s;animation-duration:6.2s"></circle><circle class="cw-snow" cx="283" cy="107" r="3.6" fill="#9CCBE0" style="animation-delay:-1.7s;animation-duration:8.9s"></circle><circle class="cw-snow" cx="90" cy="151" r="3.6" fill="#9CCBE0" style="animation-delay:-1.0s;animation-duration:6.4s"></circle><circle class="cw-snow" cx="507" cy="145" r="3.6" fill="#9CCBE0" style="animation-delay:-0.2s;animation-duration:7.7s"></circle><circle class="cw-snow" cx="421" cy="162" r="3" fill="#9CCBE0" style="animation-delay:-2.0s;animation-duration:6.4s"></circle><circle class="cw-snow" cx="284" cy="168" r="3.6" fill="#9CCBE0" style="animation-delay:-0.4s;animation-duration:5.4s"></circle><circle class="cw-snow" cx="168" cy="141" r="1.6" fill="#9CCBE0" style="animation-delay:-0.4s;animation-duration:7.8s"></circle>
+<g transform="translate(0,-34)"><ellipse cx="280" cy="486" rx="190" ry="12" fill="#000" opacity="0.4"></ellipse>
+<rect x="60" y="480" width="440" height="3" rx="1.5" fill="#2F3540"></rect>
+<rect x="262" y="-40" width="36" height="200" fill="#3A404B" stroke="#4A5260" stroke-width="2"></rect>
+<rect x="254" y="148" width="52" height="16" rx="4" fill="#4A5260"></rect>
+<rect x="160" y="160" width="240" height="24" rx="11" fill="#3A404B"></rect>
+<rect x="170" y="176" width="220" height="296" rx="22" fill="#2B3038" stroke="#4A5260" stroke-width="3"></rect>
+<rect x="200" y="214" width="160" height="176" rx="14" fill="#14171C" stroke="#5A6272" stroke-width="3"></rect>
+<rect x="200" y="214" width="160" height="176" rx="14" fill="#F26B2A" opacity="0.1"></rect>
+<g class="cw-flame"><path d="M280 380C238 346 250 300 280 246c12 40 52 60 52 98 0 22-24 38-52 36z" fill="#F26B2A"></path></g>
+<g class="cw-flame2"><path d="M280 380c-22-18-18-44 0-70 11 19 30 30 30 50 0 12-13 20-30 20z" fill="#F8964F"></path></g>
+<ellipse cx="280" cy="366" rx="12" ry="16" fill="#9CCBE0"></ellipse>
+<rect x="214" y="224" width="9" height="150" rx="4.5" fill="#fff" opacity="0.06"></rect>
+<circle cx="374" cy="300" r="5" fill="#9CCBE0"></circle>
+<rect x="212" y="410" width="136" height="34" rx="8" fill="#20242B" stroke="#3A404B" stroke-width="2"></rect>
+<rect x="232" y="424" width="96" height="5" rx="2.5" fill="#4A5260"></rect>
+<rect x="190" y="470" width="24" height="16" rx="4" fill="#3A404B"></rect>
+<rect x="346" y="470" width="24" height="16" rx="4" fill="#3A404B"></rect></g>
+</svg>
