@@ -53,11 +53,17 @@ Tant que l'IBAN ou les tarifs manquent, un rappel orange s'affiche en haut du ta
 
 Ce découpage est une proposition : à adapter à la grille du transporteur (WooCommerce > Réglages > Expédition > Classes).
 
+## 2 bis. Ouvrir la boutique au public
+
+Sur un site WooCommerce neuf, la boutique est en mode **« Bientôt disponible »** : seuls les administrateurs voient les produits, les autres visiteurs voient une page d'attente. C'est voulu, pour préparer le site tranquillement.
+
+Pour ouvrir au public : **WooCommerce > Réglages > Visibilité du site**, choisir **« En ligne »**, puis **Enregistrer**. À faire seulement quand tous les repères entre crochets ont disparu.
+
 ## 3. Au quotidien : confirmer un virement reçu
 
 1. Le client commande. Il voit à l'écran, et reçoit par e-mail, **le montant exact, la référence (« Commande 1042 ») et l'IBAN**.
 2. La commande apparaît dans WooCommerce > Commandes avec le statut **« En attente du virement »**. Le stock est déjà réservé.
-3. Quand le virement arrive sur le compte : ouvrir la commande, passer le statut à **« En cours »**, puis **Mettre à jour**. Le client reçoit automatiquement un e-mail.
+3. Quand le virement arrive sur le compte : ouvrir la commande, passer le statut à **« En cours »**, puis **Mettre à jour**. Le client reçoit automatiquement l'e-mail « Virement reçu : nous préparons votre commande ».
 4. Une fois l'appareil expédié : passer le statut à **« Terminée »**.
 
 Si le virement n'arrive jamais : passer le statut à « Annulée ». Le stock est remis en vente.

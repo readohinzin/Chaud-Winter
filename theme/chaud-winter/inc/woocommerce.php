@@ -365,3 +365,58 @@ function cw_breadcrumb_defaults( $defaults ) {
 	return $defaults;
 }
 add_filter( 'woocommerce_breadcrumb_defaults', 'cw_breadcrumb_defaults' );
+
+/* -------------------------------------------------------------------------- */
+/* Import CSV : colonne « Brands » (marques)                                  */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * L'importateur de WooCommerce ne lit pas encore la colonne des marques : on l'ajoute.
+ *
+ * @param array $options Colonnes proposées à l'association.
+ * @return array
+ */
+function cw_import_brand_option( $options ) {
+	$options['cw_brands'] = __( 'Marques', 'chaud-winter' );
+	return $options;
+}
+add_filter( 'woocommerce_csv_product_import_mapping_options', 'cw_import_brand_option' );
+
+/**
+ * Association automatique des colonnes « Brands » et « Marques ».
+ *
+ * @param array $columns Nom de colonne => champ.
+ * @return array
+ */
+function cw_import_brand_column( $columns ) {
+	$columns['Brands']                          = 'cw_brands';
+	$columns[ __( 'Marques', 'chaud-winter' ) ] = 'cw_brands';
+	return $columns;
+}
+add_filter( 'woocommerce_csv_product_import_mapping_default_columns', 'cw_import_brand_column' );
+
+/**
+ * Rattache le produit importé à sa ou ses marques (créées si besoin).
+ *
+ * @param WC_Product $product Produit importé.
+ * @param array      $data    Données de la ligne.
+ */
+function cw_import_brands( $product, $data ) {
+	if ( empty( $data['cw_brands'] ) || ! taxonomy_exists( 'product_brand' ) ) {
+		return;
+	}
+	$ids = array();
+	foreach ( array_filter( array_map( 'trim', explode( ',', $data['cw_brands'] ) ) ) as $name ) {
+		$term = term_exists( $name, 'product_brand' );
+		if ( ! $term ) {
+			$term = wp_insert_term( $name, 'product_brand' );
+		}
+		if ( ! is_wp_error( $term ) ) {
+			$ids[] = (int) $term['term_id'];
+		}
+	}
+	if ( $ids ) {
+		wp_set_object_terms( $product->get_id(), $ids, 'product_brand' );
+	}
+}
+add_action( 'woocommerce_product_import_inserted_product_object', 'cw_import_brands', 10, 2 );

@@ -15,7 +15,7 @@ Le fichier **`produits.csv`** contient les 54 produits du catalogue de départ :
 
 En plus : une **référence** unique par produit (par exemple `ETNA-LUXE-CAYENNE-14`, pour pouvoir mettre les produits à jour plus tard avec un nouveau fichier) et l'**ordre d'affichage** du tableau.
 
-**Photos** : chaque produit a sa photo (dossier `photos/` du projet). WooCommerce la télécharge pendant l'import : l'import prend donc quelques minutes.
+**Photos** : chaque produit a sa photo (dossier `photos/` du projet). WooCommerce la télécharge pendant l'import, depuis l'adresse écrite dans le fichier (le dossier `photos/` du dépôt GitHub) : l'import prend donc quelques minutes. Si le dépôt change de nom ou de branche, relancer `python3 outils/generer-csv.py` après avoir corrigé l'adresse en tête du script.
 
 **Description longue** : rédigée pour Chaud Winter (aucun texte repris d'un autre site). Elle présente l'appareil et explique ses particularités (étanche, canalisable, extra plat, fonte, bûcher…), sans aucun chiffre inventé.
 
@@ -32,7 +32,7 @@ Laissé **vide exprès** (rien n'est inventé) : poids, dimensions, rendement, c
 5. L'écran suivant associe les colonnes : tout est reconnu automatiquement. Cliquer sur **Exécuter l'importateur**.
 6. Attendre le message « 54 produits importés ».
 
-> Si la colonne « Brands » apparaît en « Ne pas importer » (ancienne version de WooCommerce), ce n'est pas grave : la marque est aussi dans la caractéristique « Marque », que le thème sait lire. Il faudra juste mettre WooCommerce à jour pour voir la bande des marques sur l'accueil.
+> La colonne des marques n'est pas lue par l'importateur de WooCommerce : le thème l'ajoute et la reconnaît tout seul (testé). Il faut donc que **le thème Chaud Winter soit activé avant l'import**.
 
 ## Vérifier après l'import
 

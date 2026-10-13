@@ -28,6 +28,7 @@ function cw_setup_blocks() {
 				__( 'Boutique en France, vente en France, Belgique et Allemagne uniquement', 'chaud-winter' ),
 				__( 'Euros, prix écrits « 1 023,20 € »', 'chaud-winter' ),
 				__( 'Poids en kg, dimensions en cm', 'chaud-winter' ),
+				__( 'Fuseau horaire de Paris, dates écrites « 13 octobre 2026 »', 'chaud-winter' ),
 			),
 		),
 		'tax'      => array(
@@ -76,6 +77,7 @@ function cw_setup_blocks() {
 			'items' => array(
 				__( 'Nom d\'expéditeur « Chaud Winter »', 'chaud-winter' ),
 				__( 'Couleurs des e-mails assorties au site', 'chaud-winter' ),
+				__( 'Objet et titre clairs pour chaque étape : virement à effectuer, virement reçu, commande expédiée', 'chaud-winter' ),
 			),
 		),
 	);
@@ -183,6 +185,10 @@ function cw_setup_general() {
 	update_option( 'woocommerce_price_num_decimals', 2 );
 	update_option( 'woocommerce_weight_unit', 'kg' );
 	update_option( 'woocommerce_dimension_unit', 'cm' );
+	update_option( 'timezone_string', 'Europe/Paris' );
+	update_option( 'date_format', 'j F Y' );
+	update_option( 'time_format', 'H:i' );
+	update_option( 'start_of_week', 1 );
 
 	return array( __( 'Pays, euros et format des prix réglés.', 'chaud-winter' ) );
 }
@@ -407,7 +413,30 @@ function cw_setup_emails() {
 	update_option( 'woocommerce_email_background_color', '#F6F2EC' );
 	update_option( 'woocommerce_email_body_background_color', '#FFFFFF' );
 	update_option( 'woocommerce_email_text_color', '#14171C' );
-	return array( __( 'E-mails : expéditeur et couleurs réglés.', 'chaud-winter' ) );
+
+	// Un objet et un titre différents à chaque étape, pour que l'acheteur s'y retrouve.
+	$emails = array(
+		'customer_on_hold_order'    => array(
+			'subject'            => __( 'Commande n°{order_number} : virement à effectuer', 'chaud-winter' ),
+			'heading'            => __( 'Dernière étape : le virement', 'chaud-winter' ),
+			'additional_content' => __( 'Votre commande est réservée en attendant votre virement.', 'chaud-winter' ),
+		),
+		'customer_processing_order' => array(
+			'subject'            => __( 'Virement reçu : nous préparons votre commande n°{order_number}', 'chaud-winter' ),
+			'heading'            => __( 'Nous avons bien reçu votre virement', 'chaud-winter' ),
+			'additional_content' => __( 'Nous préparons votre commande et vous prévenons dès son expédition.', 'chaud-winter' ),
+		),
+		'customer_completed_order'  => array(
+			'subject'            => __( 'Votre commande n°{order_number} est expédiée', 'chaud-winter' ),
+			'heading'            => __( 'Votre commande est expédiée', 'chaud-winter' ),
+			'additional_content' => __( 'Merci pour votre confiance. Pour toute question, répondez simplement à cet e-mail.', 'chaud-winter' ),
+		),
+	);
+	foreach ( $emails as $id => $texts ) {
+		$key = 'woocommerce_' . $id . '_settings';
+		update_option( $key, array_merge( (array) get_option( $key, array() ), $texts ) );
+	}
+	return array( __( 'E-mails : expéditeur, couleurs et objets de chaque étape réglés.', 'chaud-winter' ) );
 }
 
 /**
