@@ -43,7 +43,8 @@ Un rappel orange dans le tableau de bord liste les pages qui contiennent encore 
 | | À faire | Où |
 |---|---|---|
 | ☐ | **Remplacer les prix d'exemple** par les vrais prix (ceux du fichier viennent d'autres sites) | Fichier CSV puis réimport, ou fiche de chaque produit |
-| ☐ | Photos des fournisseurs | Fiche produit > Image du produit |
+| ☐ | Ranger une **copie écrite des autorisations** d'utiliser les photos, et compléter `[QUI]` et `[DATE]` dans CLAUDE.md | Dossier `autorisations/` |
+| ☐ | Photos des produits ajoutés plus tard (fournisseurs) | Fiche produit > Image du produit |
 | ☐ | Poids et classe de livraison de chaque appareil | Fiche produit > Expédition |
 | ☐ | Descriptions longues (pas de texte copié sur les sites concurrents) | Fiche produit |
 | ☐ | Reste du catalogue des fournisseurs | Nouvelles lignes dans le CSV |
