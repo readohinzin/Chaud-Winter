@@ -151,6 +151,15 @@ function cw_footer() {
 					esc_html__( '© %s Chaud Winter. Tous droits réservés.', 'chaud-winter' ),
 					esc_html( wp_date( 'Y' ) )
 				);
+				printf(
+					/* translators: 1: nom de l'entreprise, 2: forme juridique, 3: nom commercial, 4: SIRET, 5: n° de TVA. */
+					' <span class="cw-legal-id">' . esc_html__( '%1$s, %2$s, nom commercial %3$s · SIRET %4$s · TVA %5$s', 'chaud-winter' ) . '</span>',
+					esc_html( cw_info( 'company' ) ),
+					esc_html( cw_info( 'legal_form' ) ),
+					esc_html( cw_info( 'trade_name' ) ),
+					esc_html( cw_info( 'siret' ) ),
+					esc_html( cw_info( 'vat' ) )
+				);
 				?>
 			</div>
 		</div>

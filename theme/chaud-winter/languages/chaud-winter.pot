@@ -55,7 +55,7 @@ msgstr ""
 msgid "Nos engagements"
 msgstr ""
 
-#: front-page.php:131 inc/setup.php:307
+#: front-page.php:131 inc/setup.php:315
 msgid "Livraison offerte en France métropolitaine"
 msgstr ""
 
@@ -213,7 +213,7 @@ msgstr ""
 msgid "Dites-nous la surface à chauffer et le type de logement. On vous oriente vers l'appareil adapté."
 msgstr ""
 
-#: front-page.php:328 inc/layout.php:79 inc/setup.php:584
+#: front-page.php:328 inc/layout.php:79 inc/setup.php:592
 msgid "Être rappelé"
 msgstr ""
 
@@ -322,7 +322,7 @@ msgstr ""
 msgid "Commande %s"
 msgstr ""
 
-#: inc/checkout.php:138 inc/checkout.php:186 inc/setup.php:501
+#: inc/checkout.php:138 inc/checkout.php:186 inc/setup.php:509
 msgid "Dernière étape : le virement"
 msgstr ""
 
@@ -408,64 +408,96 @@ msgid "Adresse postale"
 msgstr ""
 
 #: inc/infos.php:37
+msgid "Identité légale : nom de l'entreprise"
+msgstr ""
+
+#: inc/infos.php:41
+msgid "Identité légale : forme juridique"
+msgstr ""
+
+#: inc/infos.php:45
+msgid "Identité légale : nom commercial (enseigne)"
+msgstr ""
+
+#: inc/infos.php:49
+msgid "Identité légale : SIREN"
+msgstr ""
+
+#: inc/infos.php:53
+msgid "Identité légale : SIRET"
+msgstr ""
+
+#: inc/infos.php:57
+msgid "Identité légale : numéro de TVA intracommunautaire"
+msgstr ""
+
+#: inc/infos.php:61
+msgid "Identité légale : ville du RCS"
+msgstr ""
+
+#: inc/infos.php:65
+msgid "Identité légale : responsable de la publication"
+msgstr ""
+
+#: inc/infos.php:69
 msgid "Durée de la garantie constructeur"
 msgstr ""
 
-#: inc/infos.php:99
+#: inc/infos.php:142
 msgid "Chaud Winter : coordonnées"
 msgstr ""
 
-#: inc/infos.php:100
+#: inc/infos.php:143
 msgid "Ces informations s'affichent dans la barre du haut et le pied de page. Laissez vide pour afficher le repère entre crochets."
 msgstr ""
 
-#: inc/infos.php:136
+#: inc/infos.php:179
 msgid "Numéro WhatsApp (facultatif)"
 msgstr ""
 
-#: inc/infos.php:137
+#: inc/infos.php:180
 msgid "Au format international, par exemple +33 6 12 34 56 78. Laissez vide pour masquer le bouton WhatsApp."
 msgstr ""
 
-#: inc/infos.php:153
+#: inc/infos.php:196
 msgid "Page du bouton « Être rappelé »"
 msgstr ""
 
-#: inc/infos.php:154
+#: inc/infos.php:197
 msgid "En général, la page Contact."
 msgstr ""
 
-#: inc/infos.php:172
+#: inc/infos.php:215
 msgid "Chaud Winter : avis clients"
 msgstr ""
 
-#: inc/infos.php:173
+#: inc/infos.php:216
 msgid "Recopiez ici de vrais avis de clients (avec leur accord). Tant qu'aucun avis n'est rempli, la section « Avis clients » est masquée sur l'accueil."
 msgstr ""
 
-#: inc/infos.php:179
+#: inc/infos.php:222
 msgid "Note moyenne sur 10 (facultatif, par exemple 9,4)"
 msgstr ""
 
-#: inc/infos.php:180
+#: inc/infos.php:223
 msgid "Nombre d'avis (facultatif)"
 msgstr ""
 
-#: inc/infos.php:184
+#: inc/infos.php:227
 #, php-format
 msgid "Avis %d : texte"
 msgstr ""
 
-#: inc/infos.php:186
+#: inc/infos.php:229
 #, php-format
 msgid "Avis %d : prénom et ville"
 msgstr ""
 
-#: inc/infos.php:275
+#: inc/infos.php:318
 msgid "Chaud Winter : informations à compléter avant la mise en ligne."
 msgstr ""
 
-#: inc/infos.php:278
+#: inc/infos.php:321
 msgid "Compléter maintenant"
 msgstr ""
 
@@ -505,6 +537,11 @@ msgstr ""
 #: inc/layout.php:151
 #, php-format
 msgid "© %s Chaud Winter. Tous droits réservés."
+msgstr ""
+
+#: inc/layout.php:156
+#, php-format
+msgid "%1$s, %2$s, nom commercial %3$s · SIRET %4$s · TVA %5$s"
 msgstr ""
 
 #: inc/pages.php:19
@@ -607,7 +644,7 @@ msgstr ""
 msgid "Fuseau horaire de Paris, dates écrites « 13 octobre 2026 »"
 msgstr ""
 
-#: inc/setup.php:35 inc/setup.php:226
+#: inc/setup.php:35 inc/setup.php:234
 msgid "TVA"
 msgstr ""
 
@@ -753,219 +790,219 @@ msgstr ""
 msgid "Adresse de la boutique"
 msgstr ""
 
-#: inc/setup.php:195
+#: inc/setup.php:203
 msgid "Pays, euros et format des prix réglés."
 msgstr ""
 
-#: inc/setup.php:212
+#: inc/setup.php:220
 msgid "Prix TTC et TVA activée."
 msgstr ""
 
-#: inc/setup.php:234
+#: inc/setup.php:242
 #, php-format
 msgid "Taux de TVA France 20 % ajouté."
 msgstr ""
 
-#: inc/setup.php:236
+#: inc/setup.php:244
 msgid "Un taux de TVA France existait déjà : conservé tel quel."
 msgstr ""
 
-#: inc/setup.php:262
+#: inc/setup.php:270
 #, php-format
 msgid "Désactivé : %s"
 msgstr ""
 
-#: inc/setup.php:269
+#: inc/setup.php:277
 msgid "Virement bancaire"
 msgstr ""
 
-#: inc/setup.php:270
+#: inc/setup.php:278
 msgid "Après la commande, nos coordonnées bancaires (IBAN) s'affichent à l'écran et vous sont envoyées par e-mail. Votre commande est préparée dès réception du virement."
 msgstr ""
 
-#: inc/setup.php:271
+#: inc/setup.php:279
 msgid "Faites le virement du montant exact, en indiquant la référence de la commande. Votre commande reste en attente jusqu'à la réception du virement, puis nous la préparons et vous prévenons par e-mail."
 msgstr ""
 
-#: inc/setup.php:276
+#: inc/setup.php:284
 msgid "Virement bancaire activé, textes pour l'acheteur écrits."
 msgstr ""
 
-#: inc/setup.php:293
+#: inc/setup.php:301
 msgid "Coordonnées bancaires créées avec des repères : à compléter."
 msgstr ""
 
-#: inc/setup.php:320
+#: inc/setup.php:328
 msgid "France métropolitaine"
 msgstr ""
 
-#: inc/setup.php:342
+#: inc/setup.php:350
 msgid "Zone France : livraison offerte déjà en place, conservée telle quelle."
 msgstr ""
 
-#: inc/setup.php:345
+#: inc/setup.php:353
 msgid "Zone France : des tarifs personnalisés existent déjà, conservés tels quels (la livraison offerte n'a pas été ajoutée)."
 msgstr ""
 
-#: inc/setup.php:367
+#: inc/setup.php:375
 msgid "Zone France métropolitaine créée : livraison offerte."
 msgstr ""
 
-#: inc/setup.php:367
+#: inc/setup.php:375
 msgid "Zone France : livraison offerte en France métropolitaine."
 msgstr ""
 
-#: inc/setup.php:378
+#: inc/setup.php:386
 msgid "Moins de 100 kg"
 msgstr ""
 
-#: inc/setup.php:379
+#: inc/setup.php:387
 msgid "100 à 200 kg"
 msgstr ""
 
-#: inc/setup.php:380
+#: inc/setup.php:388
 msgid "Plus de 200 kg"
 msgstr ""
 
-#: inc/setup.php:390
+#: inc/setup.php:398
 #, php-format
 msgid "Classe d'expédition créée : %s"
 msgstr ""
 
-#: inc/setup.php:410
+#: inc/setup.php:418
 msgid "Belgique"
 msgstr ""
 
-#: inc/setup.php:411
+#: inc/setup.php:419
 msgid "Allemagne"
 msgstr ""
 
-#: inc/setup.php:417
+#: inc/setup.php:425
 #, php-format
 msgid "Zone %s déjà présente : conservée telle quelle."
 msgstr ""
 
-#: inc/setup.php:429
+#: inc/setup.php:437
 msgid "Livraison à domicile [TARIFS DE LIVRAISON]"
 msgstr ""
 
-#: inc/setup.php:440
+#: inc/setup.php:448
 #, php-format
 msgid "Zone de livraison créée : %s (tarifs à saisir)."
 msgstr ""
 
-#: inc/setup.php:461
+#: inc/setup.php:469
 msgid "Téléphone obligatoire, commande sans compte possible."
 msgstr ""
 
-#: inc/setup.php:479
+#: inc/setup.php:487
 #, php-format
 msgid "Page « %s » passée en version classique."
 msgstr ""
 
-#: inc/setup.php:500
+#: inc/setup.php:508
 msgid "Commande n°{order_number} : virement à effectuer"
 msgstr ""
 
-#: inc/setup.php:502
+#: inc/setup.php:510
 msgid "Votre commande est réservée en attendant votre virement."
 msgstr ""
 
-#: inc/setup.php:505
+#: inc/setup.php:513
 msgid "Virement reçu : nous préparons votre commande n°{order_number}"
 msgstr ""
 
-#: inc/setup.php:506
+#: inc/setup.php:514
 msgid "Nous avons bien reçu votre virement"
 msgstr ""
 
-#: inc/setup.php:507
+#: inc/setup.php:515
 msgid "Nous préparons votre commande et vous prévenons dès son expédition."
 msgstr ""
 
-#: inc/setup.php:510
+#: inc/setup.php:518
 msgid "Votre commande n°{order_number} est expédiée"
 msgstr ""
 
-#: inc/setup.php:511
+#: inc/setup.php:519
 msgid "Votre commande est expédiée"
 msgstr ""
 
-#: inc/setup.php:512
+#: inc/setup.php:520
 msgid "Merci pour votre confiance. Pour toute question, répondez simplement à cet e-mail."
 msgstr ""
 
-#: inc/setup.php:519
+#: inc/setup.php:527
 msgid "E-mails : expéditeur, couleurs et objets de chaque étape réglés."
 msgstr ""
 
-#: inc/setup.php:575
+#: inc/setup.php:583
 msgid "Contact Chaud Winter"
 msgstr ""
 
-#: inc/setup.php:581
+#: inc/setup.php:589
 msgid "Votre nom"
 msgstr ""
 
-#: inc/setup.php:582
+#: inc/setup.php:590
 msgid "Votre e-mail"
 msgstr ""
 
-#: inc/setup.php:583
+#: inc/setup.php:591
 msgid "Téléphone (pour être rappelé)"
 msgstr ""
 
-#: inc/setup.php:584
+#: inc/setup.php:592
 msgid "Votre demande"
 msgstr ""
 
-#: inc/setup.php:584
+#: inc/setup.php:592
 msgid "Conseil sur un appareil"
 msgstr ""
 
-#: inc/setup.php:584
+#: inc/setup.php:592
 msgid "Question sur une commande"
 msgstr ""
 
-#: inc/setup.php:584
+#: inc/setup.php:592
 msgid "Autre"
 msgstr ""
 
-#: inc/setup.php:585
+#: inc/setup.php:593
 msgid "Surface à chauffer et type de logement (facultatif)"
 msgstr ""
 
-#: inc/setup.php:586
+#: inc/setup.php:594
 msgid "Votre message"
 msgstr ""
 
-#: inc/setup.php:589
+#: inc/setup.php:597
 #, php-format
 msgid "Vos informations servent uniquement à répondre à votre demande. En savoir plus : <a href=\"%s\">politique de confidentialité</a>."
 msgstr ""
 
-#: inc/setup.php:592
+#: inc/setup.php:600
 msgid "Envoyer"
 msgstr ""
 
-#: inc/setup.php:599
+#: inc/setup.php:607
 msgid "Site Chaud Winter : [your-subject] de [your-name]"
 msgstr ""
 
-#: inc/setup.php:639
+#: inc/setup.php:647
 msgid "Formulaire de contact créé et ajouté à la page Contact."
 msgstr ""
 
-#: inc/setup.php:641
+#: inc/setup.php:649
 msgid "Contact Form 7 n'est pas installé : le formulaire sera ajouté si vous relancez ce bloc après l'avoir installé."
 msgstr ""
 
-#: inc/setup.php:650
+#: inc/setup.php:658
 #, php-format
 msgid "Page « %s » déjà publiée : texte non modifié."
 msgstr ""
 
-#: inc/setup.php:670
+#: inc/setup.php:678
 #, php-format
 msgid "Page créée : %s"
 msgstr ""

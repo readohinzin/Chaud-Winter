@@ -31,7 +31,39 @@ function cw_info_fields() {
 		),
 		'address' => array(
 			'label'   => __( 'Adresse postale', 'chaud-winter' ),
-			'default' => '[ADRESSE]',
+			'default' => "1650 route de Bouverat\n74130 Bonneville",
+		),
+		'company' => array(
+			'label'   => __( 'Identité légale : nom de l\'entreprise', 'chaud-winter' ),
+			'default' => 'MARTELIN Thierry',
+		),
+		'legal_form' => array(
+			'label'   => __( 'Identité légale : forme juridique', 'chaud-winter' ),
+			'default' => 'entrepreneur individuel',
+		),
+		'trade_name' => array(
+			'label'   => __( 'Identité légale : nom commercial (enseigne)', 'chaud-winter' ),
+			'default' => 'HotHiver',
+		),
+		'siren' => array(
+			'label'   => __( 'Identité légale : SIREN', 'chaud-winter' ),
+			'default' => '818 272 940',
+		),
+		'siret' => array(
+			'label'   => __( 'Identité légale : SIRET', 'chaud-winter' ),
+			'default' => '818 272 940 00029',
+		),
+		'vat' => array(
+			'label'   => __( 'Identité légale : numéro de TVA intracommunautaire', 'chaud-winter' ),
+			'default' => 'FR62818272940',
+		),
+		'rcs_city' => array(
+			'label'   => __( 'Identité légale : ville du RCS', 'chaud-winter' ),
+			'default' => 'Annecy',
+		),
+		'legal_rep' => array(
+			'label'   => __( 'Identité légale : responsable de la publication', 'chaud-winter' ),
+			'default' => 'MARTELIN Thierry',
 		),
 		'warranty' => array(
 			'label'   => __( 'Durée de la garantie constructeur', 'chaud-winter' ),
@@ -56,7 +88,7 @@ function cw_info( $key ) {
 }
 
 /**
- * Remplace dans un texte les repères dont la valeur est connue : [TÉLÉPHONE], [HORAIRES], [EMAIL].
+ * Remplace dans un texte les repères dont la valeur est connue : [TÉLÉPHONE], [HORAIRES], [EMAIL], [ADRESSE] et l'identité légale (SIRET, TVA…).
  * Sert à la création des pages : les repères restants sont à compléter à la main.
  *
  * @param string $html Texte contenant des repères.
@@ -64,14 +96,25 @@ function cw_info( $key ) {
  */
 function cw_fill_known_infos( $html ) {
 	$map = array(
-		'[TÉLÉPHONE]' => 'phone',
-		'[HORAIRES]'  => 'hours',
-		'[EMAIL]'     => 'email',
+		'[TÉLÉPHONE]'          => 'phone',
+		'[HORAIRES]'           => 'hours',
+		'[EMAIL]'              => 'email',
+		'[ADRESSE]'            => 'address',
+		'[RAISON SOCIALE]'     => 'company',
+		'[FORME JURIDIQUE]'    => 'legal_form',
+		'[NOM COMMERCIAL]'     => 'trade_name',
+		'[SIREN]'              => 'siren',
+		'[SIRET]'              => 'siret',
+		'[N° TVA]'             => 'vat',
+		'[VILLE DU RCS]'       => 'rcs_city',
+		'[REPRÉSENTANT LÉGAL]' => 'legal_rep',
 	);
 	foreach ( $map as $token => $key ) {
 		$value = cw_info( $key );
 		if ( ! cw_is_placeholder( $value ) ) {
-			$html = str_replace( $token, esc_html( $value ), $html );
+			// Une adresse sur plusieurs lignes devient une seule ligne dans un paragraphe.
+			$value = trim( preg_replace( '/\s*[\r\n]+\s*/', ', ', $value ) );
+			$html  = str_replace( $token, esc_html( $value ), $html );
 		}
 	}
 	return $html;

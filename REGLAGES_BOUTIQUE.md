@@ -75,7 +75,7 @@ Si le virement n'arrive jamais : passer le statut à « Annulée ». Le stock es
 ## 4. À installer dans cette étape (déjà validé)
 
 - **WP Mail SMTP** : pour que l'e-mail avec l'IBAN arrive bien (et pas dans les indésirables). Le régler avec l'adresse e-mail de la boutique créée chez Hostinger (hPanel > E-mails).
-- **PDF Invoices & Packing Slips for WooCommerce** : factures PDF. Dans ses réglages, remplir le nom, l'adresse, le SIRET et le n° de TVA de l'entreprise, et joindre la facture à l'e-mail « Commande en cours » (donc une fois le virement reçu).
+- **PDF Invoices & Packing Slips for WooCommerce** : factures PDF. Dans ses réglages, remplir le nom, l'adresse (1650 route de Bouverat, 74130 Bonneville), le SIRET (818 272 940 00029) et le n° de TVA (FR62818272940) de l'entreprise (MARTELIN Thierry, nom commercial HotHiver), et joindre la facture à l'e-mail « Commande en cours » (donc une fois le virement reçu).
 
 ## 5. Bandeau cookies (Complianz)
 

@@ -10,9 +10,9 @@ Coche chaque ligne quand l'information est fournie et saisie sur le site.
 | ☑ | ~~`[TÉLÉPHONE]`~~ | **+33 7 59 23 32 43** (reçu le 13/10/2026, intégré au thème, modifiable dans Apparence > Personnaliser > Chaud Winter : coordonnées) | | Barre du haut, bande de réassurance, pied de page, contact |
 | ☑ | ~~`[HORAIRES]`~~ | **Commande possible tous les jours, livraison du lundi au samedi de 8h à 19h** (reçu le 13/10/2026). Ce ne sont pas les horaires de réponse au téléphone : à confirmer avec le client | Même endroit | Barre du haut, pied de page, contact, page Livraison |
 | ☐ | `[EMAIL]` | Adresse e-mail de contact | Même endroit | Pied de page |
-| ☐ | `[ADRESSE]` | Adresse postale de l'entreprise | Même endroit | Pied de page |
-| ☐ | `[SIRET]` | Numéro SIRET | (pages légales, étape 6) | Mentions légales, Impressum, CGV |
-| ☐ | `[N° TVA]` | Numéro de TVA intracommunautaire | (pages légales, étape 6) | Mentions légales, Impressum, factures |
+| ☑ | ~~`[ADRESSE]`~~ | **1650 route de Bouverat, 74130 Bonneville** (reçue le 13/10/2026, intégrée au thème et à l'adresse de la boutique WooCommerce) | Même endroit | Pied de page, contact, pages légales |
+| ☑ | ~~`[SIRET]`~~ | **818 272 940 00029** (SIREN 818 272 940, reçu le 13/10/2026) | Apparence > Personnaliser > Chaud Winter : coordonnées | Pied de page, mentions légales, Impressum, CGV |
+| ☑ | ~~`[N° TVA]`~~ | **FR62818272940** (reçu le 13/10/2026) | Même endroit | Pied de page, mentions légales, Impressum, CGV, factures |
 | ☐ | `[IBAN]` | IBAN, BIC (`[BIC]`) et titulaire (`[TITULAIRE DU COMPTE]`) du compte pro | WooCommerce > Réglages > Paiements > Virement bancaire | Page de confirmation, e-mail de commande |
 | ☐ | `[MÉDIATEUR]` | Nom et site du médiateur de la consommation | (pages légales, étape 6) | CGV, mentions légales |
 | ☐ | `[DURÉE DE GARANTIE]` | Durée de garantie des appareils | Apparence > Personnaliser > Chaud Winter : coordonnées | Accueil (bande de réassurance), CGV, fiches produits |
@@ -24,17 +24,19 @@ Ces informations n'étaient pas dans la liste de départ mais sont obligatoires 
 
 | | Repère | Ce qu'il faut | Pages |
 |---|---|---|---|
-| ☐ | `[RAISON SOCIALE]` | Nom officiel de l'entreprise | Mentions légales, CGV, Impressum, Confidentialité |
-| ☐ | `[FORME JURIDIQUE]` | SARL, SAS, EI… | Mentions légales, CGV, Impressum |
-| ☐ | `[CAPITAL SOCIAL]` | Montant du capital (si société) | Mentions légales, CGV |
-| ☐ | `[VILLE DU RCS]` | Ville d'immatriculation au registre du commerce | Mentions légales, CGV, Impressum |
-| ☐ | `[REPRÉSENTANT LÉGAL]` | Nom du gérant ou du président | Mentions légales, Impressum |
+| ☑ | ~~`[RAISON SOCIALE]`~~ | **MARTELIN Thierry**, nom commercial **HotHiver** (reçu le 13/10/2026). **À confirmer** : le site s'appelle « Chaud Winter » alors que l'INSEE donne « HotHiver » comme nom commercial et enseigne. Le registre mentionne aussi « MARTELIN BOIS DE CHAUFFAGE » : à confirmer s'il doit apparaître | Mentions légales, CGV, Impressum, Confidentialité |
+| ☑ | ~~`[FORME JURIDIQUE]`~~ | **Entrepreneur individuel** (reçu le 13/10/2026) | Mentions légales, CGV, Impressum |
+| ☑ | ~~`[CAPITAL SOCIAL]`~~ | **Sans objet** : un entrepreneur individuel n'a pas de capital social, la mention a été retirée des textes | Mentions légales, CGV |
+| ☑ | ~~`[VILLE DU RCS]`~~ | **Annecy**, n° 818 272 940 (inscrit le 08/02/2016) | Mentions légales, CGV, Impressum |
+| ☑ | ~~`[REPRÉSENTANT LÉGAL]`~~ | **MARTELIN Thierry** (l'exploitant) | Mentions légales, Impressum |
 | ☐ | `[DÉLAI DE PAIEMENT]` | Nombre de jours avant d'annuler une commande non payée | CGV, Paiement par virement |
 | ☐ | `[DÉLAI DE LIVRAISON]` | Délai indicatif après réception du virement | CGV, Livraison et retours |
 | ☐ | `[CONDITIONS DE REMISE]` | Livraison au pied du camion, sur le trottoir, dans la pièce… | CGV, Livraison et retours |
 | ☐ | `[COÛT ESTIMÉ DU RETOUR]` | Coût maximal d'un retour par le transporteur (obligatoire pour les objets lourds) | CGV, Livraison et retours |
 | ☐ | `[DATE DE MISE EN LIGNE]` | Date de la version des CGV | CGV |
 | ☐ | `[À VÉRIFIER : …]` | Pays des serveurs de l'hébergeur et du service d'e-mails | Politique de confidentialité |
+
+Pour ces informations d'identité, les textes des pages sont remplis automatiquement à la création des pages (bouton de configuration). Une page déjà publiée n'est jamais écrasée.
 
 Un rappel orange dans le tableau de bord liste les pages qui contiennent encore des repères.
 

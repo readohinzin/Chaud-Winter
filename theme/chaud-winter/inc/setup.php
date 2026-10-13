@@ -192,6 +192,14 @@ function cw_setup_general() {
 	update_option( 'time_format', 'H:i' );
 	update_option( 'start_of_week', 1 );
 
+	// Adresse de la boutique (utilisée par WooCommerce pour la TVA et les factures) : seulement si elle est vide.
+	if ( '' === (string) get_option( 'woocommerce_store_address', '' ) ) {
+		update_option( 'woocommerce_store_address', '1650 route de Bouverat' );
+		update_option( 'woocommerce_store_postcode', '74130' );
+		update_option( 'woocommerce_store_city', 'Bonneville' );
+		update_option( 'woocommerce_default_country', 'FR' );
+	}
+
 	return array( __( 'Pays, euros et format des prix réglés.', 'chaud-winter' ) );
 }
 
