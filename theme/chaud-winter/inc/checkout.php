@@ -195,6 +195,122 @@ function cw_email_transfer_box( $order, $sent_to_admin, $plain_text = false ) {
 add_action( 'woocommerce_email_before_order_table', 'cw_email_transfer_box', 5, 3 );
 
 /**
+ * Comptes enregistrés dans WooCommerce > Réglages > Paiements > Virement bancaire.
+ *
+ * @return array Liste de array( 'holder' => ..., 'iban' => ..., 'bic' => ... ).
+ */
+function cw_bank_accounts() {
+	$accounts = array();
+	foreach ( (array) get_option( 'woocommerce_bacs_accounts', array() ) as $account ) {
+		$account    = (array) $account;
+		$accounts[] = array(
+			'holder' => isset( $account['account_name'] ) ? trim( $account['account_name'] ) : '',
+			'iban'   => isset( $account['iban'] ) ? trim( $account['iban'] ) : '',
+			'bic'    => isset( $account['bic'] ) ? trim( $account['bic'] ) : '',
+		);
+	}
+	return $accounts;
+}
+
+/**
+ * Coordonnées bancaires en trois cartes : titulaire, IBAN, BIC.
+ *
+ * @param array $accounts Comptes (voir cw_bank_accounts()).
+ */
+function cw_render_bank_cards( $accounts ) {
+	if ( ! $accounts ) {
+		return;
+	}
+	?>
+	<section class="cw-bank" aria-labelledby="cw-bank-title">
+		<h2 id="cw-bank-title"><?php esc_html_e( 'Nos coordonnées bancaires', 'chaud-winter' ); ?></h2>
+		<?php foreach ( $accounts as $account ) : ?>
+			<dl class="cw-bank-cards">
+				<div class="cw-bank-card">
+					<dt><?php esc_html_e( 'Titulaire', 'chaud-winter' ); ?></dt>
+					<dd><?php echo esc_html( $account['holder'] ); ?></dd>
+				</div>
+				<div class="cw-bank-card cw-bank-iban">
+					<dt><?php esc_html_e( 'IBAN', 'chaud-winter' ); ?></dt>
+					<dd><?php echo esc_html( $account['iban'] ); ?></dd>
+				</div>
+				<div class="cw-bank-card">
+					<dt><?php esc_html_e( 'BIC', 'chaud-winter' ); ?></dt>
+					<dd><?php echo esc_html( $account['bic'] ); ?></dd>
+				</div>
+			</dl>
+		<?php endforeach; ?>
+	</section>
+	<?php
+}
+
+/**
+ * Remplace l'affichage des coordonnées bancaires de WooCommerce (liste) par nos trois cartes :
+ * retire le sien sur la page de confirmation et dans l'e-mail.
+ */
+function cw_remove_bacs_details() {
+	if ( ! function_exists( 'WC' ) || ! WC()->payment_gateways() ) {
+		return;
+	}
+	$gateways = WC()->payment_gateways()->payment_gateways();
+	if ( isset( $gateways['bacs'] ) ) {
+		remove_action( 'woocommerce_thankyou_bacs', array( $gateways['bacs'], 'thankyou_page' ) );
+		remove_action( 'woocommerce_email_before_order_table', array( $gateways['bacs'], 'email_instructions' ), 10 );
+	}
+}
+add_action( 'woocommerce_thankyou_bacs', 'cw_remove_bacs_details', 1 );
+add_action( 'woocommerce_email_before_order_table', 'cw_remove_bacs_details', 1 );
+
+/**
+ * Cartes bancaires sur la page de confirmation, juste après l'encadré « Dernière étape ».
+ */
+function cw_thankyou_bank_cards() {
+	cw_render_bank_cards( cw_bank_accounts() );
+}
+add_action( 'woocommerce_thankyou_bacs', 'cw_thankyou_bank_cards', 6 );
+
+/**
+ * Cartes bancaires dans l'e-mail du client (commande en attente du virement).
+ *
+ * @param WC_Order $order         Commande.
+ * @param bool     $sent_to_admin E-mail destiné au vendeur.
+ * @param bool     $plain_text    E-mail en texte brut.
+ */
+function cw_email_bank_cards( $order, $sent_to_admin, $plain_text = false ) {
+	if ( $sent_to_admin || 'bacs' !== $order->get_payment_method() || ! $order->has_status( 'on-hold' ) ) {
+		return;
+	}
+	$accounts = cw_bank_accounts();
+	if ( ! $accounts ) {
+		return;
+	}
+	if ( $plain_text ) {
+		echo esc_html__( 'NOS COORDONNÉES BANCAIRES', 'chaud-winter' ) . "\n";
+		foreach ( $accounts as $account ) {
+			echo esc_html__( 'Titulaire', 'chaud-winter' ) . ' : ' . esc_html( $account['holder'] ) . "\n";
+			echo esc_html__( 'IBAN', 'chaud-winter' ) . ' : ' . esc_html( $account['iban'] ) . "\n";
+			echo esc_html__( 'BIC', 'chaud-winter' ) . ' : ' . esc_html( $account['bic'] ) . "\n\n";
+		}
+		return;
+	}
+	$card = 'margin:0 0 10px;padding:12px 16px;border:1px solid #E4DDD3;border-radius:12px;background:#FFFFFF;';
+	$lab  = 'display:block;margin:0 0 2px;color:#7A7066;font-size:13px;font-weight:600;';
+	$val  = 'display:block;color:#14171C;font-size:18px;font-weight:700;letter-spacing:.02em;word-break:break-all;';
+	echo '<div style="margin:0 0 24px;"><h2 style="margin:0 0 12px;">' . esc_html__( 'Nos coordonnées bancaires', 'chaud-winter' ) . '</h2>';
+	foreach ( $accounts as $account ) {
+		foreach ( array(
+			__( 'Titulaire', 'chaud-winter' ) => $account['holder'],
+			__( 'IBAN', 'chaud-winter' )      => $account['iban'],
+			__( 'BIC', 'chaud-winter' )       => $account['bic'],
+		) as $label => $value ) {
+			echo '<div style="' . esc_attr( $card ) . '"><span style="' . esc_attr( $lab ) . '">' . esc_html( $label ) . '</span><span style="' . esc_attr( $val ) . '">' . esc_html( $value ) . '</span></div>';
+		}
+	}
+	echo '</div>';
+}
+add_action( 'woocommerce_email_before_order_table', 'cw_email_bank_cards', 6, 3 );
+
+/**
  * Rappel dans le tableau de bord : IBAN et tarifs de livraison encore à compléter.
  *
  * @param array $missing Informations manquantes.

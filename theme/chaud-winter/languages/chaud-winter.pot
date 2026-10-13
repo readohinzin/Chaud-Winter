@@ -354,40 +354,60 @@ msgstr ""
 msgid "DERNIÈRE ÉTAPE : LE VIREMENT"
 msgstr ""
 
-#: inc/checkout.php:206
+#: inc/checkout.php:226 inc/checkout.php:299
+msgid "Nos coordonnées bancaires"
+msgstr ""
+
+#: inc/checkout.php:230 inc/checkout.php:290 inc/checkout.php:302
+msgid "Titulaire"
+msgstr ""
+
+#: inc/checkout.php:234 inc/checkout.php:291 inc/checkout.php:303
+msgid "IBAN"
+msgstr ""
+
+#: inc/checkout.php:238 inc/checkout.php:292 inc/checkout.php:304
+msgid "BIC"
+msgstr ""
+
+#: inc/checkout.php:288
+msgid "NOS COORDONNÉES BANCAIRES"
+msgstr ""
+
+#: inc/checkout.php:322
 msgid "IBAN et BIC (WooCommerce > Réglages > Paiements)"
 msgstr ""
 
-#: inc/checkout.php:213
+#: inc/checkout.php:329
 msgid "Tarifs de livraison (WooCommerce > Réglages > Expédition)"
 msgstr ""
 
-#: inc/checkout.php:230
+#: inc/checkout.php:346
 #, php-format
 msgid "Nous livrons en France métropolitaine (livraison offerte), en Belgique et en Allemagne. Pour une autre destination, %s avant de commander."
 msgstr ""
 
-#: inc/checkout.php:231
+#: inc/checkout.php:347
 msgid "contactez-nous"
 msgstr ""
 
-#: inc/checkout.php:244 inc/performance.php:105
+#: inc/checkout.php:360 inc/performance.php:105
 msgid "Livraison offerte en France métropolitaine."
 msgstr ""
 
-#: inc/checkout.php:245
+#: inc/checkout.php:361
 msgid "Pour la Belgique et l'Allemagne, les frais s'affichent dès que vous saisissez votre adresse."
 msgstr ""
 
-#: inc/checkout.php:256
+#: inc/checkout.php:372
 msgid "Finaliser votre commande"
 msgstr ""
 
-#: inc/checkout.php:267
+#: inc/checkout.php:383
 msgid "Cliquez ici pour saisir votre code"
 msgstr ""
 
-#: inc/checkout.php:268
+#: inc/checkout.php:384
 msgid "Avez-vous un code promo ?"
 msgstr ""
 

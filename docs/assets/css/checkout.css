@@ -538,6 +538,49 @@
 	word-break: break-all;
 }
 
+/* Coordonnées bancaires : trois cartes (titulaire, IBAN, BIC). */
+.cw-wc-page .cw-bank {
+	margin: 0 0 24px;
+}
+
+.cw-wc-page .cw-bank h2 {
+	margin: 0 0 12px;
+	font-size: 24px;
+}
+
+.cw-bank-cards {
+	display: grid;
+	gap: 10px;
+	margin: 0 0 10px;
+}
+
+.cw-bank-card {
+	padding: 14px 16px;
+	border: 1px solid var(--cw-light-line);
+	border-radius: 14px;
+	background: #fff;
+}
+
+.cw-bank-card dt {
+	color: var(--cw-light-muted);
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.cw-bank-card dd {
+	margin: 4px 0 0;
+	color: var(--cw-ink);
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing: .02em;
+	word-break: break-word;
+}
+
+.cw-bank-iban dd {
+	font-size: 17px;
+	word-break: break-all;
+}
+
 .cw-wc-page .woocommerce-order-details,
 .cw-wc-page .woocommerce-customer-details {
 	margin: 0 0 24px;
@@ -734,8 +777,8 @@
 		grid-template-columns: 1fr 1fr;
 	}
 
-	.cw-wc-page ul.wc-bacs-bank-details {
-		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	.cw-bank-cards {
+		grid-template-columns: 1fr 2fr 1fr;
 	}
 }
 
