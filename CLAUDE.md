@@ -165,6 +165,8 @@ Seule la première page de la catégorie « Poêles à granulés » de topchaleu
 7. Import des produits par CSV.
 8. **Test complet d'une commande par virement**, de l'ajout au panier jusqu'à l'e-mail reçu.
 9. Contrôle sur téléphone, vitesse de chargement, accessibilité.
+10. Ajouter description et caractéristiques produits en référant aux sites web fournis : www.topchaleur.com
+www.poelediscount.com
 
 ## Ce qu'on ne fait pas
 - Pas de paiement par carte ni en plusieurs fois.
