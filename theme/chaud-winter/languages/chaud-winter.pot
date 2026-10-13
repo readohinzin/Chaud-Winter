@@ -1,0 +1,118 @@
+# Chaud Winter : modèle de traduction.
+msgid ""
+msgstr ""
+"Project-Id-Version: Chaud Winter\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: chaud-winter\n"
+
+#: functions.php:26
+msgid "En-tête : menu principal"
+msgstr ""
+
+#: functions.php:27
+msgid "Pied de page : produits"
+msgstr ""
+
+#: functions.php:28
+msgid "Pied de page : informations"
+msgstr ""
+
+#: inc/infos.php:21
+msgid "Téléphone"
+msgstr ""
+
+#: inc/infos.php:25
+msgid "Horaires du conseil par téléphone"
+msgstr ""
+
+#: inc/infos.php:29
+msgid "Adresse e-mail"
+msgstr ""
+
+#: inc/infos.php:33
+msgid "Adresse postale"
+msgstr ""
+
+#: inc/infos.php:73
+msgid "Chaud Winter : coordonnées"
+msgstr ""
+
+#: inc/infos.php:74
+msgid "Ces informations s'affichent dans la barre du haut et le pied de page. Laissez vide pour afficher le repère entre crochets."
+msgstr ""
+
+#: inc/infos.php:109
+msgid "Page du bouton « Être rappelé »"
+msgstr ""
+
+#: inc/infos.php:110
+msgid "En général, la page Contact."
+msgstr ""
+
+#: inc/infos.php:150
+msgid "Chaud Winter : informations à compléter avant la mise en ligne."
+msgstr ""
+
+#: inc/infos.php:153
+msgid "Compléter maintenant"
+msgstr ""
+
+#: inc/layout.php:38
+msgid "Spécialiste du chauffage au bois et aux granulés"
+msgstr ""
+
+#: inc/layout.php:43
+#, php-format
+msgid "Conseil par téléphone : %1$s · %2$s"
+msgstr ""
+
+#: inc/layout.php:56
+msgid "Navigation principale"
+msgstr ""
+
+#: inc/layout.php:75
+msgid "Rechercher"
+msgstr ""
+
+#: inc/layout.php:80
+msgid "Être rappelé"
+msgstr ""
+
+#: inc/layout.php:81
+msgid "Menu"
+msgstr ""
+
+#: inc/layout.php:107
+msgid "Poêles à granulés, poêles à bois et chaudières, avec un conseil sur mesure pour chaque maison."
+msgstr ""
+
+#: inc/layout.php:111
+msgid "Produits"
+msgstr ""
+
+#: inc/layout.php:126
+msgid "Informations"
+msgstr ""
+
+#: inc/layout.php:141 inc/template-tags.php:159
+msgid "Contact"
+msgstr ""
+
+#: inc/layout.php:154
+#, php-format
+msgid "© %s Chaud Winter. Tous droits réservés."
+msgstr ""
+
+#: inc/template-tags.php:34
+msgid "Chaud Winter, accueil"
+msgstr ""
+
+#: inc/template-tags.php:75
+#, php-format
+msgid "Panier, %d article"
+msgid_plural "Panier, %d articles"
+msgstr[0] ""
+msgstr[1] ""
+
