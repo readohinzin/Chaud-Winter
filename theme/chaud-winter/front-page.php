@@ -84,7 +84,25 @@ $cw_whatsapp = cw_whatsapp_url();
 			</div>
 
 			<div class="cw-scene-wrap">
-				<?php echo file_get_contents( CW_DIR . '/assets/svg/hero.svg' ); // phpcs:ignore WordPress.Security.EscapeOutput, WordPress.WP.AlternativeFunctions -- illustration du thème. ?>
+				<?php
+				// Photo du produit mis en avant ; sinon l'illustration animée de la maquette.
+				if ( $cw_featured && $cw_featured->get_image_id() ) {
+					echo wp_get_attachment_image(
+						$cw_featured->get_image_id(),
+						'large',
+						false,
+						array(
+							'class'         => 'cw-hero-photo',
+							'alt'           => '',
+							'loading'       => 'eager',
+							'fetchpriority' => 'high',
+							'sizes'         => '(min-width: 981px) 560px, 100vw',
+						)
+					);
+				} else {
+					echo file_get_contents( CW_DIR . '/assets/svg/hero.svg' ); // phpcs:ignore WordPress.Security.EscapeOutput, WordPress.WP.AlternativeFunctions -- illustration du thème.
+				}
+				?>
 				<?php if ( $cw_featured ) : ?>
 					<?php
 					$cw_f_kw   = cw_product_kw( $cw_featured );
@@ -142,7 +160,25 @@ $cw_whatsapp = cw_whatsapp_url();
 					?>
 					<a href="<?php echo esc_url( cw_category_url( $cw_slug ) ); ?>" class="cw-cat cw-rv">
 						<span class="cw-cat-num"><?php echo esc_html( sprintf( '%02d', $cw_n ) ); ?></span>
-						<span class="cw-cat-art"><span class="cw-halo"></span><?php echo cw_universe_svg( $cw_slug ); // phpcs:ignore WordPress.Security.EscapeOutput ?></span>
+						<span class="cw-cat-art">
+							<?php
+							$cw_photo = cw_universe_image_id( $cw_slug, isset( $cw_shop[ $cw_slug ] ) ? $cw_shop[ $cw_slug ] : array() );
+							if ( $cw_photo ) {
+								echo wp_get_attachment_image(
+									$cw_photo,
+									'large',
+									false,
+									array(
+										'class' => 'cw-cat-photo',
+										'alt'   => '',
+										'sizes' => '(min-width: 761px) 400px, 100vw',
+									)
+								);
+							} else {
+								echo '<span class="cw-halo"></span>' . cw_universe_svg( $cw_slug ); // phpcs:ignore WordPress.Security.EscapeOutput -- SVG du thème.
+							}
+							?>
+						</span>
 						<span class="cw-cat-body">
 							<span>
 								<span class="cw-cat-title"><?php echo esc_html( $cw_universe['label'] ); ?></span>

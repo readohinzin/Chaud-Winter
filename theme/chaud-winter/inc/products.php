@@ -51,6 +51,30 @@ function cw_universe_svg( $slug ) {
 }
 
 /**
+ * Photo d'un univers sur l'accueil : l'image de la catégorie choisie dans WordPress
+ * (Produits > Catégories > Miniature), sinon la photo du premier produit qui en a une.
+ *
+ * @param string       $slug     Identifiant de la catégorie.
+ * @param WC_Product[] $products Produits de la catégorie, dans l'ordre d'affichage.
+ * @return int Identifiant de l'image, 0 s'il n'y en a pas.
+ */
+function cw_universe_image_id( $slug, $products ) {
+	$term = get_term_by( 'slug', $slug, 'product_cat' );
+	if ( $term && ! is_wp_error( $term ) ) {
+		$thumbnail = absint( get_term_meta( $term->term_id, 'thumbnail_id', true ) );
+		if ( $thumbnail ) {
+			return $thumbnail;
+		}
+	}
+	foreach ( $products as $product ) {
+		if ( $product->get_image_id() ) {
+			return (int) $product->get_image_id();
+		}
+	}
+	return 0;
+}
+
+/**
  * Adresse de la page d'une catégorie (ou de la boutique si elle n'existe pas encore).
  *
  * @param string $slug Identifiant de la catégorie.
