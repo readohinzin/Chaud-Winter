@@ -93,7 +93,7 @@ Remplis ces champs avec des repères entre crochets visibles, jamais avec de fau
 Les noms, puissances et photos viennent de **poelediscount.com** et **topchaleur.com**. Les **prix sont ceux de ces sites, en euros TTC, et servent seulement d'exemple.** Le client fixera les siens.
 
 **Règles importantes**
-- **N'utilise pas les photos ni les textes de ces deux sites** sur le site final. Le client doit fournir les photos de ses fournisseurs. En attendant : cases vides ou images provisoires clairement signalées.
+- - **Photos** : autorisation d'utiliser les photos produits de topchaleur.com et poelediscount.com, donnée par [QUI] le [DATE]. Copie dans le dossier autorisations/. **Les textes de ces deux sites restent interdits.**
 - Les produits s'importent par CSV WooCommerce : crée `produits.csv` avec les colonnes nom, catégorie, marque, puissance (kW), description courte, prix.
 
 | Catégorie | Marque | Modèle | Description | kW | Prix exemple (€) |
