@@ -31,7 +31,7 @@ Ces informations n'étaient pas dans la liste de départ mais sont obligatoires 
 | ☑ | ~~`[REPRÉSENTANT LÉGAL]`~~ | **MARTELIN Thierry** (l'exploitant) | Mentions légales, Impressum |
 | ☐ | `[DÉLAI DE PAIEMENT]` | Nombre de jours avant d'annuler une commande non payée | CGV, Paiement par virement |
 | ☐ | `[DÉLAI DE LIVRAISON]` | Délai indicatif après réception du virement | CGV, Livraison et retours |
-| ☐ | `[CONDITIONS DE REMISE]` | Livraison au pied du camion, sur le trottoir, dans la pièce… | CGV, Livraison et retours |
+| ☑ | ~~`[CONDITIONS DE REMISE]`~~ | **Livraison devant le domicile**, sur rendez-vous avec le transporteur (reçu le 13/10/2026). Le texte de la page Livraison est rédigé avec nos mots. À confirmer avec le client : emballage sanglé, e-mail de prise en charge avec consignes de réception | CGV, Livraison et retours |
 | ☐ | `[COÛT ESTIMÉ DU RETOUR]` | Coût maximal d'un retour par le transporteur (obligatoire pour les objets lourds) | CGV, Livraison et retours |
 | ☐ | `[DATE DE MISE EN LIGNE]` | Date de la version des CGV | CGV |
 | ☐ | `[À VÉRIFIER : …]` | Pays des serveurs de l'hébergeur et du service d'e-mails | Politique de confidentialité |
