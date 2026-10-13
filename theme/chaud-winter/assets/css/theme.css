@@ -287,6 +287,32 @@ h1, h2, h3, h4, h5, h6 {
 	-webkit-backdrop-filter: blur(14px);
 	backdrop-filter: blur(14px);
 	border-bottom: 1px solid var(--cw-line);
+	transition: background-color .5s, box-shadow .5s;
+}
+
+/* Dès qu'on a quitté le haut de page : fond plus dense, ombre douce, filet braise. */
+.cw-header.is-scrolled {
+	background: rgba(12, 14, 17, .94);
+	box-shadow: 0 14px 40px -22px rgba(0, 0, 0, .9);
+}
+
+.cw-header::after {
+	content: "";
+	position: absolute;
+	right: 0;
+	bottom: -1px;
+	left: 0;
+	height: 1px;
+	background: linear-gradient(90deg, rgba(242, 107, 42, 0), rgba(242, 107, 42, .8), rgba(156, 203, 224, .6), rgba(242, 107, 42, 0));
+	opacity: 0;
+	transform: scaleX(.3);
+	transition: opacity .6s, transform .9s cubic-bezier(.22, 1, .36, 1);
+	pointer-events: none;
+}
+
+.cw-header.is-scrolled::after {
+	opacity: 1;
+	transform: none;
 }
 
 /* Barre d'administration WordPress : l'en-tête se colle juste en dessous. */
@@ -545,9 +571,49 @@ h1, h2, h3, h4, h5, h6 {
 	text-decoration: none;
 }
 
+.cw-foot-list a {
+	transition: color .3s, transform .4s cubic-bezier(.22, 1, .36, 1);
+}
+
 .cw-foot-list a:hover,
 .cw-foot-list a:focus {
 	color: var(--cw-ember);
+	transform: translateX(5px);
+}
+
+/* Grand nom en filigrane au bas de la page : il se lève doucement quand on arrive en bas. */
+.cw-foot-mark {
+	overflow: hidden;
+	margin: 6px 0 -.14em;
+	background: linear-gradient(to bottom, rgba(242, 238, 233, .13), rgba(242, 238, 233, 0) 82%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-family: var(--cw-font-display);
+	font-size: clamp(64px, 19.5vw, 280px);
+	font-weight: 700;
+	letter-spacing: -.03em;
+	line-height: .92;
+	text-align: center;
+	user-select: none;
+	white-space: nowrap;
+}
+
+.cw-foot-mark em {
+	font-style: normal;
+	background: linear-gradient(to bottom, rgba(156, 203, 224, .2), rgba(156, 203, 224, 0) 82%);
+	-webkit-background-clip: text;
+	background-clip: text;
+}
+
+.js .cw-foot-mark.cw-rv {
+	filter: none;
+	transform: translateY(26%);
+	transition: opacity 1.6s cubic-bezier(.22, 1, .36, 1), transform 1.8s cubic-bezier(.22, 1, .36, 1);
+}
+
+.js .cw-foot-mark.cw-rv.is-in {
+	transform: none;
 }
 
 .cw-legal {
@@ -584,6 +650,28 @@ h1, h2, h3, h4, h5, h6 {
 
 .cw-light .cw-eyebrow {
 	color: var(--cw-ember-ink);
+}
+
+/* Petit trait braise qui se dessine devant les sur-titres quand ils apparaissent. */
+.cw-rv > .cw-eyebrow:not(.cw-center),
+.cw-rv > div > .cw-eyebrow:not(.cw-center) {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.cw-rv > .cw-eyebrow:not(.cw-center)::before,
+.cw-rv > div > .cw-eyebrow:not(.cw-center)::before {
+	content: "";
+	width: 0;
+	height: 2px;
+	background: currentColor;
+	transition: width .9s cubic-bezier(.22, 1, .36, 1) .25s;
+}
+
+.cw-rv.is-in > .cw-eyebrow:not(.cw-center)::before,
+.cw-rv.is-in > div > .cw-eyebrow:not(.cw-center)::before {
+	width: 30px;
 }
 
 .cw-h2 {
@@ -888,6 +976,12 @@ h1, h2, h3, h4, h5, h6 {
 	opacity: 1;
 	transform: none;
 	filter: none;
+}
+
+/* Une fois apparu, le bloc réagit tout de suite (survol) : plus de délai de cascade. */
+.js .cw-rv.is-done {
+	transition: opacity .4s ease, transform .5s cubic-bezier(.22, 1, .36, 1), box-shadow .5s, border-color .4s;
+	transition-delay: 0s;
 }
 
 /* Les grandes cartes des univers gèrent leur propre entrée (pas de flou, trop lourd à animer). */

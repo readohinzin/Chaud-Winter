@@ -316,15 +316,25 @@ $cw_whatsapp = cw_whatsapp_url();
 	</section>
 
 	<?php if ( $cw_brands ) : ?>
-		<!-- Marques -->
+		<!-- Marques : noms qui défilent lentement (les répétitions sont décoratives) -->
 		<section class="cw-brands-sec">
 			<div class="cw-wrap">
 				<h2 class="cw-eyebrow cw-center"><?php esc_html_e( 'Les marques de la boutique', 'chaud-winter' ); ?></h2>
-				<ul class="cw-brands">
-					<?php $cw_bi = 0; foreach ( $cw_brands as $cw_brand ) : ?>
-						<li class="cw-rv" style="--i:<?php echo (int) $cw_bi++; ?>"><a href="<?php echo esc_url( get_term_link( $cw_brand ) ); ?>"><?php echo esc_html( $cw_brand->name ); ?></a></li>
+			</div>
+			<?php $cw_reps = max( 1, (int) ceil( 8 / count( $cw_brands ) ) ); ?>
+			<div class="cw-brand-marquee">
+				<div class="cw-brand-track">
+					<?php foreach ( array( false, true ) as $cw_half ) : ?>
+						<ul class="cw-brands"<?php echo $cw_half ? ' aria-hidden="true"' : ''; ?>>
+							<?php for ( $cw_rep = 0; $cw_rep < $cw_reps; $cw_rep++ ) : ?>
+								<?php foreach ( $cw_brands as $cw_brand ) : ?>
+									<?php $cw_hide = $cw_half || $cw_rep > 0; ?>
+									<li<?php echo $cw_hide ? ' aria-hidden="true"' : ''; ?>><a href="<?php echo esc_url( get_term_link( $cw_brand ) ); ?>"<?php echo $cw_hide ? ' tabindex="-1"' : ''; ?>><?php echo esc_html( $cw_brand->name ); ?></a></li>
+								<?php endforeach; ?>
+							<?php endfor; ?>
+						</ul>
 					<?php endforeach; ?>
-				</ul>
+				</div>
 			</div>
 		</section>
 	<?php endif; ?>

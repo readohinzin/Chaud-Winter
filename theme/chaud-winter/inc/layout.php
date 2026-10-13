@@ -101,7 +101,7 @@ function cw_footer() {
 	<footer class="cw-footer" id="contact">
 		<div class="cw-wrap">
 			<div class="cw-foot">
-				<div class="cw-foot-brand">
+				<div class="cw-foot-brand cw-rv">
 					<?php cw_logo( false ); ?>
 					<p><?php esc_html_e( 'Poêles à granulés, poêles à bois et chaudières, avec un conseil sur mesure pour chaque maison.', 'chaud-winter' ); ?></p>
 				</div>
@@ -111,6 +111,7 @@ function cw_footer() {
 					'cw-footer-shop'  => __( 'Produits', 'chaud-winter' ),
 					'cw-footer-infos' => __( 'Informations', 'chaud-winter' ),
 				);
+				$cw_fi = 0;
 				foreach ( $cw_foot_menus as $cw_location => $cw_title ) :
 					// Colonne masquée tant que son menu est vide (par exemple avant la création des pages légales).
 					$cw_menu = wp_nav_menu(
@@ -127,13 +128,13 @@ function cw_footer() {
 						continue;
 					}
 					?>
-					<div>
+					<div class="cw-rv" style="--i:<?php echo (int) ++$cw_fi; ?>">
 						<h2 class="cw-foot-title"><?php echo esc_html( $cw_title ); ?></h2>
 						<?php echo $cw_menu; // phpcs:ignore WordPress.Security.EscapeOutput -- produit par wp_nav_menu(). ?>
 					</div>
 				<?php endforeach; ?>
 
-				<div>
+				<div class="cw-rv" style="--i:<?php echo (int) ++$cw_fi; ?>">
 					<h2 class="cw-foot-title"><?php esc_html_e( 'Contact', 'chaud-winter' ); ?></h2>
 					<ul class="cw-foot-list">
 						<li><?php echo cw_phone_html(); // phpcs:ignore WordPress.Security.EscapeOutput ?></li>
@@ -143,6 +144,8 @@ function cw_footer() {
 					</ul>
 				</div>
 			</div>
+
+			<div class="cw-foot-mark cw-rv" aria-hidden="true">Hot<em>Hiver</em></div>
 
 			<div class="cw-legal">
 				<?php

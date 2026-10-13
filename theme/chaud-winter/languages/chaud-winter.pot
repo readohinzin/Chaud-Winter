@@ -209,50 +209,50 @@ msgstr ""
 msgid "Les marques de la boutique"
 msgstr ""
 
-#: front-page.php:337
+#: front-page.php:347
 msgid "Un doute sur le bon modèle ?"
 msgstr ""
 
-#: front-page.php:338
+#: front-page.php:348
 msgid "Dites-nous la surface à chauffer et le type de logement. On vous oriente vers l'appareil adapté."
 msgstr ""
 
-#: front-page.php:341 inc/layout.php:79 inc/setup.php:599
+#: front-page.php:351 inc/layout.php:79 inc/setup.php:599
 msgid "Être rappelé"
 msgstr ""
 
-#: front-page.php:343 page-contact.php:44
+#: front-page.php:353 page-contact.php:44
 msgid "Écrire sur WhatsApp"
 msgstr ""
 
-#: front-page.php:354
+#: front-page.php:364
 msgid "Avis clients"
 msgstr ""
 
-#: front-page.php:355
+#: front-page.php:365
 msgid "Ils nous font confiance"
 msgstr ""
 
-#: front-page.php:364
+#: front-page.php:374
 #, php-format
 msgid "%1$s/10 · %2$d avis"
 msgid_plural "%1$s/10 · %2$d avis"
 msgstr[0] ""
 msgstr[1] ""
 
-#: front-page.php:390
+#: front-page.php:400
 msgid "Guides"
 msgstr ""
 
-#: front-page.php:391
+#: front-page.php:401
 msgid "Conseils pour bien choisir"
 msgstr ""
 
-#: front-page.php:393
+#: front-page.php:403
 msgid "Tous les guides"
 msgstr ""
 
-#: front-page.php:408
+#: front-page.php:418
 msgid "Guide"
 msgstr ""
 
@@ -554,16 +554,16 @@ msgstr ""
 msgid "Informations"
 msgstr ""
 
-#: inc/layout.php:137 inc/pages.php:18 inc/template-tags.php:170
+#: inc/layout.php:138 inc/pages.php:18 inc/template-tags.php:170
 msgid "Contact"
 msgstr ""
 
-#: inc/layout.php:151
+#: inc/layout.php:154
 #, php-format
 msgid "© %s HotHiver. Tous droits réservés."
 msgstr ""
 
-#: inc/layout.php:156
+#: inc/layout.php:159
 #, php-format
 msgid "%1$s, %2$s, nom commercial %3$s · SIRET %4$s · TVA %5$s"
 msgstr ""

@@ -70,6 +70,20 @@
 		}).observe(header, { childList: true, subtree: true, characterData: true });
 	}
 
+	// En-tête : fond plus dense et filet braise dès qu'on a quitté le haut de la page.
+	if (header) {
+		var scrolled = false;
+		var onScroll = function () {
+			var s = window.scrollY > 24;
+			if (s !== scrolled) {
+				scrolled = s;
+				header.classList.toggle('is-scrolled', s);
+			}
+		};
+		window.addEventListener('scroll', onScroll, { passive: true });
+		onScroll();
+	}
+
 	// Apparition au défilement
 	var items = $$('.cw-rv');
 	if (!items.length) { return; }
@@ -79,6 +93,8 @@
 				if (e.isIntersecting) {
 					e.target.classList.add('is-in');
 					io.unobserve(e.target);
+					// Une fois la cascade terminée, le bloc répond au survol sans délai.
+					window.setTimeout(function () { e.target.classList.add('is-done'); }, 2200);
 				}
 			});
 		}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
