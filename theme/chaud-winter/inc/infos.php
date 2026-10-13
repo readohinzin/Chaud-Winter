@@ -241,6 +241,10 @@ function cw_admin_notice_placeholders() {
 			$missing[] = $field['label'];
 		}
 	}
+	/**
+	 * Autres informations manquantes (IBAN, tarifs de livraison…), ajoutées par la boutique.
+	 */
+	$missing = apply_filters( 'cw_missing_infos', $missing );
 	if ( ! $missing ) {
 		return;
 	}

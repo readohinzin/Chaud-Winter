@@ -22,5 +22,8 @@ Tant qu'un champ est vide, le site affiche le repère entre crochets et un rappe
 **Apparence > Menus** : trois emplacements existent (en-tête, pied de page produits, pied de page informations).
 Si tu ne fais rien, l'en-tête affiche automatiquement les catégories de produits et le lien Contact.
 
+## 5. Régler la boutique
+Voir **`REGLAGES_BOUTIQUE.md`** : un bouton applique les réglages (pays, TVA, virement, livraison), puis quelques champs à compléter.
+
 ## Mettre à jour le thème
 Même méthode qu'à l'étape 2 : WordPress propose de **remplacer** la version installée par celle du zip.

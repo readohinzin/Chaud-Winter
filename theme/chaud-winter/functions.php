@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'CW_VERSION', '0.3.0' );
+define( 'CW_VERSION', '0.4.0' );
 define( 'CW_DIR', get_stylesheet_directory() );
 define( 'CW_URI', get_stylesheet_directory_uri() );
 
@@ -16,6 +16,8 @@ require CW_DIR . '/inc/template-tags.php';
 require CW_DIR . '/inc/layout.php';
 require CW_DIR . '/inc/products.php';
 require CW_DIR . '/inc/woocommerce.php';
+require CW_DIR . '/inc/checkout.php';
+require CW_DIR . '/inc/setup.php';
 
 /**
  * Traductions, menus et supports du thème.

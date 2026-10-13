@@ -13,10 +13,10 @@ Coche chaque ligne quand l'information est fournie et saisie sur le site.
 | ☐ | `[ADRESSE]` | Adresse postale de l'entreprise | Même endroit | Pied de page |
 | ☐ | `[SIRET]` | Numéro SIRET | (pages légales, étape 6) | Mentions légales, Impressum, CGV |
 | ☐ | `[N° TVA]` | Numéro de TVA intracommunautaire | (pages légales, étape 6) | Mentions légales, Impressum, factures |
-| ☐ | `[IBAN]` | IBAN et BIC du compte pro | WooCommerce > Réglages > Paiements > Virement bancaire (étape 5) | Page de confirmation, e-mail de commande |
+| ☐ | `[IBAN]` | IBAN, BIC (`[BIC]`) et titulaire (`[TITULAIRE DU COMPTE]`) du compte pro | WooCommerce > Réglages > Paiements > Virement bancaire | Page de confirmation, e-mail de commande |
 | ☐ | `[MÉDIATEUR]` | Nom et site du médiateur de la consommation | (pages légales, étape 6) | CGV, mentions légales |
 | ☐ | `[DURÉE DE GARANTIE]` | Durée de garantie des appareils | Apparence > Personnaliser > Chaud Winter : coordonnées | Accueil (bande de réassurance), CGV, fiches produits |
-| ☐ | `[TARIFS DE LIVRAISON]` | Tarifs du transporteur par pays et par poids | WooCommerce > Réglages > Expédition (étape 5) | Panier, commande, page Livraison |
+| ☐ | `[TARIFS DE LIVRAISON]` | Tarifs du transporteur par pays et par classe de poids (**à saisir hors taxes**) | WooCommerce > Réglages > Expédition (voir `REGLAGES_BOUTIQUE.md`) | Panier, commande, page Livraison |
 
 ## Contenus facultatifs de l'accueil
 
@@ -35,6 +35,8 @@ Les marques s'affichent toutes seules dès que les produits ont une marque (éta
 
 - **Coefficients de l'assistant de puissance** (surface × 0,09 / 0,115 / 0,14) : à faire valider par un chauffagiste.
 - **Textes légaux** (CGV, mentions légales, confidentialité, cookies, Impressum, libellé du bouton de commande pour l'Allemagne) : à faire relire par le client ou son comptable.
+- **Libellé du bouton de commande** : « Commander avec obligation de paiement » (obligatoire en France et en Allemagne).
+- **Classes de poids de livraison** (moins de 100 kg, 100 à 200 kg, plus de 200 kg) : à adapter à la grille du transporteur.
 - **TVA par pays de livraison** : 20 % partout par défaut, à changer seulement après accord écrit du comptable.
 
 Ce fichier sera complété à chaque étape.
