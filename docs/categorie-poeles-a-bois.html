@@ -404,4 +404,4 @@ f.addEventListener('submit',function(e){e.preventDefault();
  document.querySelectorAll('li.cw-grid-item').forEach(function(li){var card=li.querySelector('.cw-card'),kw=parseFloat(card.dataset.kw),p=prix(card);
   var ok=(a===null||kw>=a)&&(b===null||kw<=b)&&(c===null||p>=c)&&(d===null||p<=d);li.hidden=!ok;if(ok)k++;});
  var rc=document.querySelector('.woocommerce-result-count');if(rc)rc.textContent=k+' résultat'+(k>1?'s':'');});})();
-</script></body></html>
+</script><script src="assets/js/catalogue-apercu.js"></script><script src="assets/js/apercu-panier.js"></script></body></html>
