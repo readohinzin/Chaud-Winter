@@ -47,7 +47,7 @@ msgstr ""
 msgid "À la une"
 msgstr ""
 
-#: front-page.php:101 template-parts/product-card.php:43
+#: front-page.php:101 inc/woocommerce.php:292 template-parts/product-card.php:43
 msgid "TTC"
 msgstr ""
 
@@ -248,49 +248,49 @@ msgstr ""
 msgid "Guide"
 msgstr ""
 
-#: functions.php:27
+#: functions.php:28
 msgid "En-tête : menu principal"
 msgstr ""
 
-#: functions.php:28
+#: functions.php:29
 msgid "Pied de page : produits"
 msgstr ""
 
-#: functions.php:29
+#: functions.php:30
 msgid "Pied de page : informations"
 msgstr ""
 
-#: functions.php:67
+#: functions.php:68
 #, php-format
 msgid "%d m²"
 msgstr ""
 
-#: functions.php:69
+#: functions.php:70
 #, php-format
 msgid "Environ <b>%d kW</b>"
 msgstr ""
 
-#: functions.php:71
+#: functions.php:72
 #, php-format
 msgid "Gamme conseillée : de %1$d à %2$d kW."
 msgstr ""
 
-#: functions.php:73
+#: functions.php:74
 #, php-format
 msgid "Voir les appareils de %1$d à %2$d kW"
 msgstr ""
 
-#: functions.php:75
+#: functions.php:76
 #, php-format
 msgid "%1$d appareil entre %2$d et %3$d kW"
 msgstr ""
 
-#: functions.php:77
+#: functions.php:78
 #, php-format
 msgid "%1$d appareils entre %2$d et %3$d kW"
 msgstr ""
 
-#: functions.php:79
+#: functions.php:80
 #, php-format
 msgid "Aucun appareil entre %1$d et %2$d kW : un conseiller peut vous orienter."
 msgstr ""
@@ -472,11 +472,84 @@ msgid_plural "Panier, %d articles"
 msgstr[0] ""
 msgstr[1] ""
 
-#: template-parts/product-card.php:26
+#: inc/woocommerce.php:177
+msgid "Puissance (kW)"
+msgstr ""
+
+#: inc/woocommerce.php:179 inc/woocommerce.php:186
+msgid "De"
+msgstr ""
+
+#: inc/woocommerce.php:179 inc/woocommerce.php:186
+msgid "min."
+msgstr ""
+
+#: inc/woocommerce.php:180 inc/woocommerce.php:187
+msgid "à"
+msgstr ""
+
+#: inc/woocommerce.php:180 inc/woocommerce.php:187
+msgid "max."
+msgstr ""
+
+#: inc/woocommerce.php:184
+msgid "Prix TTC (€)"
+msgstr ""
+
+#: inc/woocommerce.php:194 woocommerce/archive-product.php:46
+msgid "Filtrer"
+msgstr ""
+
+#: inc/woocommerce.php:196 woocommerce/archive-product.php:90
+msgid "Effacer les filtres"
+msgstr ""
+
+#: inc/woocommerce.php:216 template-parts/product-card.php:26
 msgid "Photo à venir"
+msgstr ""
+
+#: inc/woocommerce.php:303
+msgid "Livraison en France, Belgique et Allemagne"
+msgstr ""
+
+#: inc/woocommerce.php:304
+msgid "Paiement par virement bancaire : les coordonnées s'affichent après la commande"
+msgstr ""
+
+#: inc/woocommerce.php:309
+#, php-format
+msgid "Un doute sur la puissance ? %s"
+msgstr ""
+
+#: inc/woocommerce.php:310 woocommerce/archive-product.php:92
+msgid "Être rappelé par un conseiller"
+msgstr ""
+
+#: inc/woocommerce.php:326
+msgid "Caractéristiques"
+msgstr ""
+
+#: inc/woocommerce.php:351
+msgid "Dans la même catégorie"
+msgstr ""
+
+#: inc/woocommerce.php:363
+msgid "Fil d'Ariane"
+msgstr ""
+
+#: inc/woocommerce.php:364
+msgid "Accueil"
 msgstr ""
 
 #: template-parts/product-card.php:46
 msgid "Voir le détail"
+msgstr ""
+
+#: woocommerce/archive-product.php:84
+msgid "Aucun appareil ne correspond à ces filtres."
+msgstr ""
+
+#: woocommerce/archive-product.php:85
+msgid "Aucun produit dans cette catégorie pour le moment."
 msgstr ""
 

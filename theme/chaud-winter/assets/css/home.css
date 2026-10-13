@@ -2,15 +2,6 @@
  * Chaud Winter : page d'accueil. Mobile d'abord.
  */
 
-/* Pleine largeur : on neutralise le conteneur de GeneratePress. */
-.cw-full-width .site.grid-container,
-.cw-full-width .site-content {
-	display: block;
-	max-width: none;
-	margin: 0;
-	padding: 0;
-}
-
 .cw-home {
 	display: block;
 }

@@ -105,6 +105,15 @@ h1, h2, h3, h4, h5, h6 {
 	color: inherit;
 }
 
+/* Accueil et boutique : pleine largeur, on neutralise le conteneur de GeneratePress. */
+.cw-full-width .site.grid-container,
+.cw-full-width .site-content {
+	display: block;
+	max-width: none;
+	margin: 0;
+	padding: 0;
+}
+
 /* ------------------------------------------------------------------ */
 /* 2. Boutons (au moins 44 px de haut, texte sombre sur orange)        */
 /* ------------------------------------------------------------------ */
