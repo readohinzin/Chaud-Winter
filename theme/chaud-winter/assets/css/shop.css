@@ -726,8 +726,10 @@ a.cw-badge:focus {
 }
 
 .woocommerce table.shop_attributes {
+	width: 100%;
 	margin: 0;
 	border: 0;
+	border-collapse: collapse;
 }
 
 .woocommerce table.shop_attributes th,
@@ -747,6 +749,7 @@ a.cw-badge:focus {
 }
 
 .woocommerce table.shop_attributes td p {
+	margin: 0;
 	padding: 0;
 }
 

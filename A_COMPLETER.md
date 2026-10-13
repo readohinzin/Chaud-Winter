@@ -46,7 +46,7 @@ Un rappel orange dans le tableau de bord liste les pages qui contiennent encore 
 | ☐ | Ranger une **copie écrite des autorisations** d'utiliser les photos, et compléter `[QUI]` et `[DATE]` dans CLAUDE.md | Dossier `autorisations/` |
 | ☐ | Photos des produits ajoutés plus tard (fournisseurs) | Fiche produit > Image du produit |
 | ☐ | Poids et classe de livraison de chaque appareil | Fiche produit > Expédition |
-| ☐ | Descriptions longues (pas de texte copié sur les sites concurrents) | Fiche produit |
+| ☐ | Fiches techniques des fournisseurs : poids, dimensions, rendement, réservoir, sortie des fumées (les descriptions et caractéristiques de base sont déjà rédigées) | Fiche produit > Caractéristiques |
 | ☐ | Reste du catalogue des fournisseurs | Nouvelles lignes dans le CSV |
 
 Voir `IMPORT_PRODUITS.md`.

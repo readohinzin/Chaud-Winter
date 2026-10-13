@@ -17,7 +17,11 @@ En plus : une **référence** unique par produit (par exemple `ETNA-LUXE-CAYENNE
 
 **Photos** : chaque produit a sa photo (dossier `photos/` du projet). WooCommerce la télécharge pendant l'import : l'import prend donc quelques minutes.
 
-Laissé **vide exprès** (rien n'est inventé) : description longue, poids, classe de livraison.
+**Description longue** : rédigée pour Chaud Winter (aucun texte repris d'un autre site). Elle présente l'appareil et explique ses particularités (étanche, canalisable, extra plat, fonte, bûcher…), sans aucun chiffre inventé.
+
+**Caractéristiques** (onglet « Caractéristiques » de la fiche) : puissance, marque, type d'appareil, combustible, et selon le modèle : étanche, canalisable, format, sortie des fumées, vitres, matériau, rangement des bûches, cuisson. Seulement ce qui est certain.
+
+Laissé **vide exprès** (rien n'est inventé) : poids, dimensions, rendement, capacité du réservoir, diamètre de sortie des fumées, classe de livraison. Ces chiffres viendront des fiches techniques des fournisseurs.
 
 ## Importer (une seule fois)
 
@@ -42,7 +46,7 @@ Laissé **vide exprès** (rien n'est inventé) : description longue, poids, clas
 1. **Les prix sont des exemples** (relevés sur d'autres sites) : les remplacer par les vrais prix de Chaud Winter. Le plus simple : modifier la colonne `Regular price` du fichier et le réimporter en cochant « Mettre à jour les produits existants ».
 2. **Garder une copie des autorisations** d'utiliser les photos (dossier `autorisations/`).
 3. **Le poids et la classe de livraison** de chaque appareil (onglet « Expédition » du produit), d'après les fiches techniques des fournisseurs. Sans classe, c'est le tarif « sans classe » de la zone qui s'applique.
-4. **Les descriptions longues**, écrites par le client ou fournies par les fournisseurs (pas de texte copié sur les sites concurrents).
+4. **Les fiches techniques** des fournisseurs (poids, dimensions, rendement…) : à ajouter dans l'onglet « Caractéristiques » de chaque produit, ou à m'envoyer pour que je les mette dans le fichier.
 
 ## Ajouter d'autres produits plus tard
 
