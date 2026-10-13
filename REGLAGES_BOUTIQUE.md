@@ -22,7 +22,7 @@ Ce que fait le bouton :
 | TVA | Prix saisis et affichés TTC, TVA française 20 % pour tout le monde |
 | Paiement | Virement bancaire activé avec des textes clairs, **tous les autres moyens désactivés** |
 | Livraison | **Livraison offerte en France métropolitaine** (codes postaux 01000 à 95999, Corse comprise) ; Belgique et Allemagne : 3 classes de poids, tarifs à 0 € pour l'instant |
-| Commande | Téléphone obligatoire, commande sans compte possible, pages Panier et Commande compatibles avec le thème |
+| Commande | Téléphone obligatoire, commande sans compte possible, pages Panier et Commande compatibles avec le thème, avis publics sur les fiches désactivés |
 | Pages | Contact (avec formulaire), Conditions générales de vente, Mentions légales, Politique de confidentialité, Cookies, Livraison et retours, Paiement par virement, Impressum |
 | E-mails | Expéditeur « Chaud Winter », couleurs du site |
 

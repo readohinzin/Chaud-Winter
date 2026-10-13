@@ -33,7 +33,7 @@ add_action( 'generate_footer', 'cw_footer' );
  */
 function cw_header() {
 	?>
-	<div class="cw-topbar">
+	<aside class="cw-topbar" aria-label="<?php esc_attr_e( 'Conseil par téléphone', 'chaud-winter' ); ?>">
 		<div class="cw-wrap">
 			<span><?php esc_html_e( 'Spécialiste du chauffage au bois et aux granulés', 'chaud-winter' ); ?></span>
 			<span>
@@ -47,7 +47,7 @@ function cw_header() {
 				?>
 			</span>
 		</div>
-	</div>
+	</aside>
 
 	<header class="cw-header" id="masthead">
 		<div class="cw-wrap cw-header-inner">

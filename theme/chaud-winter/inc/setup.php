@@ -61,6 +61,7 @@ function cw_setup_blocks() {
 			'items' => array(
 				__( 'Téléphone obligatoire (le transporteur appelle avant de livrer)', 'chaud-winter' ),
 				__( 'Commande possible sans créer de compte', 'chaud-winter' ),
+				__( 'Avis et commentaires publics désactivés sur les fiches produits (les vrais avis se saisissent dans Apparence > Personnaliser)', 'chaud-winter' ),
 				__( 'Pages Panier et Commande en version classique, compatible avec le thème', 'chaud-winter' ),
 			),
 		),
@@ -450,6 +451,10 @@ function cw_setup_checkout() {
 	update_option( 'woocommerce_checkout_phone_field', 'required' );
 	update_option( 'woocommerce_checkout_company_field', 'optional' );
 	update_option( 'woocommerce_checkout_address_2_field', 'optional' );
+	// Pas d'avis publics sur les fiches (ils demandent modération et mentions légales) ni de commentaires.
+	update_option( 'woocommerce_enable_reviews', 'no' );
+	update_option( 'default_comment_status', 'closed' );
+	update_option( 'default_ping_status', 'closed' );
 	update_option( 'woocommerce_enable_guest_checkout', 'yes' );
 	update_option( 'woocommerce_enable_checkout_login_reminder', 'yes' );
 	update_option( 'woocommerce_enable_signup_and_login_from_checkout', 'yes' );

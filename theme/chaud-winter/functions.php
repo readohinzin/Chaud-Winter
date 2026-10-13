@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'CW_VERSION', '0.6.1' );
+define( 'CW_VERSION', '0.7.0' );
 define( 'CW_DIR', get_stylesheet_directory() );
 define( 'CW_URI', get_stylesheet_directory_uri() );
 
@@ -16,6 +16,7 @@ require CW_DIR . '/inc/template-tags.php';
 require CW_DIR . '/inc/layout.php';
 require CW_DIR . '/inc/products.php';
 require CW_DIR . '/inc/pages.php';
+require CW_DIR . '/inc/performance.php';
 require CW_DIR . '/inc/woocommerce.php';
 require CW_DIR . '/inc/checkout.php';
 require CW_DIR . '/inc/setup.php';
@@ -45,9 +46,8 @@ add_action( 'after_setup_theme', 'cw_setup', 20 );
  * Feuilles de style et scripts.
  */
 function cw_assets() {
-	wp_enqueue_style( 'cw-fonts', CW_URI . '/assets/css/fonts.css', array(), CW_VERSION );
 	// Chargé après les styles de GeneratePress pour pouvoir les remplacer.
-	$deps = array( 'cw-fonts' );
+	$deps = array();
 	if ( wp_style_is( 'generate-style', 'registered' ) ) {
 		$deps[] = 'generate-style';
 	}

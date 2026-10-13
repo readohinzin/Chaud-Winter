@@ -228,3 +228,24 @@ function cw_cart_shipping_note() {
 	<?php
 }
 add_action( 'woocommerce_proceed_to_checkout', 'cw_cart_shipping_note', 5 );
+
+/**
+ * Titre caché avant le formulaire de commande : les intertitres de WooCommerce sont des h3,
+ * il leur faut un h2 au-dessus pour que l'ordre des titres soit correct (lecteurs d'écran).
+ */
+function cw_checkout_hidden_heading() {
+	echo '<h2 class="screen-reader-text">' . esc_html__( 'Finaliser votre commande', 'chaud-winter' ) . '</h2>';
+}
+add_action( 'woocommerce_before_checkout_form', 'cw_checkout_hidden_heading', 20 );
+
+/**
+ * Lien « code promo » de la commande : le nom accessible doit reprendre le texte visible
+ * (celui de WooCommerce est en anglais, différent du texte affiché).
+ *
+ * @return string
+ */
+function cw_coupon_message() {
+	$label = esc_html__( 'Cliquez ici pour saisir votre code', 'chaud-winter' );
+	return esc_html__( 'Avez-vous un code promo ?', 'chaud-winter' ) . ' <a href="#" role="button" aria-controls="woocommerce-checkout-form-coupon" aria-expanded="false" class="showcoupon">' . $label . '</a>';
+}
+add_filter( 'woocommerce_checkout_coupon_message', 'cw_coupon_message' );

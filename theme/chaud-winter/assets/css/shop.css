@@ -97,7 +97,8 @@
 
 .woocommerce .cw-breadcrumb a {
 	color: var(--cw-muted);
-	text-decoration: none;
+	text-decoration: underline;
+	text-underline-offset: 3px;
 }
 
 .woocommerce .cw-breadcrumb a:hover,
@@ -834,5 +835,37 @@ a.cw-badge:focus {
 
 	.cw-product-more {
 		padding: 72px 0 96px;
+	}
+}
+
+/* Zones à toucher : 44 px minimum. */
+a.cw-badge {
+	min-height: 44px;
+}
+
+.woocommerce div.product div.images .woocommerce-product-gallery__trigger {
+	width: 44px;
+	height: 44px;
+}
+
+/* Tri : ne dépasse jamais la largeur de l'écran. */
+.woocommerce .cw-toolbar .woocommerce-ordering {
+	float: none;
+	width: min(100%, 260px);
+	min-width: 0;
+}
+
+.woocommerce .cw-toolbar .woocommerce-ordering select {
+	width: 100%;
+	max-width: 100%;
+}
+
+/* Très petits téléphones (320 px) : les onglets de la fiche suivent la marge réduite de 16 px. */
+@media (max-width: 359px) {
+	.woocommerce div.product .woocommerce-tabs ul.tabs {
+		margin-right: -16px;
+		margin-left: -16px;
+		padding-right: 16px;
+		padding-left: 16px;
 	}
 }

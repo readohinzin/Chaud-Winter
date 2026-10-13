@@ -749,3 +749,11 @@
 	font-size: 14px;
 	line-height: 1.55;
 }
+
+/* Zones à toucher : 44 px minimum. */
+.cw-wc-page .entry-content table.cart .product-name a,
+.cw-wc-page .shipping-calculator-button {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+}

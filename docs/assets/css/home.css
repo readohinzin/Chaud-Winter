@@ -603,6 +603,11 @@
 	opacity: .75;
 }
 
+/* Onglet actif : compteur en pleine opacité, sinon le contraste sur l'orange est trop juste. */
+.cw-tab[aria-selected="true"] .cw-cnt {
+	opacity: 1;
+}
+
 .cw-filter-note {
 	display: flex;
 	flex-wrap: wrap;
@@ -1054,4 +1059,21 @@
 	border-top: 1px solid var(--cw-line2);
 	color: var(--cw-text);
 	font-size: 14px;
+}
+
+/* Zones à toucher : 44 px minimum. */
+.cw-link {
+	display: inline-flex;
+	align-items: center;
+	min-height: 44px;
+}
+
+/* Très petits téléphones (320 px) : les onglets suivent la marge réduite de 16 px. */
+@media (max-width: 359px) {
+	.cw-tabs {
+		margin-right: -16px;
+		margin-left: -16px;
+		padding-right: 16px;
+		padding-left: 16px;
+	}
 }

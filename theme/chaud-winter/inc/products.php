@@ -207,8 +207,8 @@ function cw_add_to_cart_button( $product ) {
 			esc_url( $product->add_to_cart_url() ),
 			(int) $product->get_id(),
 			esc_attr( $product->get_sku() ),
-			/* translators: %s: nom du produit. */
-			esc_attr( sprintf( __( 'Ajouter « %s » au panier', 'chaud-winter' ), $name ) ),
+			/* translators: %s: nom du produit. Le texte visible « Ajouter au panier » doit rester au début. */
+			esc_attr( sprintf( __( 'Ajouter au panier : %s', 'chaud-winter' ), $name ) ),
 			esc_html__( 'Ajouter au panier', 'chaud-winter' )
 		);
 	}
