@@ -527,7 +527,7 @@ msgstr ""
 
 #: inc/layout.php:43
 #, php-format
-msgid "Conseil par téléphone : %s"
+msgid "Téléphone : %s"
 msgstr ""
 
 #: inc/layout.php:55

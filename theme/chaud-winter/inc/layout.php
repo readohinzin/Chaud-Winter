@@ -40,7 +40,7 @@ function cw_header() {
 				<?php
 				printf(
 					/* translators: %s: numéro de téléphone. */
-					esc_html__( 'Conseil par téléphone : %s', 'chaud-winter' ),
+					esc_html__( 'Téléphone : %s', 'chaud-winter' ),
 					cw_phone_html() // phpcs:ignore WordPress.Security.EscapeOutput -- déjà échappé.
 				);
 				?>
