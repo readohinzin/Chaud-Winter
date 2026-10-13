@@ -17,6 +17,7 @@ function cw_page_definitions() {
 	return array(
 		'contact'                       => __( 'Contact', 'chaud-winter' ),
 		'livraison-et-retours'          => __( 'Livraison et retours', 'chaud-winter' ),
+		'faq'                           => __( 'Questions fréquentes', 'chaud-winter' ),
 		'paiement-par-virement'         => __( 'Paiement par virement', 'chaud-winter' ),
 		'conditions-generales-de-vente' => __( 'Conditions générales de vente', 'chaud-winter' ),
 		'mentions-legales'              => __( 'Mentions légales', 'chaud-winter' ),

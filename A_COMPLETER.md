@@ -30,9 +30,10 @@ Ces informations n'étaient pas dans la liste de départ mais sont obligatoires 
 | ☑ | ~~`[VILLE DU RCS]`~~ | **Annecy**, n° 818 272 940 (inscrit le 08/02/2016) | Mentions légales, CGV, Impressum |
 | ☑ | ~~`[REPRÉSENTANT LÉGAL]`~~ | **MARTELIN Thierry** (l'exploitant) | Mentions légales, Impressum |
 | ☐ | `[DÉLAI DE PAIEMENT]` | Nombre de jours avant d'annuler une commande non payée | CGV, Paiement par virement |
-| ☐ | `[DÉLAI DE LIVRAISON]` | Délai indicatif après réception du virement | CGV, Livraison et retours |
+| ☑ | ~~`[DÉLAI DE LIVRAISON]`~~ | **Expédition sous 24 h après réception du virement, 2 à 3 jours ouvrés au total** pour les appareils en stock (reçu le 13/10/2026). À confirmer avec le client, surtout pour les produits hors stock | CGV, Livraison et retours, Questions fréquentes |
 | ☑ | ~~`[CONDITIONS DE REMISE]`~~ | **Livraison devant le domicile**, sur rendez-vous avec le transporteur (reçu le 13/10/2026). Le texte de la page Livraison est rédigé avec nos mots. À confirmer avec le client : emballage sanglé, e-mail de prise en charge avec consignes de réception | CGV, Livraison et retours |
 | ☐ | `[COÛT ESTIMÉ DU RETOUR]` | Coût maximal d'un retour par le transporteur (obligatoire pour les objets lourds) | CGV, Livraison et retours |
+| ☐ | `[ADRESSE DU DÉPÔT]` | Adresse du dépôt où l'on peut retirer sa commande (retrait gratuit sur rendez-vous). Est-ce la même que 1650 route de Bouverat ? | Questions fréquentes |
 | ☐ | `[DATE DE MISE EN LIGNE]` | Date de la version des CGV | CGV |
 | ☐ | `[À VÉRIFIER : …]` | Pays des serveurs de l'hébergeur et du service d'e-mails | Politique de confidentialité |
 

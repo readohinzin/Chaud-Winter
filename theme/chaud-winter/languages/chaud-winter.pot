@@ -35,7 +35,7 @@ msgstr ""
 msgid "Prix TTC en euros"
 msgstr ""
 
-#: front-page.php:81 inc/pages.php:20
+#: front-page.php:81 inc/pages.php:21
 msgid "Paiement par virement"
 msgstr ""
 
@@ -568,23 +568,27 @@ msgstr ""
 msgid "Livraison et retours"
 msgstr ""
 
-#: inc/pages.php:21
-msgid "Conditions générales de vente"
+#: inc/pages.php:20
+msgid "Questions fréquentes"
 msgstr ""
 
 #: inc/pages.php:22
-msgid "Mentions légales"
+msgid "Conditions générales de vente"
 msgstr ""
 
 #: inc/pages.php:23
-msgid "Politique de confidentialité"
+msgid "Mentions légales"
 msgstr ""
 
 #: inc/pages.php:24
+msgid "Politique de confidentialité"
+msgstr ""
+
+#: inc/pages.php:25
 msgid "Cookies"
 msgstr ""
 
-#: inc/pages.php:112
+#: inc/pages.php:113
 #, php-format
 msgid "Repères à remplacer dans les pages : %s"
 msgstr ""
