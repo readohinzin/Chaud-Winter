@@ -19,11 +19,11 @@ function cw_info_fields() {
 	return array(
 		'phone'   => array(
 			'label'   => __( 'Téléphone', 'chaud-winter' ),
-			'default' => '[TÉLÉPHONE]',
+			'default' => '+33 7 59 23 32 43',
 		),
 		'hours'   => array(
-			'label'   => __( 'Horaires du conseil par téléphone', 'chaud-winter' ),
-			'default' => '[HORAIRES]',
+			'label'   => __( 'Horaires (commande et livraison)', 'chaud-winter' ),
+			'default' => 'Commande possible tous les jours · livraison du lundi au samedi, de 8h à 19h',
 		),
 		'email'   => array(
 			'label'   => __( 'Adresse e-mail', 'chaud-winter' ),
@@ -53,6 +53,28 @@ function cw_info( $key ) {
 	}
 	$value = trim( (string) get_theme_mod( 'cw_' . $key, '' ) );
 	return '' === $value ? $fields[ $key ]['default'] : $value;
+}
+
+/**
+ * Remplace dans un texte les repères dont la valeur est connue : [TÉLÉPHONE], [HORAIRES], [EMAIL].
+ * Sert à la création des pages : les repères restants sont à compléter à la main.
+ *
+ * @param string $html Texte contenant des repères.
+ * @return string
+ */
+function cw_fill_known_infos( $html ) {
+	$map = array(
+		'[TÉLÉPHONE]' => 'phone',
+		'[HORAIRES]'  => 'hours',
+		'[EMAIL]'     => 'email',
+	);
+	foreach ( $map as $token => $key ) {
+		$value = cw_info( $key );
+		if ( ! cw_is_placeholder( $value ) ) {
+			$html = str_replace( $token, esc_html( $value ), $html );
+		}
+	}
+	return $html;
 }
 
 /**

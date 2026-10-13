@@ -213,7 +213,7 @@ msgstr ""
 msgid "Dites-nous la surface à chauffer et le type de logement. On vous oriente vers l'appareil adapté."
 msgstr ""
 
-#: front-page.php:328 inc/layout.php:80 inc/setup.php:582
+#: front-page.php:328 inc/layout.php:79 inc/setup.php:584
 msgid "Être rappelé"
 msgstr ""
 
@@ -396,7 +396,7 @@ msgid "Téléphone"
 msgstr ""
 
 #: inc/infos.php:25
-msgid "Horaires du conseil par téléphone"
+msgid "Horaires (commande et livraison)"
 msgstr ""
 
 #: inc/infos.php:29
@@ -411,98 +411,94 @@ msgstr ""
 msgid "Durée de la garantie constructeur"
 msgstr ""
 
-#: inc/infos.php:77
+#: inc/infos.php:99
 msgid "Chaud Winter : coordonnées"
 msgstr ""
 
-#: inc/infos.php:78
+#: inc/infos.php:100
 msgid "Ces informations s'affichent dans la barre du haut et le pied de page. Laissez vide pour afficher le repère entre crochets."
 msgstr ""
 
-#: inc/infos.php:114
+#: inc/infos.php:136
 msgid "Numéro WhatsApp (facultatif)"
 msgstr ""
 
-#: inc/infos.php:115
+#: inc/infos.php:137
 msgid "Au format international, par exemple +33 6 12 34 56 78. Laissez vide pour masquer le bouton WhatsApp."
 msgstr ""
 
-#: inc/infos.php:131
+#: inc/infos.php:153
 msgid "Page du bouton « Être rappelé »"
 msgstr ""
 
-#: inc/infos.php:132
+#: inc/infos.php:154
 msgid "En général, la page Contact."
 msgstr ""
 
-#: inc/infos.php:150
+#: inc/infos.php:172
 msgid "Chaud Winter : avis clients"
 msgstr ""
 
-#: inc/infos.php:151
+#: inc/infos.php:173
 msgid "Recopiez ici de vrais avis de clients (avec leur accord). Tant qu'aucun avis n'est rempli, la section « Avis clients » est masquée sur l'accueil."
 msgstr ""
 
-#: inc/infos.php:157
+#: inc/infos.php:179
 msgid "Note moyenne sur 10 (facultatif, par exemple 9,4)"
 msgstr ""
 
-#: inc/infos.php:158
+#: inc/infos.php:180
 msgid "Nombre d'avis (facultatif)"
 msgstr ""
 
-#: inc/infos.php:162
+#: inc/infos.php:184
 #, php-format
 msgid "Avis %d : texte"
 msgstr ""
 
-#: inc/infos.php:164
+#: inc/infos.php:186
 #, php-format
 msgid "Avis %d : prénom et ville"
 msgstr ""
 
-#: inc/infos.php:253
+#: inc/infos.php:275
 msgid "Chaud Winter : informations à compléter avant la mise en ligne."
 msgstr ""
 
-#: inc/infos.php:256
+#: inc/infos.php:278
 msgid "Compléter maintenant"
-msgstr ""
-
-#: inc/layout.php:38
-msgid "Spécialiste du chauffage au bois et aux granulés"
 msgstr ""
 
 #: inc/layout.php:43
 #, php-format
-msgid "Conseil par téléphone : %1$s · %2$s"
+msgid "Conseil par téléphone : %s"
 msgstr ""
 
-#: inc/layout.php:56
+#: inc/layout.php:55
 msgid "Navigation principale"
 msgstr ""
 
-#: inc/layout.php:75
+#: inc/layout.php:74
 msgid "Rechercher"
 msgstr ""
 
-#: inc/layout.php:81
+#: inc/layout.php:80
 msgid "Menu"
 msgstr ""
 
-#: inc/layout.php:107
+#: inc/layout.php:106
 msgid "Poêles à granulés, poêles à bois et chaudières, avec un conseil sur mesure pour chaque maison."
 msgstr ""
 
-#: inc/layout.php:112
+#: inc/layout.php:111
 msgid "Produits"
 msgstr ""
 
-#: inc/layout.php:113
+#: inc/layout.php:112
 msgid "Informations"
 msgstr ""
 
-#: inc/layout.php:138 inc/pages.php:18 inc/template-tags.php:160
+#: inc/layout.php:137 inc/pages.php:18 inc/template-tags.php:170
 msgid "Contact"
 msgstr ""
 
@@ -903,73 +899,73 @@ msgstr ""
 msgid "E-mails : expéditeur, couleurs et objets de chaque étape réglés."
 msgstr ""
 
-#: inc/setup.php:573
+#: inc/setup.php:575
 msgid "Contact Chaud Winter"
 msgstr ""
 
-#: inc/setup.php:579
+#: inc/setup.php:581
 msgid "Votre nom"
 msgstr ""
 
-#: inc/setup.php:580
+#: inc/setup.php:582
 msgid "Votre e-mail"
 msgstr ""
 
-#: inc/setup.php:581
+#: inc/setup.php:583
 msgid "Téléphone (pour être rappelé)"
 msgstr ""
 
-#: inc/setup.php:582
+#: inc/setup.php:584
 msgid "Votre demande"
 msgstr ""
 
-#: inc/setup.php:582
+#: inc/setup.php:584
 msgid "Conseil sur un appareil"
 msgstr ""
 
-#: inc/setup.php:582
+#: inc/setup.php:584
 msgid "Question sur une commande"
 msgstr ""
 
-#: inc/setup.php:582
+#: inc/setup.php:584
 msgid "Autre"
 msgstr ""
 
-#: inc/setup.php:583
+#: inc/setup.php:585
 msgid "Surface à chauffer et type de logement (facultatif)"
 msgstr ""
 
-#: inc/setup.php:584
+#: inc/setup.php:586
 msgid "Votre message"
 msgstr ""
 
-#: inc/setup.php:587
+#: inc/setup.php:589
 #, php-format
 msgid "Vos informations servent uniquement à répondre à votre demande. En savoir plus : <a href=\"%s\">politique de confidentialité</a>."
 msgstr ""
 
-#: inc/setup.php:590
+#: inc/setup.php:592
 msgid "Envoyer"
 msgstr ""
 
-#: inc/setup.php:597
+#: inc/setup.php:599
 msgid "Site Chaud Winter : [your-subject] de [your-name]"
 msgstr ""
 
-#: inc/setup.php:637
+#: inc/setup.php:639
 msgid "Formulaire de contact créé et ajouté à la page Contact."
 msgstr ""
 
-#: inc/setup.php:639
+#: inc/setup.php:641
 msgid "Contact Form 7 n'est pas installé : le formulaire sera ajouté si vous relancez ce bloc après l'avoir installé."
 msgstr ""
 
-#: inc/setup.php:648
+#: inc/setup.php:650
 #, php-format
 msgid "Page « %s » déjà publiée : texte non modifié."
 msgstr ""
 
-#: inc/setup.php:668
+#: inc/setup.php:670
 #, php-format
 msgid "Page créée : %s"
 msgstr ""

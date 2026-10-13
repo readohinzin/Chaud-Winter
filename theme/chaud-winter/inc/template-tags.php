@@ -150,6 +150,16 @@ function cw_menu_fallback( $args ) {
 			)
 		);
 		if ( ! is_wp_error( $cats ) ) {
+			// Ordre de la maquette (granulés, bois, chaudières), puis les éventuelles autres catégories.
+			$order = array_flip( array_keys( cw_universes() ) );
+			usort(
+				$cats,
+				function ( $a, $b ) use ( $order ) {
+					$pa = isset( $order[ $a->slug ] ) ? $order[ $a->slug ] : 99;
+					$pb = isset( $order[ $b->slug ] ) ? $order[ $b->slug ] : 99;
+					return $pa <=> $pb ? $pa <=> $pb : strcmp( $a->name, $b->name );
+				}
+			);
 			foreach ( $cats as $cat ) {
 				$items[] = sprintf( '<li><a href="%1$s">%2$s</a></li>', esc_url( get_term_link( $cat ) ), esc_html( $cat->name ) );
 			}

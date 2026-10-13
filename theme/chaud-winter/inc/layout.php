@@ -35,14 +35,13 @@ function cw_header() {
 	?>
 	<aside class="cw-topbar" aria-label="<?php esc_attr_e( 'Conseil par téléphone', 'chaud-winter' ); ?>">
 		<div class="cw-wrap">
-			<span><?php esc_html_e( 'Spécialiste du chauffage au bois et aux granulés', 'chaud-winter' ); ?></span>
+			<span><?php echo esc_html( cw_info( 'hours' ) ); ?></span>
 			<span>
 				<?php
 				printf(
-					/* translators: 1: numéro de téléphone, 2: horaires. */
-					esc_html__( 'Conseil par téléphone : %1$s · %2$s', 'chaud-winter' ),
-					cw_phone_html(), // phpcs:ignore WordPress.Security.EscapeOutput -- déjà échappé.
-					esc_html( cw_info( 'hours' ) )
+					/* translators: %s: numéro de téléphone. */
+					esc_html__( 'Conseil par téléphone : %s', 'chaud-winter' ),
+					cw_phone_html() // phpcs:ignore WordPress.Security.EscapeOutput -- déjà échappé.
 				);
 				?>
 			</span>
@@ -138,6 +137,7 @@ function cw_footer() {
 					<h2 class="cw-foot-title"><?php esc_html_e( 'Contact', 'chaud-winter' ); ?></h2>
 					<ul class="cw-foot-list">
 						<li><?php echo cw_phone_html(); // phpcs:ignore WordPress.Security.EscapeOutput ?></li>
+						<li class="cw-foot-hours"><?php echo esc_html( cw_info( 'hours' ) ); ?></li>
 						<li><?php echo cw_email_html(); // phpcs:ignore WordPress.Security.EscapeOutput ?></li>
 						<li><?php echo nl2br( esc_html( cw_info( 'address' ) ) ); ?></li>
 					</ul>

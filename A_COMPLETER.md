@@ -7,8 +7,8 @@ Coche chaque ligne quand l'information est fournie et saisie sur le site.
 
 | | Repère | Ce qu'il faut | Où le saisir | Où il s'affiche |
 |---|---|---|---|---|
-| ☐ | `[TÉLÉPHONE]` | Numéro de téléphone du conseil | Apparence > Personnaliser > Chaud Winter : coordonnées | Barre du haut, pied de page |
-| ☐ | `[HORAIRES]` | Horaires du conseil par téléphone | Même endroit | Barre du haut |
+| ☑ | ~~`[TÉLÉPHONE]`~~ | **+33 7 59 23 32 43** (reçu le 13/10/2026, intégré au thème, modifiable dans Apparence > Personnaliser > Chaud Winter : coordonnées) | | Barre du haut, bande de réassurance, pied de page, contact |
+| ☑ | ~~`[HORAIRES]`~~ | **Commande possible tous les jours, livraison du lundi au samedi de 8h à 19h** (reçu le 13/10/2026). Ce ne sont pas les horaires de réponse au téléphone : à confirmer avec le client | Même endroit | Barre du haut, pied de page, contact, page Livraison |
 | ☐ | `[EMAIL]` | Adresse e-mail de contact | Même endroit | Pied de page |
 | ☐ | `[ADRESSE]` | Adresse postale de l'entreprise | Même endroit | Pied de page |
 | ☐ | `[SIRET]` | Numéro SIRET | (pages légales, étape 6) | Mentions légales, Impressum, CGV |

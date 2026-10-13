@@ -527,6 +527,8 @@ function cw_setup_emails() {
  * @return string
  */
 function cw_html_to_blocks( $html ) {
+	$html = cw_fill_known_infos( $html );
+
 	// Liens internes : on ajoute l'adresse du site (utile s'il est installé dans un sous-dossier).
 	$html = preg_replace_callback(
 		'#href="/([a-z0-9\-/]*)"#',
