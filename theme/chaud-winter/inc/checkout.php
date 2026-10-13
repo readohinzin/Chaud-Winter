@@ -83,6 +83,16 @@ function cw_order_status_labels( $statuses ) {
 add_filter( 'wc_order_statuses', 'cw_order_status_labels' );
 
 /**
+ * Recommandation du virement instantané : l'expédition part à réception du virement,
+ * un virement classique peut donc retarder la livraison de 1 à 2 jours ouvrés.
+ *
+ * @return string
+ */
+function cw_instant_transfer_tip() {
+	return __( 'Pour une livraison plus rapide, nous vous recommandons le virement instantané, si votre banque le propose : il est crédité en quelques secondes, alors qu\'un virement classique peut demander 1 à 2 jours ouvrés avant l\'expédition.', 'chaud-winter' );
+}
+
+/**
  * Infos du virement pour une commande : montant exact et référence.
  *
  * @param WC_Order $order Commande.
@@ -123,7 +133,8 @@ function cw_thankyou_transfer_box( $order_id ) {
 		<ol class="cw-transfer-steps">
 			<li><?php esc_html_e( 'Faites le virement depuis votre banque, avec les coordonnées bancaires ci-dessous.', 'chaud-winter' ); ?></li>
 			<li><?php esc_html_e( 'Indiquez bien la référence : elle nous permet de reconnaître votre paiement.', 'chaud-winter' ); ?></li>
-			<li><?php esc_html_e( 'Un virement met en général 1 à 2 jours ouvrés à arriver. Dès sa réception, nous préparons votre commande et vous prévenons par e-mail.', 'chaud-winter' ); ?></li>
+			<li><?php echo esc_html( cw_instant_transfer_tip() ); ?></li>
+			<li><?php esc_html_e( 'Dès réception du virement, nous préparons votre commande et vous prévenons par e-mail.', 'chaud-winter' ); ?></li>
 		</ol>
 		<p class="cw-transfer-note"><?php esc_html_e( 'Ces informations vous ont aussi été envoyées par e-mail.', 'chaud-winter' ); ?></p>
 	</section>
@@ -148,7 +159,8 @@ function cw_email_transfer_box( $order, $sent_to_admin, $plain_text = false ) {
 		echo "\n" . esc_html__( 'DERNIÈRE ÉTAPE : LE VIREMENT', 'chaud-winter' ) . "\n";
 		echo esc_html__( 'Montant exact à virer', 'chaud-winter' ) . ' : ' . esc_html( $d['amount'] ) . "\n";
 		echo esc_html__( 'Référence à indiquer dans le virement', 'chaud-winter' ) . ' : ' . esc_html( $d['reference'] ) . "\n";
-		echo esc_html__( 'Un virement met en général 1 à 2 jours ouvrés à arriver. Dès sa réception, nous préparons votre commande et vous prévenons par e-mail.', 'chaud-winter' ) . "\n\n";
+		echo esc_html( cw_instant_transfer_tip() ) . "\n";
+		echo esc_html__( 'Dès réception du virement, nous préparons votre commande et vous prévenons par e-mail.', 'chaud-winter' ) . "\n\n";
 		return;
 	}
 	?>
@@ -156,7 +168,8 @@ function cw_email_transfer_box( $order, $sent_to_admin, $plain_text = false ) {
 		<h2 style="margin:0 0 12px;"><?php esc_html_e( 'Dernière étape : le virement', 'chaud-winter' ); ?></h2>
 		<p style="margin:0 0 6px;"><?php esc_html_e( 'Montant exact à virer', 'chaud-winter' ); ?> : <strong><?php echo esc_html( $d['amount'] ); ?></strong></p>
 		<p style="margin:0 0 12px;"><?php esc_html_e( 'Référence à indiquer dans le virement', 'chaud-winter' ); ?> : <strong><?php echo esc_html( $d['reference'] ); ?></strong></p>
-		<p style="margin:0;"><?php esc_html_e( 'Un virement met en général 1 à 2 jours ouvrés à arriver. Dès sa réception, nous préparons votre commande et vous prévenons par e-mail.', 'chaud-winter' ); ?></p>
+		<p style="margin:0 0 12px;"><?php echo esc_html( cw_instant_transfer_tip() ); ?></p>
+		<p style="margin:0;"><?php esc_html_e( 'Dès réception du virement, nous préparons votre commande et vous prévenons par e-mail.', 'chaud-winter' ); ?></p>
 	</div>
 	<?php
 }
@@ -186,3 +199,32 @@ function cw_missing_shop_infos( $missing ) {
 	return $missing;
 }
 add_filter( 'cw_missing_infos', 'cw_missing_shop_infos' );
+
+/**
+ * Message affiché quand aucune livraison n'est possible (par exemple outre-mer).
+ *
+ * @return string
+ */
+function cw_no_shipping_message() {
+	return sprintf(
+		/* translators: %s: lien vers la page de contact. */
+		__( 'Nous livrons en France métropolitaine (livraison offerte), en Belgique et en Allemagne. Pour une autre destination, %s avant de commander.', 'chaud-winter' ),
+		'<a href="' . esc_url( cw_callback_url() ) . '">' . esc_html__( 'contactez-nous', 'chaud-winter' ) . '</a>'
+	);
+}
+add_filter( 'woocommerce_no_shipping_available_html', 'cw_no_shipping_message' );
+add_filter( 'woocommerce_cart_no_shipping_available_html', 'cw_no_shipping_message' );
+
+/**
+ * Rappel de la livraison offerte dans le panier, avant le bouton de validation :
+ * le prix de livraison ne s'affiche qu'une fois l'adresse saisie.
+ */
+function cw_cart_shipping_note() {
+	?>
+	<p class="cw-cart-note">
+		<strong><?php esc_html_e( 'Livraison offerte en France métropolitaine.', 'chaud-winter' ); ?></strong>
+		<?php esc_html_e( 'Pour la Belgique et l\'Allemagne, les frais s\'affichent dès que vous saisissez votre adresse.', 'chaud-winter' ); ?>
+	</p>
+	<?php
+}
+add_action( 'woocommerce_proceed_to_checkout', 'cw_cart_shipping_note', 5 );

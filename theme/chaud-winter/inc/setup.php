@@ -51,8 +51,9 @@ function cw_setup_blocks() {
 			'title' => __( 'Livraison', 'chaud-winter' ),
 			'items' => array(
 				__( '3 classes d\'expédition par poids : moins de 100 kg, 100 à 200 kg, plus de 200 kg', 'chaud-winter' ),
-				__( '3 zones : France, Belgique, Allemagne, chacune avec un forfait par classe', 'chaud-winter' ),
-				__( 'Tarifs à 0 € et titre « [TARIFS DE LIVRAISON] » tant que les vrais tarifs ne sont pas saisis', 'chaud-winter' ),
+				__( 'France métropolitaine (codes postaux 01000 à 95999, Corse comprise) : livraison offerte', 'chaud-winter' ),
+				__( 'Belgique et Allemagne : un forfait par classe de poids', 'chaud-winter' ),
+				__( 'Tarifs à 0 € et titre « [TARIFS DE LIVRAISON] » pour la Belgique et l\'Allemagne tant que les vrais tarifs ne sont pas saisis', 'chaud-winter' ),
 			),
 		),
 		'checkout' => array(
@@ -294,6 +295,78 @@ function cw_setup_payment() {
 }
 
 /**
+ * Zone « France métropolitaine » : livraison offerte.
+ *
+ * La zone ne couvre que les codes postaux 01000 à 95999 (Corse comprise). Une adresse
+ * d'outre-mer (97xxx, 98xxx) ne trouve aucune livraison : le client est invité à nous contacter.
+ *
+ * @return array Lignes de compte rendu.
+ */
+function cw_setup_france_zone() {
+	$title = __( 'Livraison offerte en France métropolitaine', 'chaud-winter' );
+	$zone  = null;
+	foreach ( WC_Shipping_Zones::get_zones() as $data ) {
+		foreach ( $data['zone_locations'] as $location ) {
+			if ( 'country' === $location->type && 'FR' === $location->code ) {
+				$zone = new WC_Shipping_Zone( $data['id'] );
+			}
+		}
+	}
+
+	$created = false;
+	if ( ! $zone ) {
+		$zone = new WC_Shipping_Zone();
+		$zone->set_zone_name( __( 'France métropolitaine', 'chaud-winter' ) );
+		$zone->set_zone_order( 1 );
+		$zone->add_location( 'FR', 'country' );
+		$zone->add_location( '01000...95999', 'postcode' );
+		$zone->save();
+		$created = true;
+	}
+
+	$has_free    = false;
+	$placeholder = array();
+	$other       = false;
+	foreach ( $zone->get_shipping_methods() as $method ) {
+		if ( 'free_shipping' === $method->id ) {
+			$has_free = true;
+		} elseif ( 'flat_rate' === $method->id && cw_is_placeholder( $method->get_title() ) ) {
+			$placeholder[] = $method->get_instance_id();
+		} else {
+			$other = true;
+		}
+	}
+
+	if ( $has_free ) {
+		return array( __( 'Zone France : livraison offerte déjà en place, conservée telle quelle.', 'chaud-winter' ) );
+	}
+	if ( $other ) {
+		return array( __( 'Zone France : des tarifs personnalisés existent déjà, conservés tels quels (la livraison offerte n\'a pas été ajoutée).', 'chaud-winter' ) );
+	}
+
+	foreach ( $placeholder as $instance_id ) {
+		$zone->delete_shipping_method( $instance_id );
+	}
+	$instance_id = $zone->add_shipping_method( 'free_shipping' );
+	update_option( 'woocommerce_free_shipping_' . $instance_id . '_settings', array( 'title' => $title, 'requires' => '' ) );
+
+	// Zone déjà créée sans limite de codes postaux : on la limite à la métropole.
+	if ( ! $created ) {
+		$has_postcode = false;
+		foreach ( $zone->get_zone_locations() as $location ) {
+			if ( 'postcode' === $location->type ) {
+				$has_postcode = true;
+			}
+		}
+		if ( ! $has_postcode ) {
+			$zone->add_location( '01000...95999', 'postcode' );
+			$zone->save();
+		}
+	}
+	return array( $created ? __( 'Zone France métropolitaine créée : livraison offerte.', 'chaud-winter' ) : __( 'Zone France : livraison offerte en France métropolitaine.', 'chaud-winter' ) );
+}
+
+/**
  * Classes d'expédition par poids et zones France, Belgique, Allemagne.
  *
  * @return array
@@ -320,6 +393,8 @@ function cw_setup_shipping() {
 		}
 	}
 
+	$lines = array_merge( $lines, cw_setup_france_zone() );
+
 	$existing = array();
 	foreach ( WC_Shipping_Zones::get_zones() as $zone ) {
 		foreach ( $zone['zone_locations'] as $location ) {
@@ -329,12 +404,12 @@ function cw_setup_shipping() {
 		}
 	}
 
+	// Belgique et Allemagne : un forfait par classe de poids, tarifs à saisir.
 	$zones = array(
-		'FR' => __( 'France', 'chaud-winter' ),
 		'BE' => __( 'Belgique', 'chaud-winter' ),
 		'DE' => __( 'Allemagne', 'chaud-winter' ),
 	);
-	$order = 1;
+	$order = 2;
 	foreach ( $zones as $code => $name ) {
 		if ( in_array( $code, $existing, true ) ) {
 			/* translators: %s: pays. */

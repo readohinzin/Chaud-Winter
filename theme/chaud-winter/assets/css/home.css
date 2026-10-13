@@ -1046,3 +1046,12 @@
 		opacity: .5;
 	}
 }
+
+/* Recommandation du virement instantané (étape 3). */
+.cw-step .cw-step-tip {
+	margin-top: 14px;
+	padding-top: 14px;
+	border-top: 1px solid var(--cw-line2);
+	color: var(--cw-text);
+	font-size: 14px;
+}

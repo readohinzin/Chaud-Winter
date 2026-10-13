@@ -128,7 +128,7 @@ $cw_whatsapp = cw_whatsapp_url();
 		<div class="cw-wrap">
 			<div class="cw-as">
 				<div class="cw-as-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9CCBE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 6h12v10H2zM14 9h4l4 3v4h-8"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg></div>
-				<div><b><?php esc_html_e( 'Livraison à domicile', 'chaud-winter' ); ?></b><span><?php esc_html_e( 'France, Belgique, Allemagne', 'chaud-winter' ); ?></span></div>
+				<div><b><?php esc_html_e( 'Livraison offerte en France métropolitaine', 'chaud-winter' ); ?></b><span><?php esc_html_e( 'Aussi en Belgique et en Allemagne', 'chaud-winter' ); ?></span></div>
 			</div>
 			<div class="cw-as">
 				<div class="cw-as-ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#9CCBE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg></div>
@@ -298,7 +298,7 @@ $cw_whatsapp = cw_whatsapp_url();
 			<ol class="cw-steps">
 				<li class="cw-step cw-rv"><div class="cw-n" aria-hidden="true">01</div><h3><?php esc_html_e( 'Choisissez votre appareil', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Filtrez par puissance, comparez les modèles ou demandez à être rappelé par un conseiller.', 'chaud-winter' ); ?></p></li>
 				<li class="cw-step cw-rv"><div class="cw-n" aria-hidden="true">02</div><h3><?php esc_html_e( 'Passez commande', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Vous recevez le récapitulatif et les coordonnées bancaires à l\'écran et par e-mail.', 'chaud-winter' ); ?></p></li>
-				<li class="cw-step cw-rv"><div class="cw-n" aria-hidden="true">03</div><h3><?php esc_html_e( 'Réglez par virement', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Dès réception du virement, la commande est préparée et expédiée en France, en Belgique ou en Allemagne.', 'chaud-winter' ); ?></p></li>
+				<li class="cw-step cw-rv"><div class="cw-n" aria-hidden="true">03</div><h3><?php esc_html_e( 'Réglez par virement', 'chaud-winter' ); ?></h3><p><?php esc_html_e( 'Dès réception du virement, la commande est préparée et expédiée en France, en Belgique ou en Allemagne.', 'chaud-winter' ); ?></p><p class="cw-step-tip"><?php echo esc_html( cw_instant_transfer_tip() ); ?></p></li>
 			</ol>
 		</div>
 	</section>

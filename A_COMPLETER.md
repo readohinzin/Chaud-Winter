@@ -16,7 +16,7 @@ Coche chaque ligne quand l'information est fournie et saisie sur le site.
 | ☐ | `[IBAN]` | IBAN, BIC (`[BIC]`) et titulaire (`[TITULAIRE DU COMPTE]`) du compte pro | WooCommerce > Réglages > Paiements > Virement bancaire | Page de confirmation, e-mail de commande |
 | ☐ | `[MÉDIATEUR]` | Nom et site du médiateur de la consommation | (pages légales, étape 6) | CGV, mentions légales |
 | ☐ | `[DURÉE DE GARANTIE]` | Durée de garantie des appareils | Apparence > Personnaliser > Chaud Winter : coordonnées | Accueil (bande de réassurance), CGV, fiches produits |
-| ☐ | `[TARIFS DE LIVRAISON]` | Tarifs du transporteur par pays et par classe de poids (**à saisir hors taxes**) | WooCommerce > Réglages > Expédition (voir `REGLAGES_BOUTIQUE.md`) | Panier, commande, page Livraison |
+| ☐ | `[TARIFS DE LIVRAISON]` | Tarifs du transporteur pour la **Belgique et l'Allemagne**, par classe de poids (**à saisir hors taxes**). La France métropolitaine est offerte : rien à saisir | WooCommerce > Réglages > Expédition (voir `REGLAGES_BOUTIQUE.md`) | Panier, commande, page Livraison |
 
 ### Repères ajoutés pour les pages légales (étape 6)
 

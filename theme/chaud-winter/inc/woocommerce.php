@@ -300,7 +300,7 @@ function cw_single_price() {
 function cw_single_reassurance() {
 	?>
 	<ul class="cw-single-assure">
-		<li><?php esc_html_e( 'Livraison en France, Belgique et Allemagne', 'chaud-winter' ); ?></li>
+		<li><?php esc_html_e( 'Livraison offerte en France métropolitaine ; Belgique et Allemagne : frais indiqués au panier', 'chaud-winter' ); ?></li>
 		<li><?php esc_html_e( 'Paiement par virement bancaire : les coordonnées s\'affichent après la commande', 'chaud-winter' ); ?></li>
 		<li>
 			<?php

@@ -738,3 +738,14 @@
 		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 	}
 }
+
+/* Rappel de la livraison offerte, au-dessus du bouton « Valider la commande ». */
+.cw-wc-page .cw-cart-note {
+	margin: 0 0 14px;
+	padding: 12px 14px;
+	border-radius: 12px;
+	background: var(--cw-ivory);
+	color: var(--cw-ink);
+	font-size: 14px;
+	line-height: 1.55;
+}

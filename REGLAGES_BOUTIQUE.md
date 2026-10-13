@@ -21,7 +21,7 @@ Ce que fait le bouton :
 | Pays et monnaie | Boutique en France, vente en France, Belgique et Allemagne, euros, prix « 1 023,20 € », kg et cm |
 | TVA | Prix saisis et affichés TTC, TVA française 20 % pour tout le monde |
 | Paiement | Virement bancaire activé avec des textes clairs, **tous les autres moyens désactivés** |
-| Livraison | 3 classes par poids, 3 zones (France, Belgique, Allemagne), tarifs à 0 € pour l'instant |
+| Livraison | **Livraison offerte en France métropolitaine** (codes postaux 01000 à 95999, Corse comprise) ; Belgique et Allemagne : 3 classes de poids, tarifs à 0 € pour l'instant |
 | Commande | Téléphone obligatoire, commande sans compte possible, pages Panier et Commande compatibles avec le thème |
 | Pages | Contact (avec formulaire), Conditions générales de vente, Mentions légales, Politique de confidentialité, Cookies, Livraison et retours, Paiement par virement, Impressum |
 | E-mails | Expéditeur « Chaud Winter », couleurs du site |
@@ -36,11 +36,12 @@ Les pages créées :
 ## 2. Ce qu'il faut compléter à la main
 
 1. **IBAN, BIC et titulaire du compte** : WooCommerce > Réglages > Paiements > Virement bancaire. Remplacer `[IBAN]`, `[BIC]` et `[TITULAIRE DU COMPTE]`.
-2. **Tarifs de livraison** : WooCommerce > Réglages > Expédition. Pour chaque pays, ouvrir « Livraison à domicile » :
+2. **Tarifs de livraison de la Belgique et de l'Allemagne** : WooCommerce > Réglages > Expédition. Pour chaque pays, ouvrir « Livraison à domicile » :
    - enlever `[TARIFS DE LIVRAISON]` du titre ;
    - saisir le prix de chaque classe de poids.
    - ⚠️ **Les tarifs de livraison se saisissent HORS TAXES** : WooCommerce ajoute la TVA (100 € saisis = 120 € payés par le client).
    - Astuce : `[qty]` dans un prix le multiplie par le nombre d'appareils. Exemple : `90 * [qty]`.
+   - La **France métropolitaine** n'a rien à saisir : la livraison est offerte. Une adresse d'outre-mer (97xxx, 98xxx) n'a pas de livraison automatique : le client est invité à vous contacter.
 3. **Adresse de la boutique** : WooCommerce > Réglages > Général.
 4. **Classe de poids de chaque produit** : sur la fiche du produit, onglet Expédition. Pour le catalogue de départ, elle sera dans le fichier d'import (étape 7).
 
