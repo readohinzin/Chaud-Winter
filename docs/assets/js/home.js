@@ -320,35 +320,88 @@
 	update();
 })();
 
-/* Feu animé de la photo à la une : cale le cadre du feu sur la photo (même recadrage que l'image),
-   et met l'animation en pause quand elle n'est pas à l'écran. */
+/* Feu animé de la photo à la une.
+   Le script recopie la vraie photo du feu, rangée par rangée, en décalant chaque rangée comme le ferait
+   une flamme qui ondule (plus on monte, plus ça bouge), puis fond les bords dans la photo fixe.
+   Il cale aussi le cadre du feu sur la photo (même recadrage que l'image) et se met en pause hors écran. */
 (function () {
 	'use strict';
 
 	var fx = document.querySelector('.cw-fx');
 	var media = document.querySelector('.cw-hero-media');
-	if (!fx || !media) { return; }
+	var cvs = fx && fx.querySelector('.cw-fx-flame');
+	if (!fx || !media || !cvs || !cvs.getContext) { return; }
 	if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { return; }
 
 	var w = parseInt(fx.getAttribute('data-w'), 10), h = parseInt(fx.getAttribute('data-h'), 10);
-	if (!w || !h) { return; }
-	var svg = fx.querySelector('svg');
+	var sx = parseFloat(cvs.getAttribute('data-sx')), sy = parseFloat(cvs.getAttribute('data-sy'));
+	var ctx = cvs.getContext('2d');
+	var cw = cvs.width, ch = cvs.height;
+	if (!w || !h || !ctx || !cw || !ch) { return; }
 
 	// La photo remplit le cadre en le recouvrant (comme object-fit: cover), centrée.
 	function layout() {
 		var s = Math.max(media.clientWidth / w, media.clientHeight / h);
 		fx.style.transform = 'translate(' + (-w * s / 2) + 'px,' + (-h * s / 2) + 'px) scale(' + s + ')';
 	}
-
 	layout();
 	if ('ResizeObserver' in window) { new ResizeObserver(layout).observe(media); } else { window.addEventListener('resize', layout); }
-	window.requestAnimationFrame(function () { fx.classList.add('is-on'); });
+
+	var img = new Image();
+	var visible = true, running = false, last = 0;
+	var base = ch * 0.88; // rangée où le feu touche le brûleur : il ne bouge pas à cet endroit
+
+	function frame(now) {
+		running = false;
+		if (!visible || document.hidden) { return; }
+		running = true;
+		window.requestAnimationFrame(frame);
+		if (now - last < 33) { return; } // environ 30 images par seconde
+		last = now;
+		var t = now / 1000;
+		var stretch = 1 + 0.06 * Math.sin(t * 2.3) + 0.03 * Math.sin(t * 5.3 + 1);
+		var lean = 3.4 * Math.sin(t * 1.6) + 1.8 * Math.sin(t * 3.7 + 0.8);
+
+		ctx.globalCompositeOperation = 'source-over';
+		ctx.clearRect(0, 0, cw, ch);
+		for (var y = 0; y < ch; y++) {
+			var up = y < base ? (base - y) / base : 0; // 0 au pied du feu, 1 tout en haut
+			var amp = 5.4 * Math.pow(up, 1.1);
+			var dx = amp * (Math.sin(y * 0.10 - t * 4.4) + 0.6 * Math.sin(y * 0.26 - t * 7.6 + 2)) + lean * up;
+			var srcY = y < base ? base - (base - y) / stretch : y;
+			ctx.drawImage(img, sx, sy + srcY, cw, 1, dx, y, cw, 1);
+		}
+		// Bords fondus : le feu redessiné se mélange à la photo fixe en dessous.
+		ctx.globalCompositeOperation = 'destination-in';
+		ctx.save();
+		ctx.translate(cw / 2, ch * 0.56);
+		ctx.scale(cw / 2, ch * 0.52);
+		var g = ctx.createRadialGradient(0, 0, 0, 0, 0, 1);
+		g.addColorStop(0, 'rgba(0,0,0,1)');
+		g.addColorStop(0.55, 'rgba(0,0,0,1)');
+		g.addColorStop(1, 'rgba(0,0,0,0)');
+		ctx.fillStyle = g;
+		ctx.fillRect(-1, -1.2, 2, 2.4);
+		ctx.restore();
+	}
+
+	function go() {
+		if (!running && visible && !document.hidden) { running = true; window.requestAnimationFrame(frame); }
+	}
+
+	img.onload = function () {
+		fx.classList.add('is-on');
+		go();
+	};
+	img.src = fx.getAttribute('data-src');
+	if (img.complete && img.naturalWidth) { img.onload(); }
 
 	if ('IntersectionObserver' in window) {
 		new IntersectionObserver(function (entries) {
-			var on = entries[0].isIntersecting;
-			fx.classList.toggle('is-paused', !on);
-			if (svg && svg.pauseAnimations) { if (on) { svg.unpauseAnimations(); } else { svg.pauseAnimations(); } }
+			visible = entries[0].isIntersecting;
+			fx.classList.toggle('is-paused', !visible);
+			go();
 		}, { threshold: 0.05 }).observe(media);
 	}
+	document.addEventListener('visibilitychange', go);
 })();
