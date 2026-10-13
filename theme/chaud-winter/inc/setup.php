@@ -62,6 +62,15 @@ function cw_setup_blocks() {
 				__( 'Pages Panier et Commande en version classique, compatible avec le thème', 'chaud-winter' ),
 			),
 		),
+		'pages'    => array(
+			'title' => __( 'Pages Contact et pages légales', 'chaud-winter' ),
+			'items' => array(
+				__( 'Crée les pages : Contact, Conditions générales de vente, Mentions légales, Politique de confidentialité, Cookies, Livraison et retours, Paiement par virement, Impressum', 'chaud-winter' ),
+				__( 'Textes de base avec des repères [ENTRE CROCHETS] à compléter, à faire relire', 'chaud-winter' ),
+				__( 'Formulaire de contact (si Contact Form 7 est installé)', 'chaud-winter' ),
+				__( 'Une page qui existe déjà n\'est pas modifiée', 'chaud-winter' ),
+			),
+		),
 		'emails'   => array(
 			'title' => __( 'E-mails', 'chaud-winter' ),
 			'items' => array(
@@ -399,4 +408,167 @@ function cw_setup_emails() {
 	update_option( 'woocommerce_email_body_background_color', '#FFFFFF' );
 	update_option( 'woocommerce_email_text_color', '#14171C' );
 	return array( __( 'E-mails : expéditeur et couleurs réglés.', 'chaud-winter' ) );
+}
+
+/**
+ * Convertit le HTML simple des textes du thème (titres, paragraphes, listes)
+ * en blocs WordPress, pour qu'ils soient faciles à modifier, même sur téléphone.
+ *
+ * @param string $html HTML.
+ * @return string
+ */
+function cw_html_to_blocks( $html ) {
+	// Liens internes : on ajoute l'adresse du site (utile s'il est installé dans un sous-dossier).
+	$html = preg_replace_callback(
+		'#href="/([a-z0-9\-/]*)"#',
+		function ( $m ) {
+			return 'href="' . esc_url( home_url( '/' . $m[1] ) ) . '"';
+		},
+		$html
+	);
+
+	preg_match_all( '#<(h2|h3|p|ul|ol)>(.*?)</\1>#s', $html, $parts, PREG_SET_ORDER );
+	$out = array();
+	foreach ( $parts as $part ) {
+		list( , $tag, $inner ) = $part;
+		if ( 'h2' === $tag || 'h3' === $tag ) {
+			$level = 'h3' === $tag ? ' {"level":3}' : '';
+			$out[] = "<!-- wp:heading{$level} -->\n<{$tag} class=\"wp-block-heading\">{$inner}</{$tag}>\n<!-- /wp:heading -->";
+		} elseif ( 'p' === $tag ) {
+			$out[] = "<!-- wp:paragraph -->\n<p>{$inner}</p>\n<!-- /wp:paragraph -->";
+		} else {
+			preg_match_all( '#<li>(.*?)</li>#s', $inner, $items );
+			$lis   = array_map(
+				function ( $li ) {
+					return "<!-- wp:list-item -->\n<li>{$li}</li>\n<!-- /wp:list-item -->";
+				},
+				$items[1]
+			);
+			$attrs = 'ol' === $tag ? ' {"ordered":true}' : '';
+			$out[] = "<!-- wp:list{$attrs} -->\n<{$tag} class=\"wp-block-list\">" . implode( "\n", $lis ) . "</{$tag}>\n<!-- /wp:list -->";
+		}
+	}
+	return implode( "\n\n", $out );
+}
+
+/**
+ * Crée le formulaire de contact avec Contact Form 7 (s'il est installé).
+ *
+ * @return string Code court du formulaire, ou chaîne vide.
+ */
+function cw_create_contact_form() {
+	if ( ! class_exists( 'WPCF7_ContactForm' ) ) {
+		return '';
+	}
+	$privacy = home_url( '/politique-de-confidentialite/' );
+	$form    = WPCF7_ContactForm::get_template( array( 'title' => __( 'Contact Chaud Winter', 'chaud-winter' ) ) );
+	$form->set_properties(
+		array(
+			'form' => implode(
+				"\n",
+				array(
+					'<label>' . __( 'Votre nom', 'chaud-winter' ) . ' *' . "\n" . '[text* your-name autocomplete:name]</label>',
+					'<label>' . __( 'Votre e-mail', 'chaud-winter' ) . ' *' . "\n" . '[email* your-email autocomplete:email]</label>',
+					'<label>' . __( 'Téléphone (pour être rappelé)', 'chaud-winter' ) . "\n" . '[tel your-phone autocomplete:tel]</label>',
+					'<label>' . __( 'Votre demande', 'chaud-winter' ) . "\n" . '[select your-subject "' . __( 'Conseil sur un appareil', 'chaud-winter' ) . '" "' . __( 'Être rappelé', 'chaud-winter' ) . '" "' . __( 'Question sur une commande', 'chaud-winter' ) . '" "' . __( 'Autre', 'chaud-winter' ) . '"]</label>',
+					'<label>' . __( 'Surface à chauffer et type de logement (facultatif)', 'chaud-winter' ) . "\n" . '[text your-surface]</label>',
+					'<label>' . __( 'Votre message', 'chaud-winter' ) . ' *' . "\n" . '[textarea* your-message]</label>',
+					'<p class="cw-form-privacy">' . sprintf(
+						/* translators: %s: adresse de la politique de confidentialité. */
+						__( 'Vos informations servent uniquement à répondre à votre demande. En savoir plus : <a href="%s">politique de confidentialité</a>.', 'chaud-winter' ),
+						esc_url( $privacy )
+					) . '</p>',
+					'[submit "' . __( 'Envoyer', 'chaud-winter' ) . '"]',
+				)
+			),
+			'mail' => array_merge(
+				(array) $form->prop( 'mail' ),
+				array(
+					/* translators: [your-subject] et [your-name] sont remplis par Contact Form 7. */
+					'subject'            => __( 'Site Chaud Winter : [your-subject] de [your-name]', 'chaud-winter' ),
+					'body'               => __( "De : [your-name] <[your-email]>\nTéléphone : [your-phone]\nDemande : [your-subject]\nSurface et logement : [your-surface]\n\nMessage :\n[your-message]", 'chaud-winter' ),
+					'additional_headers' => 'Reply-To: [your-email]',
+				)
+			),
+		)
+	);
+	$form->save();
+	return $form->id() ? $form->shortcode() : '';
+}
+
+/**
+ * Pages Contact et pages légales.
+ *
+ * @return array
+ */
+function cw_setup_pages() {
+	$lines = array();
+	$ids   = array();
+
+	foreach ( cw_page_definitions() as $slug => $title ) {
+		$existing = get_page_by_path( $slug );
+		$file     = CW_DIR . '/contenus/' . $slug . '.html';
+		$content  = is_readable( $file ) ? cw_html_to_blocks( (string) file_get_contents( $file ) ) : ''; // phpcs:ignore WordPress.WP.AlternativeFunctions
+
+		// Formulaire de contact : ajouté aussi à une page Contact déjà publiée qui n'en a pas.
+		if ( 'contact' === $slug && ( ! $existing || ! has_shortcode( $existing->post_content, 'contact-form-7' ) ) ) {
+			$shortcode = cw_create_contact_form();
+			if ( $shortcode ) {
+				$block = "\n\n<!-- wp:shortcode -->\n" . $shortcode . "\n<!-- /wp:shortcode -->";
+				if ( $existing && 'publish' === $existing->post_status ) {
+					wp_update_post(
+						array(
+							'ID'           => $existing->ID,
+							'post_content' => wp_slash( $existing->post_content . $block ),
+						)
+					);
+				} else {
+					$content .= $block;
+				}
+				$lines[] = __( 'Formulaire de contact créé et ajouté à la page Contact.', 'chaud-winter' );
+			} else {
+				$lines[] = __( 'Contact Form 7 n\'est pas installé : le formulaire sera ajouté si vous relancez ce bloc après l\'avoir installé.', 'chaud-winter' );
+			}
+		}
+
+		// Une page déjà publiée n'est pas modifiée. Un brouillon (par exemple la « Politique de
+		// confidentialité » créée par WordPress) est remplacé par notre texte et publié.
+		if ( $existing && 'publish' === $existing->post_status ) {
+			$ids[ $slug ] = $existing->ID;
+			/* translators: %s: titre de la page. */
+			$lines[] = sprintf( __( 'Page « %s » déjà publiée : texte non modifié.', 'chaud-winter' ), $title );
+			continue;
+		}
+
+		$postarr = array(
+			'post_type'    => 'page',
+			'post_status'  => 'publish',
+			'post_title'   => $title,
+			'post_name'    => $slug,
+			'post_content' => wp_slash( $content ),
+		);
+		if ( $existing ) {
+			$postarr['ID'] = $existing->ID;
+			$id            = wp_update_post( $postarr );
+		} else {
+			$id = wp_insert_post( $postarr );
+		}
+		if ( $id && ! is_wp_error( $id ) ) {
+			$ids[ $slug ] = (int) $id;
+			/* translators: %s: titre de la page. */
+			$lines[] = sprintf( __( 'Page créée : %s', 'chaud-winter' ), $title );
+		}
+	}
+
+	if ( isset( $ids['politique-de-confidentialite'] ) ) {
+		update_option( 'wp_page_for_privacy_policy', $ids['politique-de-confidentialite'] );
+	}
+	if ( isset( $ids['conditions-generales-de-vente'] ) ) {
+		// Ajoute la case « J'ai lu et j'accepte les conditions générales » à la commande.
+		update_option( 'woocommerce_terms_page_id', $ids['conditions-generales-de-vente'] );
+	}
+	if ( isset( $ids['contact'] ) && ! get_theme_mod( 'cw_callback_page' ) ) {
+		set_theme_mod( 'cw_callback_page', $ids['contact'] );
+	}
+	return $lines;
 }

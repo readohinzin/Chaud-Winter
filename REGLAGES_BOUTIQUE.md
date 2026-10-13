@@ -4,6 +4,10 @@
 
 > **Avant toute chose : une sauvegarde du site** (hPanel Hostinger > Sauvegardes, ou UpdraftPlus).
 
+## 0. Avant de cliquer
+
+Installer et activer **Contact Form 7** (Extensions > Ajouter) : le bouton s'en sert pour créer le formulaire de contact.
+
 ## 1. Le bouton qui fait presque tout
 
 Tableau de bord WordPress > **WooCommerce > Configuration Chaud Winter**.
@@ -19,9 +23,15 @@ Ce que fait le bouton :
 | Paiement | Virement bancaire activé avec des textes clairs, **tous les autres moyens désactivés** |
 | Livraison | 3 classes par poids, 3 zones (France, Belgique, Allemagne), tarifs à 0 € pour l'instant |
 | Commande | Téléphone obligatoire, commande sans compte possible, pages Panier et Commande compatibles avec le thème |
+| Pages | Contact (avec formulaire), Conditions générales de vente, Mentions légales, Politique de confidentialité, Cookies, Livraison et retours, Paiement par virement, Impressum |
 | E-mails | Expéditeur « Chaud Winter », couleurs du site |
 
-Rien n'est supprimé. Si une zone de livraison ou un taux de TVA existe déjà, il est gardé tel quel. On peut recliquer sans risque.
+Rien n'est supprimé. Si une zone de livraison, un taux de TVA ou une page existe déjà, il est gardé tel quel. On peut recliquer sans risque.
+
+Les pages créées :
+- sont reliées à WooCommerce : la case « J'ai lu et j'accepte les conditions générales » apparaît à la commande ;
+- s'affichent automatiquement dans le pied de page (colonne « Informations ») ;
+- se modifient comme n'importe quelle page (Pages > Toutes les pages), même sur iPhone.
 
 ## 2. Ce qu'il faut compléter à la main
 
@@ -60,7 +70,11 @@ Si le virement n'arrive jamais : passer le statut à « Annulée ». Le stock es
 - **WP Mail SMTP** : pour que l'e-mail avec l'IBAN arrive bien (et pas dans les indésirables). Le régler avec l'adresse e-mail de la boutique créée chez Hostinger (hPanel > E-mails).
 - **PDF Invoices & Packing Slips for WooCommerce** : factures PDF. Dans ses réglages, remplir le nom, l'adresse, le SIRET et le n° de TVA de l'entreprise, et joindre la facture à l'e-mail « Commande en cours » (donc une fois le virement reçu).
 
-## 5. Ce qui reste à valider
+## 5. Bandeau cookies (Complianz)
+
+Le site n'utilise pour l'instant **que des cookies nécessaires** (panier, connexion). La loi n'impose pas de demander l'accord pour ceux-là. Installer **Complianz** quand même, comme prévu : son assistant détecte les cookies et n'affiche un bandeau que si c'est utile. Il deviendra indispensable le jour où un outil de statistiques, une vidéo YouTube ou une publicité est ajouté.
+
+## 6. Ce qui reste à valider
 
 - **Libellé du bouton de commande** : « Commander avec obligation de paiement ». C'est la formulation exigée en France (et en Allemagne, « zahlungspflichtig bestellen »). À faire valider.
 - **TVA** : 20 % partout pour l'instant. La TVA par pays (Belgique 21 %, Allemagne 19 %) ne sera réglée qu'après l'accord écrit du comptable.

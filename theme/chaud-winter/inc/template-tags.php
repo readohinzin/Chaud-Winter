@@ -133,7 +133,7 @@ function cw_menu_fallback( $args ) {
 	$items = array();
 
 	if ( 'cw-footer-infos' === $args['theme_location'] ) {
-		$slugs = array( 'livraison-et-retours', 'paiement-par-virement', 'conditions-generales-de-vente', 'mentions-legales', 'politique-de-confidentialite' );
+		$slugs = array_diff( array_keys( cw_page_definitions() ), array( 'contact' ) );
 		foreach ( $slugs as $slug ) {
 			$page = get_page_by_path( $slug );
 			if ( $page && 'publish' === $page->post_status ) {

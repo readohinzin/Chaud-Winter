@@ -18,6 +18,26 @@ Coche chaque ligne quand l'information est fournie et saisie sur le site.
 | ☐ | `[DURÉE DE GARANTIE]` | Durée de garantie des appareils | Apparence > Personnaliser > Chaud Winter : coordonnées | Accueil (bande de réassurance), CGV, fiches produits |
 | ☐ | `[TARIFS DE LIVRAISON]` | Tarifs du transporteur par pays et par classe de poids (**à saisir hors taxes**) | WooCommerce > Réglages > Expédition (voir `REGLAGES_BOUTIQUE.md`) | Panier, commande, page Livraison |
 
+### Repères ajoutés pour les pages légales (étape 6)
+
+Ces informations n'étaient pas dans la liste de départ mais sont obligatoires dans les mentions légales, les CGV ou l'Impressum. Elles se remplacent directement dans le texte des pages (Pages > modifier la page).
+
+| | Repère | Ce qu'il faut | Pages |
+|---|---|---|---|
+| ☐ | `[RAISON SOCIALE]` | Nom officiel de l'entreprise | Mentions légales, CGV, Impressum, Confidentialité |
+| ☐ | `[FORME JURIDIQUE]` | SARL, SAS, EI… | Mentions légales, CGV, Impressum |
+| ☐ | `[CAPITAL SOCIAL]` | Montant du capital (si société) | Mentions légales, CGV |
+| ☐ | `[VILLE DU RCS]` | Ville d'immatriculation au registre du commerce | Mentions légales, CGV, Impressum |
+| ☐ | `[REPRÉSENTANT LÉGAL]` | Nom du gérant ou du président | Mentions légales, Impressum |
+| ☐ | `[DÉLAI DE PAIEMENT]` | Nombre de jours avant d'annuler une commande non payée | CGV, Paiement par virement |
+| ☐ | `[DÉLAI DE LIVRAISON]` | Délai indicatif après réception du virement | CGV, Livraison et retours |
+| ☐ | `[CONDITIONS DE REMISE]` | Livraison au pied du camion, sur le trottoir, dans la pièce… | CGV, Livraison et retours |
+| ☐ | `[COÛT ESTIMÉ DU RETOUR]` | Coût maximal d'un retour par le transporteur (obligatoire pour les objets lourds) | CGV, Livraison et retours |
+| ☐ | `[DATE DE MISE EN LIGNE]` | Date de la version des CGV | CGV |
+| ☐ | `[À VÉRIFIER : …]` | Pays des serveurs de l'hébergeur et du service d'e-mails | Politique de confidentialité |
+
+Un rappel orange dans le tableau de bord liste les pages qui contiennent encore des repères.
+
 ## Contenus facultatifs de l'accueil
 
 Ces blocs restent **cachés** tant qu'ils ne sont pas remplis : rien de faux ne s'affiche.
@@ -35,6 +55,11 @@ Les marques s'affichent toutes seules dès que les produits ont une marque (éta
 
 - **Coefficients de l'assistant de puissance** (surface × 0,09 / 0,115 / 0,14) : à faire valider par un chauffagiste.
 - **Textes légaux** (CGV, mentions légales, confidentialité, cookies, Impressum, libellé du bouton de commande pour l'Allemagne) : à faire relire par le client ou son comptable.
+- **Toutes les pages légales** (CGV, mentions légales, confidentialité, cookies, livraison et retours, Impressum) : textes de base écrits sans juriste, à faire relire. En particulier :
+  - l'encadré sur la **garantie légale de conformité** dans les CGV : son texte est imposé par décret, à comparer mot pour mot avec le texte officiel ;
+  - l'adresse de l'**hébergeur** Hostinger dans les mentions légales, à vérifier sur le contrat ;
+  - l'**Impressum**, rédigé en allemand.
+- **Médiateur de la consommation** : il faut adhérer à un médiateur agréé (c'est en général payant, quelques dizaines d'euros par an) pour pouvoir remplir `[MÉDIATEUR]`.
 - **Libellé du bouton de commande** : « Commander avec obligation de paiement » (obligatoire en France et en Allemagne).
 - **Classes de poids de livraison** (moins de 100 kg, 100 à 200 kg, plus de 200 kg) : à adapter à la grille du transporteur.
 - **TVA par pays de livraison** : 20 % partout par défaut, à changer seulement après accord écrit du comptable.
