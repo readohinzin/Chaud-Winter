@@ -1,7 +1,7 @@
 # Chaud Winter : boutique en ligne
 
 ## Le projet
-Boutique en ligne pour **Chaud Winter**, vendeur de **poêles à granulés, poêles à bois et chaudières**. La maquette validée par le client est dans `maquette/chaud-winter-maquette.html` : c'est la référence pour le design et la structure. Ouvre-la et suis-la.
+Boutique en ligne pour **Chaud Winter**, vendeur de **poêles à granulés, poêles à bois et chaudières**. La maquette validée par le client est dans `maquette/chaud-winter-maquette.html` (version « ivoire », choisie par Céline) : c'est la référence pour le design et la structure. L'ancienne version gris-bleu (`#EDF1F4`) n'est plus la référence. Ouvre-la et suis-la.
 
 ## Qui travaille avec toi
 Céline n'est pas développeuse. Elle travaille sur iPhone, en français. Explique simplement, en français, sans jargon. Pour toute décision importante (choix d'un plugin, structure, coût), propose d'abord et attends son accord. Si tu penses qu'elle se trompe, dis-le clairement.
@@ -31,7 +31,9 @@ Ne recode pas un panier ni un système de commande à la main. Utilise **WordPre
 | Texte secondaire | `#B4AEA6` et `#A9B2BD` |
 | Accent orange braise (boutons) | `#F26B2A` |
 | Bleu glacier | `#9CCBE0` |
-| Sections claires | `#EDF1F4` |
+| Sections claires (ivoire) | `#F6F2EC` |
+| Cartes sur fond clair | `#FFFFFF`, bordure `#E4DDD3` |
+| Texte secondaire sur fond clair | `#5F574E` et `#7A7066` |
 | Texte sur fond clair | `#14171C` |
 | Orange foncé sur fond clair | `#B8420F` |
 | Bleu glacier foncé sur fond clair | `#2C7A9B` |
@@ -47,7 +49,7 @@ Texte sur un bouton orange : toujours `#101216` (jamais blanc, le contraste sera
 <svg viewBox="0 0 24 24"><rect width="24" height="24" rx="6" fill="#F26B2A"/><path d="M12 3c1 3.4 4.8 5.4 4.8 9.6a4.8 4.8 0 1 1-9.6 0c0-1.8.8-3.2 1.9-4.3.3 1.4 1 2.1 1.9 2.4C10.6 8.1 10.4 5.3 12 3z" fill="#101216"/><ellipse cx="12" cy="16.4" rx="2.1" ry="2.7" fill="#9CCBE0"/></svg>
 ```
 
-**Style** : premium et moderne, alternance de sections sombres et claires, **mobile d'abord** (la majorité des visiteurs seront sur téléphone), boutons d'au moins 44 px de haut, contrastes lisibles.
+**Style** : premium et moderne, alternance de sections sombres et claires, **mobile d'abord** (la majorité des visiteurs seront sur téléphone), boutons d'au moins 44 px de haut, contrastes lisibles. Les étapes « Comment commander » sont des cartes sombres (`#181B21`, chiffre orange `#F26B2A`).
 
 ## Pages à construire
 1. **Accueil** : barre téléphone, en-tête collant (flou, menu des 3 catégories, panier, bouton « Être rappelé »), hero avec illustration animée, bande de réassurance, 3 univers, assistant de choix de puissance, boutique avec onglets, étapes « Comment commander », marques, bandeau de conseil, avis, guides, pied de page. Voir la section « Comportements de l'accueil ».
