@@ -44,6 +44,6 @@ Sur Hostinger, avec la compression et le cache de **LiteSpeed Cache** (plugin d�
 2. **Tester l'envoi réel des e-mails** : passer une commande test avec sa propre adresse et vérifier que l'e-mail arrive dans la boîte de réception, pas dans les indésirables (WP Mail SMTP).
 3. **Tester sur un vrai iPhone** : l'aperçu est fait avec un iPhone simulé, la sensation au toucher et le clavier ne se simulent pas.
 4. **Mesurer à nouveau la vitesse** une fois LiteSpeed Cache réglé (PageSpeed Insights : pagespeed.web.dev).
-5. **Titre du site** : Réglages > Général, mettre « Chaud Winter ».
+5. **Titre du site** : Réglages > Général, mettre « HotHiver » (le réglage de configuration le fait si le titre est vide ou celui par défaut).
 6. **Ouvrir la boutique** : WooCommerce > Réglages > Visibilité du site > « En ligne » (voir `REGLAGES_BOUTIQUE.md`), seulement quand tous les repères entre crochets ont disparu (voir `A_COMPLETER.md`).
 7. **Bandeau cookies** : le site n'utilise que des cookies nécessaires, donc aucun bandeau n'est obligatoire aujourd'hui. Installer Complianz et mettre à jour la page « Cookies » le jour où un outil de statistiques, une vidéo ou une publicité est ajouté.

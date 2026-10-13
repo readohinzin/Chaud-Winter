@@ -24,7 +24,7 @@ Ce que fait le bouton :
 | Livraison | **Livraison offerte en France métropolitaine** (codes postaux 01000 à 95999, Corse comprise) ; Belgique et Allemagne : 3 classes de poids, tarifs à 0 € pour l'instant |
 | Commande | Téléphone obligatoire, commande sans compte possible, pages Panier et Commande compatibles avec le thème, avis publics sur les fiches désactivés |
 | Pages | Contact (avec formulaire), Conditions générales de vente, Mentions légales, Politique de confidentialité, Cookies, Livraison et retours, Paiement par virement, Impressum |
-| E-mails | Expéditeur « Chaud Winter », couleurs du site |
+| E-mails | Expéditeur « HotHiver », couleurs du site |
 
 Rien n'est supprimé. Si une zone de livraison, un taux de TVA ou une page existe déjà, il est gardé tel quel. On peut recliquer sans risque.
 

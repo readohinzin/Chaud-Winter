@@ -26,12 +26,12 @@ function cw_logo_symbol( $size = 44 ) {
  * @param bool $link Faire du logo un lien vers l'accueil.
  */
 function cw_logo( $link = true ) {
-	$inner = cw_logo_symbol() . '<span class="cw-logo-word">Chaud <em>Winter</em></span>';
+	$inner = cw_logo_symbol() . '<span class="cw-logo-word">Hot<em>Hiver</em></span>';
 	if ( $link ) {
 		printf(
 			'<a href="%1$s" class="cw-logo" rel="home" aria-label="%2$s">%3$s</a>',
 			esc_url( home_url( '/' ) ),
-			esc_attr__( 'Chaud Winter, accueil', 'chaud-winter' ),
+			esc_attr__( 'HotHiver, accueil', 'chaud-winter' ),
 			$inner // phpcs:ignore WordPress.Security.EscapeOutput -- SVG et texte fixes.
 		);
 	} else {

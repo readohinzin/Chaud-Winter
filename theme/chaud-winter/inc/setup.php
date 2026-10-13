@@ -77,7 +77,7 @@ function cw_setup_blocks() {
 		'emails'   => array(
 			'title' => __( 'E-mails', 'chaud-winter' ),
 			'items' => array(
-				__( 'Nom d\'expéditeur « Chaud Winter »', 'chaud-winter' ),
+				__( 'Nom d\'expéditeur « HotHiver »', 'chaud-winter' ),
 				__( 'Couleurs des e-mails assorties au site', 'chaud-winter' ),
 				__( 'Objet et titre clairs pour chaque étape : virement à effectuer, virement reçu, commande expédiée', 'chaud-winter' ),
 			),
@@ -191,6 +191,11 @@ function cw_setup_general() {
 	update_option( 'date_format', 'j F Y' );
 	update_option( 'time_format', 'H:i' );
 	update_option( 'start_of_week', 1 );
+
+	// Nom du site : seulement s'il est vide ou celui d'une installation neuve.
+	if ( in_array( (string) get_option( 'blogname', '' ), array( '', 'WordPress', 'Chaud Winter' ), true ) ) {
+		update_option( 'blogname', 'HotHiver' );
+	}
 
 	// Adresse de la boutique (utilisée par WooCommerce pour la TVA et les factures) : seulement si elle est vide.
 	if ( '' === (string) get_option( 'woocommerce_store_address', '' ) ) {
@@ -496,7 +501,7 @@ function cw_setup_checkout() {
  * @return array
  */
 function cw_setup_emails() {
-	update_option( 'woocommerce_email_from_name', 'Chaud Winter' );
+	update_option( 'woocommerce_email_from_name', 'HotHiver' );
 	update_option( 'woocommerce_email_base_color', '#101216' );
 	update_option( 'woocommerce_email_background_color', '#F6F2EC' );
 	update_option( 'woocommerce_email_body_background_color', '#FFFFFF' );
@@ -580,7 +585,7 @@ function cw_create_contact_form() {
 		return '';
 	}
 	$privacy = home_url( '/politique-de-confidentialite/' );
-	$form    = WPCF7_ContactForm::get_template( array( 'title' => __( 'Contact Chaud Winter', 'chaud-winter' ) ) );
+	$form    = WPCF7_ContactForm::get_template( array( 'title' => __( 'Contact HotHiver', 'chaud-winter' ) ) );
 	$form->set_properties(
 		array(
 			'form' => implode(
@@ -604,7 +609,7 @@ function cw_create_contact_form() {
 				(array) $form->prop( 'mail' ),
 				array(
 					/* translators: [your-subject] et [your-name] sont remplis par Contact Form 7. */
-					'subject'            => __( 'Site Chaud Winter : [your-subject] de [your-name]', 'chaud-winter' ),
+					'subject'            => __( 'Site HotHiver : [your-subject] de [your-name]', 'chaud-winter' ),
 					'body'               => __( "De : [your-name] <[your-email]>\nTéléphone : [your-phone]\nDemande : [your-subject]\nSurface et logement : [your-surface]\n\nMessage :\n[your-message]", 'chaud-winter' ),
 					'additional_headers' => 'Reply-To: [your-email]',
 				)

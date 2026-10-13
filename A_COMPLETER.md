@@ -24,7 +24,7 @@ Ces informations n'étaient pas dans la liste de départ mais sont obligatoires 
 
 | | Repère | Ce qu'il faut | Pages |
 |---|---|---|---|
-| ☑ | ~~`[RAISON SOCIALE]`~~ | **MARTELIN Thierry**, nom commercial **HotHiver** (reçu le 13/10/2026). **À confirmer** : le site s'appelle « Chaud Winter » alors que l'INSEE donne « HotHiver » comme nom commercial et enseigne. Le registre mentionne aussi « MARTELIN BOIS DE CHAUFFAGE » : à confirmer s'il doit apparaître | Mentions légales, CGV, Impressum, Confidentialité |
+| ☑ | ~~`[RAISON SOCIALE]`~~ | **MARTELIN Thierry**, nom commercial **HotHiver** (reçu le 13/10/2026). Le site s'appelle désormais **HotHiver** (logo « Hot » + « Hiver » collés), comme le nom commercial déclaré. Le registre mentionne aussi « MARTELIN BOIS DE CHAUFFAGE » : à confirmer s'il doit apparaître | Mentions légales, CGV, Impressum, Confidentialité |
 | ☑ | ~~`[FORME JURIDIQUE]`~~ | **Entrepreneur individuel** (reçu le 13/10/2026) | Mentions légales, CGV, Impressum |
 | ☑ | ~~`[CAPITAL SOCIAL]`~~ | **Sans objet** : un entrepreneur individuel n'a pas de capital social, la mention a été retirée des textes | Mentions légales, CGV |
 | ☑ | ~~`[VILLE DU RCS]`~~ | **Annecy**, n° 818 272 940 (inscrit le 08/02/2016) | Mentions légales, CGV, Impressum |

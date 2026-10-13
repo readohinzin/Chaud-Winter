@@ -148,7 +148,7 @@ function cw_footer() {
 				<?php
 				printf(
 					/* translators: %s: année en cours. */
-					esc_html__( '© %s Chaud Winter. Tous droits réservés.', 'chaud-winter' ),
+					esc_html__( '© %s HotHiver. Tous droits réservés.', 'chaud-winter' ),
 					esc_html( wp_date( 'Y' ) )
 				);
 				printf(

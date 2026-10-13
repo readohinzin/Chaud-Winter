@@ -17,7 +17,7 @@ En plus : une **référence** unique par produit (par exemple `ETNA-LUXE-CAYENNE
 
 **Photos** : chaque produit a sa photo (dossier `photos/` du projet). WooCommerce la télécharge pendant l'import, depuis l'adresse écrite dans le fichier (le dossier `photos/` du dépôt GitHub) : l'import prend donc quelques minutes. Si le dépôt change de nom ou de branche, relancer `python3 outils/generer-csv.py` après avoir corrigé l'adresse en tête du script.
 
-**Description longue** : rédigée pour Chaud Winter (aucun texte repris d'un autre site). Elle présente l'appareil et explique ses particularités (étanche, canalisable, extra plat, fonte, bûcher…), sans aucun chiffre inventé.
+**Description longue** : rédigée pour HotHiver (aucun texte repris d'un autre site). Elle présente l'appareil et explique ses particularités (étanche, canalisable, extra plat, fonte, bûcher…), sans aucun chiffre inventé.
 
 **Caractéristiques** (onglet « Caractéristiques » de la fiche) : puissance, marque, type d'appareil, combustible, et selon le modèle : étanche, canalisable, format, sortie des fumées, vitres, matériau, rangement des bûches, cuisson. Seulement ce qui est certain.
 
@@ -43,7 +43,7 @@ Laissé **vide exprès** (rien n'est inventé) : poids, dimensions, rendement, c
 
 ## À faire avant la mise en ligne
 
-1. **Les prix sont des exemples** (relevés sur d'autres sites) : les remplacer par les vrais prix de Chaud Winter. Le plus simple : modifier la colonne `Regular price` du fichier et le réimporter en cochant « Mettre à jour les produits existants ».
+1. **Les prix sont des exemples** (relevés sur d'autres sites) : les remplacer par les vrais prix de HotHiver. Le plus simple : modifier la colonne `Regular price` du fichier et le réimporter en cochant « Mettre à jour les produits existants ».
 2. **Garder une copie des autorisations** d'utiliser les photos (dossier `autorisations/`).
 3. **Le poids et la classe de livraison** de chaque appareil (onglet « Expédition » du produit), d'après les fiches techniques des fournisseurs. Sans classe, c'est le tarif « sans classe » de la zone qui s'applique.
 4. **Les fiches techniques** des fournisseurs (poids, dimensions, rendement…) : à ajouter dans l'onglet « Caractéristiques » de chaque produit, ou à m'envoyer pour que je les mette dans le fichier.
